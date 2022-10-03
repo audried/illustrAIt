@@ -17,7 +17,7 @@ export default function Home() {
         Signed in as {session?.token?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
-        <button onClick={() => getMyPlaylists()}>Get all my playlists</button>
+        <button onClick={() => getMyPlaylists()}>Show my top stuff</button>
         {list.map((item) => (
           <div key={item.id}>
             <h1>{item.name}</h1>
