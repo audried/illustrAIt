@@ -20,6 +20,8 @@ export default function Home() {
     setArtists(items);
   };
 
+  //TODO: instead of display top artists, change to 'generate art'
+  //once art is generated, figure out somethign for users to see their stats along with the art
   if (session) {
     return (
       <>
