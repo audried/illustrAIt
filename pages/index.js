@@ -18,12 +18,12 @@ export default function Home() {
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
         <button onClick={() => getMyPlaylists()}>Show my top stuff</button>
-        {list.map((item) => (
+        {/* {list.map((item) => (
           <div key={item.id}>
             <h1>{item.name}</h1>
             <img src={item.images[0]?.url} width="100" />
           </div>
-        ))}
+        ))} */}
       </>
     );
   }
