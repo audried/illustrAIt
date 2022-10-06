@@ -2,11 +2,15 @@ import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
 import homeStyles from '../styles/Home.module.css';
 
+//TOD0:
+  //dont show 0's before 'show my top stuff button is pressed
+
 
 export default function Home() {
   const {data: session} = useSession();
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
+  //const [albums, setAlbums] = useState([]);
 
   const getMyArtists = async () => {
     const res = await fetch('/api/artists');
@@ -37,7 +41,9 @@ export default function Home() {
         <hr />
         <button onClick={() => getAllInfo() }>Show my top stuff</button>
         <div className={homeStyles.container}>
-          <div>
+
+{/* artists */}  
+          <div className={homeStyles.column}>
             {artists.length && <h1>artists:</h1>}
             {artists.map((item) => (
             <div key={item.id}>
@@ -45,7 +51,8 @@ export default function Home() {
             </div>
             ))}
           </div>
-          <div>
+{/* tracks */}          
+          <div className={homeStyles.column}>
             {tracks.length && <h1>tracks:</h1>}
             {tracks.map((item) => (
             <div key={item.id}>
@@ -53,6 +60,17 @@ export default function Home() {
             </div>
             ))}
           </div>
+
+{/* albums */}
+          <div className={homeStyles.column}>
+            {tracks.length && <h1>albums:</h1>}
+            {tracks.map((item) => (
+            <div key={item.id}>
+              <h5>{item.album.name}</h5>
+            </div>
+            ))}
+          </div>
+
         </div>
       </>
     );
