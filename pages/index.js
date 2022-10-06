@@ -4,12 +4,10 @@ import homeStyles from '../styles/Home.module.css';
 
 //TOD0:
   //dont show 0's before 'show my top stuff button is pressed
-  //can get popularity from artist and track
-  //can get genre from artist get / artist/{id} 
   //can get danceability, energy and acousticness from track get /audio-features + id
   //remove parentheses
   //takes 2 button clicks to load average song popularity
-
+  //add all genres to set? count # of appearances and can sort low to high
 
 
 export default function Home() {
@@ -17,7 +15,7 @@ export default function Home() {
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
   const [trackids, setTrackIds] = useState([]);
-  const [artistids, setArtistIds] = useState([]);  
+  const [genres, setGenres] = useState([]);
   const [popularity_t, setTrackPopularity] = useState(0);
   const [popularity_a, setArtistPopularity] = useState(0);
   //const [albums, setAlbums] = useState([]);
@@ -36,22 +34,21 @@ export default function Home() {
 
   const setIdArrays = () => {
     let t_ids = []
-    let a_ids = []
+    let g = []
     let t_pop = 0
     let a_pop = 0
+
     for (let i=0; i<tracks.length; i++){
       //console.log(tracks[i].id)
-      t_ids.push(tracks[i].id)
-      t_pop += (tracks[i].popularity)/20
+      t_ids.push(tracks[i].id);
+      t_pop += (tracks[i].popularity)/20;
+      a_pop += (artists[i].popularity)/20;
+      g = [...g, ...artists[i].genres]
     }
-    for (let i=0; i<artists.length; i++){
-      a_ids.push(artists[i].id)
-      a_pop += (artists[i].popularity)/20
-    }
-    
+    console.log("g",g)
+    setGenres(g)
     setTrackIds(t_ids)
     setTrackPopularity(Math.round(t_pop))
-    setArtistIds(a_ids)
     setArtistPopularity(Math.round(a_pop))
   }
 
@@ -109,7 +106,15 @@ export default function Home() {
             {popularity_a>0 && <h1>average artist popularity</h1>}
             <p>{popularity_a}%</p>
           </div>
-
+{/* genres */}
+          <div className={homeStyles.column}>
+            {genres.length>0 && <h1>genres</h1>}
+              {genres.map((item) => (
+       
+                <h5>{item}</h5>
+            
+              ))}
+          </div>
         </div>
       </>
     );
