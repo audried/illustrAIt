@@ -6,14 +6,7 @@ import homeStyles from '../styles/Home.module.css';
 export default function Home() {
   const {data: session} = useSession();
   const [artists, setArtists] = useState([]);
-  const [playlists, setPlaylists] = useState([]);
   const [tracks, setTracks] = useState([]);
-
-  const getMyPlaylists = async () => {
-    const res = await fetch('/api/playlists');
-    const {items} = await res.json();
-    setPlaylists(items);
-  };
 
   const getMyArtists = async () => {
     const res = await fetch('/api/artists');
