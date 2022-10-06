@@ -29,14 +29,22 @@ export default function Home() {
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
         <button onClick={() => getMyArtists()}>Show my top stuff</button>
-        {artists.length && <h1>Your top artists:</h1>}
-        {artists.map((item) => (
+        <div>
+          {artists.length && <h1>artists:</h1>}
+          {artists.map((item) => (
           <div key={item.id}>
             <h5>{item.name}</h5>
-            {/* <p>{item.album.name}</p> */}
-            {/* <img src={item.images[0]?.url} width="100" /> */}
           </div>
-        ))}
+          ))}
+        </div>
+        {/* <div>
+          {artists.length && <h1>artists:</h1>}
+          {artists.map((item) => (
+          <div key={item.id}>
+            <h5>{item.name}</h5>
+          </div>
+          ))}
+        </div> */}
       </>
     );
   }
