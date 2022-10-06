@@ -1,6 +1,7 @@
 import {getUsersTopArtists} from '../../lib/spotify';
 import {getSession} from 'next-auth/react';
 
+//TODO: move genres/popularity logic to here
 const artist_handler = async (req, res) => {
   const {
     token: {accessToken},

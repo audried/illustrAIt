@@ -1,6 +1,7 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
 import homeStyles from '../styles/Home.module.css';
+import {sortByFrequency} from '../lib/sort';
 
 //TOD0:
   //dont show 0's before 'show my top stuff button is pressed
@@ -42,7 +43,6 @@ export default function Home() {
       //console.log(items[i].id)
       t_ids.push(items[i].id);
       t_pop += (items[i].popularity)/20;
-      
     }
 
     setTracks(items);
@@ -60,7 +60,7 @@ export default function Home() {
     }
     setArtists(items);
     setArtistPopularity(Math.round(a_pop))
-    setGenres(g)
+    setGenres(sortByFrequency(g))
   }
 
   const getAllInfo = async () => {
