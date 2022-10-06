@@ -19,6 +19,8 @@ export default function Home() {
   const [popularity_t, setTrackPopularity] = useState(0);
   const [popularity_a, setArtistPopularity] = useState(0);
   //const [albums, setAlbums] = useState([]);
+  console.log("page reloaded")
+
 
   const getMyArtists = async () => {
     const res = await fetch('/api/artists');
@@ -32,30 +34,38 @@ export default function Home() {
     setTracks(items);
   };
 
-  const setIdArrays = () => {
+  const setTrackData = () => {
     let t_ids = []
-    let g = []
     let t_pop = 0
-    let a_pop = 0
 
     for (let i=0; i<tracks.length; i++){
       //console.log(tracks[i].id)
       t_ids.push(tracks[i].id);
       t_pop += (tracks[i].popularity)/20;
+      
+    }
+
+    setTrackIds(t_ids)
+    setTrackPopularity(Math.round(t_pop))
+
+  }
+
+  const setArtistData = () =>{
+    let a_pop = 0;
+    let g = [];
+    for (let i=0; i<artists.length; i++){
       a_pop += (artists[i].popularity)/20;
       g = [...g, ...artists[i].genres]
     }
-    console.log("g",g)
-    setGenres(g)
-    setTrackIds(t_ids)
-    setTrackPopularity(Math.round(t_pop))
     setArtistPopularity(Math.round(a_pop))
+    setGenres(g)
   }
 
   const getAllInfo = async () => {
     getMyArtists();
     getMyTracks();
-    setIdArrays();
+    setTrackData();
+    setArtistData();
   }
 
 
