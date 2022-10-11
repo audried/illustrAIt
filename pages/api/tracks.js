@@ -1,5 +1,6 @@
 import {getUsersTopTracks} from '../../lib/spotify';
 import {getSession} from 'next-auth/react';
+import {setTrackData} from '../../lib/track_utils';
 //import from spotify - danceabiility api call
 
 //get item ids
@@ -8,12 +9,14 @@ const track_handler = async (req, res) => {
   const {
     token: {accessToken},
   } = await getSession({req});
-  console.log("in tracks")
+
   const response = await getUsersTopTracks(accessToken);
-  console.log(response.body)
   const {items} = await response.json();
-  console.log(items)
-  return res.status(200).json({items});
+
+  const trackdata = setTrackData(items)
+
+  return res.status(200).json(trackdata);
+  
 };
 
 export default track_handler;
