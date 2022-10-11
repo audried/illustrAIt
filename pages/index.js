@@ -20,8 +20,7 @@ export default function Home() {
   const getUserData = async () => {
     const res = await fetch('/api/userdata');
     const {items} = await res.json();
-    console.log("in herre")
-    console.log(items)
+    setUserData(items)
   }
 
 
