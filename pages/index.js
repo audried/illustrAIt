@@ -15,28 +15,15 @@ import Link from 'next/link';
 
 export default function Home() {
   const {data: session} = useSession();
-  const [artistdata, setArtistData] = useState({});
-  const [trackdata, setTrackData] = useState({});
-  //const [albums, setAlbums] = useState([]);
+  const [userdata, setUserData] = useState({});
 
-  const getMyArtists = async () => {
-    const res = await fetch('/api/artists');
+  const getUserData = async () => {
+    const res = await fetch('/api/userdata');
     const {items} = await res.json();
-    setArtistData(items)
-  };
-
-  const getMyTracks = async () => {
-    const res = await fetch('/api/tracks');
-    const {items} = await res.json();
-    console.log("item",items)
-    setTrackData(items)
-  };
-
-
-  const getAllInfo = async () => {
-    getMyArtists();
-    // getMyTracks();
+    console.log("in herre")
+    console.log(items)
   }
+
 
 
   //TODO: instead of display top artists, change to 'generate art'
@@ -48,9 +35,11 @@ export default function Home() {
         Signed in as {session?.token?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
-        <button onClick={() => getAllInfo() }>Show my top stuff</button>
+        <button onClick={() => getUserData() }>Show my top stuff</button>
         <button><Link href="/dashboard">view dashboard</Link></button>
+
         <div className={homeStyles.container}>
+          
         </div>
       </>
     );
