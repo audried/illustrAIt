@@ -1,6 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
-import homeStyles from '../styles/Home.module.css';
+
 import Link from 'next/link';
 import useSWR from 'swr'
 import Dashboard from './dashboard';
@@ -14,6 +14,9 @@ import Dashboard from './dashboard';
  //https://nextjs.org/docs/basic-features/data-fetching/client-side
  //react router page linking: https://stackoverflow.com/questions/63979705/how-to-link-to-another-page-in-react
 //maybe save all generated art so people can view a gallery
+//could make genres more accurate by fetching more than 20 artists
+//cutoff long song titles , if cutoff add ...
+//nextauth secret in prod
 
 export default function Home() {
   const {data: session} = useSession();
