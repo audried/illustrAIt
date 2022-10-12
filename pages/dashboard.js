@@ -1,10 +1,6 @@
-import Link from 'next/link';
-
-export default function Dashboard() {
+const Dashboard = (props) => {
     return (
-        <>
-       <p>dashboard</p>
-        <button><Link href="/">back to home</Link></button>
-        </>
+      <p>{props.data.tracks[0].name}</p>
     )
-}
+  }
+export default Dashboard  

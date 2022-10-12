@@ -1,8 +1,8 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
 import homeStyles from '../styles/Home.module.css';
-import {sortByFrequency} from '../lib/sort';
-import Link from 'next/link';
+import useSWR from 'swr'
+import Dashboard from './dashboard';
 
 //TOD0:
   //dont show 0's before 'show my top stuff button is pressed
@@ -16,12 +16,17 @@ import Link from 'next/link';
 export default function Home() {
   const {data: session} = useSession();
   const [userdata, setUserData] = useState({});
+  const fetcher = (...args) => fetch(...args).then(res => res.json());
+  const { data, error } = useSWR('/api/userdata', fetcher)
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
 
-  const getUserData = async () => {
-    const res = await fetch('/api/userdata');
-    const {items} = await res.json();
-    setUserData(items)
-  }
+
+  // const getUserData = async () => {
+  //   const res = await fetch('/api/userdata');
+  //   const {items} = await res.json();
+  //   setUserData(items)
+  // }
 
 
 
@@ -34,12 +39,7 @@ export default function Home() {
         Signed in as {session?.token?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
-        <button onClick={() => getUserData() }>Show my top stuff</button>
-        <button><Link href="/dashboard">view dashboard</Link></button>
-
-        <div className={homeStyles.container}>
-          
-        </div>
+        <Dashboard data={data}/>
       </>
     );
   }
