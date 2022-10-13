@@ -7,8 +7,7 @@ import {useState} from 'react';
 
 //Takashi Murakami, Jean-Michel Basquiat, Jeff Koons, Kieth Haring
 export default function Art() {
-    const query = "cat feeding a carrot to her kittens in the style of ivan bilibin"
-    const [art, setArt] = useState("");
+    const query = "moustached man with headphones on jamming to music and working on a laptop in the style of ivan bilibin"
     const [urls, setUrls] = useState([])
     const [visible, setVisible] = useState(false);
  
@@ -31,12 +30,12 @@ export default function Art() {
         })
           .then((res) => res.json())
           .then((data) => {
-            //let temp = []
-            setArt(data.result.data[0].generation.image_path);
-            // data.result.data.map(item =>{temp.push(item.generation.image_path)})
-            // setUrls(temp)
+            console.log(data.result.data)
+            let temp = data.result.data.map(item =>{return item.generation.image_path})
+
+            setUrls(temp)
             setVisible(true)
-            //console.log(urls)
+
             //setLoading(false);
           })
           .catch((err) => {
@@ -49,18 +48,16 @@ export default function Art() {
 
     return(
         <>
-        <br/>
-       
-            
-            {visible &&
-                
-                <Image src={art} height={500} width={500}></Image>
-                
-            }
+            <br/>
         
-        <br/>
-        <button onClick={getDalle2}>dalle</button>
-        <button><Link href="/">home</Link></button>
+                
+            {visible &&
+                urls.map(url =>(<Image src={url} height={500} width={500}></Image>))
+            }
+            
+            <br/>
+            <button onClick={getDalle2}>dalle</button>
+            <button><Link href="/">home</Link></button>
         </>
 
     );
