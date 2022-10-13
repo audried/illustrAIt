@@ -41,6 +41,15 @@ export default function Dashboard() {
             </div>
 
             <div className={styles.colummn}>
+                <h3>albums</h3>
+                {data.tracks.map((item) => (
+                    <div key={item.id}>
+                    <h5>{item.album}</h5>
+                    </div>
+                ))}
+            </div>
+
+            <div className={styles.colummn}>
                 <h3>avg artist popularity</h3>
                 <h5>{data.artist_pop}</h5>
                 <h3>avg song popularity</h3>

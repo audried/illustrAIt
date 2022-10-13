@@ -22,6 +22,11 @@ export default function Home() {
   const {data: session} = useSession();
 
 
+  function Art(props){
+    return <div>{props.data.tracks[0].name}</div>
+  }
+
+
 
   // const getUserData = async () => {
   //   const res = await fetch('/api/userdata');
@@ -40,7 +45,7 @@ export default function Home() {
         Signed in as {session?.token?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
-        <button><Link href = "/art">generate art</Link></button>
+        {/* <button><Link href = "/art">generate art</Link></button> */}
         <button><Link href = "/dashboard">view dashboard</Link></button>
       </>
     );
