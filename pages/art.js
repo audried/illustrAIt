@@ -7,17 +7,18 @@ import {useState} from 'react';
 
 //Takashi Murakami, Jean-Michel Basquiat, Jeff Koons, Kieth Haring
 export default function Art() {
-    const query = "moustached man with headphones on working on a laptop in the style of Wes Anderson"
     const [urls, setUrls] = useState([])
+    const [query, setQuery] = useState("")
     const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
-    const { data, error } = useSWR('/api/userdata', fetcher)
+    const { data, error } = useSWR('/api/prompt', fetcher)
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
+    setQuery(data)
 
     function getDalle2() {
-        console.log(data)
         setVisible(true)
         // setError(false);
         // setLoading(true);
@@ -35,7 +36,6 @@ export default function Art() {
 
             setUrls(temp)
             setVisible(true)
-
             //setLoading(false);
           })
           .catch((err) => {

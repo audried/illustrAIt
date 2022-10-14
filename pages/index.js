@@ -17,6 +17,7 @@ import Dashboard from './dashboard';
 //could make genres more accurate by fetching more than 20 artists
 //cutoff long song titles , if cutoff add ...
 //nextauth secret in prod
+//add danceability
 
 export default function Home() {
   const {data: session} = useSession();
