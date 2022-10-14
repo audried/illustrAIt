@@ -10,18 +10,28 @@ export default function Art() {
     const [urls, setUrls] = useState([])
     const [query, setQuery] = useState("")
     const [visible, setVisible] = useState(false);
-    const [loading, setLoading] = useState(false);
+    //const [loading, setLoading] = useState(false);
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('/api/prompt', fetcher)
     if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
-    setQuery(data)
+    console.log(data)
+    console.log(query)
+    if (!data) {
+        return <div>loading...</div>
+    }else if (query == ""){
+        setQuery(data)
+    }
+    
+        
+   
+    
 
     function getDalle2() {
+        console.log(query)
         setVisible(true)
         // setError(false);
-        // setLoading(true);
+        //setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
           method: "POST",
@@ -36,11 +46,11 @@ export default function Art() {
 
             setUrls(temp)
             setVisible(true)
-            //setLoading(false);
+          //  setLoading(false);
           })
           .catch((err) => {
             console.log(err);
-            // setLoading(false);
+            //setLoading(false);
             // setError(true);
           });
        
@@ -50,7 +60,6 @@ export default function Art() {
         <>
             <br/>
         
-                
             {visible &&
                 urls.map(url =>(<Image src={url} height={500} width={500}></Image>))
             }
