@@ -7,7 +7,7 @@ import {useState} from 'react';
 
 //Takashi Murakami, Jean-Michel Basquiat, Jeff Koons, Kieth Haring
 export default function Art() {
-    const query = "moustached man with headphones on jamming to music and working on a laptop in the style of ivan bilibin"
+    const query = "moustached man with headphones on working on a laptop in the style of Wes Anderson"
     const [urls, setUrls] = useState([])
     const [visible, setVisible] = useState(false);
  
