@@ -2,7 +2,7 @@
 import {getUsersTopArtists} from '../../lib/spotify';
 import {getUsersTopTracks} from '../../lib/spotify';
 import {getSession} from 'next-auth/react';
-import { parseData } from '../../lib/parse_data';
+import { generatePrompt } from '../../lib/generate_prompt';
 
 const handler = async (req, res) => {
 
@@ -21,6 +21,6 @@ const handler = async (req, res) => {
   });
 
   
-  res.status(200).json(parseData(tracks,artists))
+  res.status(200).json(generatePrompt(tracks,artists))
 } 
 export default handler;
