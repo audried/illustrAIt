@@ -57,7 +57,7 @@ export default function Art() {
             <br/>
             {loading && <div>loading...</div>}
             {visible &&
-                urls.map(url =>(<Image src={url} height={500} width={500}></Image>))
+                urls.map(url =>(<Image src={url} key={url} height={500} width={500}></Image>))
             }
             
             <br/>
