@@ -17,11 +17,15 @@ import Dashboard from './dashboard';
 //could make genres more accurate by fetching more than 20 artists
 //cutoff long song titles , if cutoff add ...
 //nextauth secret in prod
+//add danceability
 
 export default function Home() {
   const {data: session} = useSession();
 
 
+  // function Art(props){
+  //   return <div>{props.data.tracks[0].name}</div>
+  // }
 
   // const getUserData = async () => {
   //   const res = await fetch('/api/userdata');
@@ -40,7 +44,7 @@ export default function Home() {
         Signed in as {session?.token?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
-        <button><Link href = "/art">generate art</Link></button>
+        {/* <button><Link href = "/art">generate art</Link></button> */}
         <button><Link href = "/dashboard">view dashboard</Link></button>
       </>
     );
