@@ -1,4 +1,4 @@
-import example from '../public/example.png'
+import { Button, Stack} from '@chakra-ui/react';
 import Link from 'next/link';
 import useSWR from 'swr'
 import Image from 'next/image'
@@ -61,8 +61,19 @@ export default function Art() {
             }
             
             <br/>
-            <button onClick={getDalle2}>dalle</button>
-            <button><Link href="/">home</Link></button>
+            <Stack spacing={4} direction='row' align='center'>
+              <Button colorScheme='teal' variant='solid' onClick={getDalle2}>
+                Generate Art
+              </Button>
+
+              <Link href="/">
+                <Button colorScheme='teal' variant='outline'>
+                  Home
+                </Button>
+              </Link>
+              
+            </Stack>  
+
         </>
 
     );
