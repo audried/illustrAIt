@@ -29,26 +29,26 @@ export default function Art() {
         // setError(false);
         setLoading(true);
 
-        // fetch(`/api/dalle2?q=${query}`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     console.log(data.result.data)
-        //     let temp = data.result.data.map(item =>{return item.generation.image_path})
+        fetch(`/api/dalle2?q=${query}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.result.data)
+            let temp = data.result.data.map(item =>{return item.generation.image_path})
 
-        //     setUrls(temp)
-        //     setVisible(true)
-        //     setLoading(false);
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //     setLoading(false);
-        //     // setError(true);
-        //   });
+            setUrls(temp)
+            setVisible(true)
+            setLoading(false);
+          })
+          .catch((err) => {
+            console.log(err);
+            setLoading(false);
+            // setError(true);
+          });
        
       }
 
