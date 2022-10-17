@@ -10,56 +10,52 @@ export default function Art() {
     const [urls, setUrls] = useState([])
     const [query, setQuery] = useState("")
     const [visible, setVisible] = useState(false);
-    //const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('/api/prompt', fetcher)
     if (error) return <div>failed to load</div>
-    console.log(data)
-    console.log(query)
+
     if (!data) {
         return <div>loading...</div>
     }else if (query == ""){
         setQuery(data)
     }
     
-        
-   
-    
 
     function getDalle2() {
         console.log(query)
         setVisible(true)
         // setError(false);
-        //setLoading(true);
+        setLoading(true);
 
-        fetch(`/api/dalle2?q=${query}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data.result.data)
-            let temp = data.result.data.map(item =>{return item.generation.image_path})
+        // fetch(`/api/dalle2?q=${query}`, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     console.log(data.result.data)
+        //     let temp = data.result.data.map(item =>{return item.generation.image_path})
 
-            setUrls(temp)
-            setVisible(true)
-          //  setLoading(false);
-          })
-          .catch((err) => {
-            console.log(err);
-            //setLoading(false);
-            // setError(true);
-          });
+        //     setUrls(temp)
+        //     setVisible(true)
+        //     setLoading(false);
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //     setLoading(false);
+        //     // setError(true);
+        //   });
        
       }
 
     return(
         <>
             <br/>
-        
+            {loading && <div>loading...</div>}
             {visible &&
                 urls.map(url =>(<Image src={url} height={500} width={500}></Image>))
             }

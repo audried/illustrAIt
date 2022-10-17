@@ -23,11 +23,9 @@ export default function Home() {
   const {data: session} = useSession();
 
 
-  function Art(props){
-    return <div>{props.data.tracks[0].name}</div>
-  }
-
-
+  // function Art(props){
+  //   return <div>{props.data.tracks[0].name}</div>
+  // }
 
   // const getUserData = async () => {
   //   const res = await fetch('/api/userdata');
