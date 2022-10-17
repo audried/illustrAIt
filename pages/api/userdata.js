@@ -22,8 +22,8 @@ const handler = async (req, res) => {
   });
 
 
-  console.log("tracks", tracks)
-  console.log("artists", artists)
+  // console.log("tracks", tracks)
+  // console.log("artists", artists)
   
   res.status(200).json(parseData(tracks,artists))
 } 
