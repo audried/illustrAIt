@@ -12,6 +12,9 @@ export default function Dashboard() {
 
     return(
         <>
+        <head>
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </head>
         <div className={styles.container}>
 
             <div className={styles.colummn}>

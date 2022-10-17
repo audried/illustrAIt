@@ -1,7 +1,8 @@
 import example from '../public/example.png'
 import Link from 'next/link';
 import useSWR from 'swr'
-import Image from 'next/image'
+import Image from 'next/image';
+import Button from '@mui/material/Button';
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
 
@@ -54,6 +55,9 @@ export default function Art() {
 
     return(
         <>
+              <head>
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
+            </head>
             <br/>
             {loading && <div>loading...</div>}
             {visible &&
@@ -61,8 +65,8 @@ export default function Art() {
             }
             
             <br/>
-            <button onClick={getDalle2}>dalle</button>
-            <button><Link href="/">home</Link></button>
+            <Button variant = "contained" onClick={getDalle2}>dalle</Button>
+            <Button variant="outlined"><Link href="/">home</Link></Button>
         </>
 
     );

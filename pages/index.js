@@ -1,9 +1,10 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
-
+import Button from '@mui/material/Button';
 import Link from 'next/link';
 import useSWR from 'swr'
 import Dashboard from './dashboard';
+import Typography from '@mui/material/Typography';
 
 //TOD0:
   //dont show 0's before 'show my top stuff button is pressed
@@ -41,11 +42,15 @@ export default function Home() {
 
     return (
       <>
-        Signed in as {session?.token?.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+      <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </head>
+        <Typography variant="h6">Signed in as {session?.token?.email} </Typography>
+        <Button variant="outlined" onClick={() => signOut()}>Sign out</Button>
         <hr />
         {/* <button><Link href = "/art">generate art</Link></button> */}
-        <button><Link href = "/dashboard">view dashboard</Link></button>
+        <Button variant="outlined"><Link href = "/dashboard">View Dashboard</Link></Button>
+        <Button variant="outlined"><Link href = "/art">Generate Art</Link></Button>
       </>
     );
   }
