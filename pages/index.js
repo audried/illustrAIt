@@ -1,5 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
+import { Button, Stack} from '@chakra-ui/react';
 
 import Link from 'next/link';
 import useSWR from 'swr'
@@ -41,11 +42,26 @@ export default function Home() {
 
     return (
       <>
-        Signed in as {session?.token?.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        Signed in as {session?.token?.email} 
+        <Button size='sm' onClick={() => signOut()}>Sign out</Button>
         <hr />
+        <Stack spacing={4} direction='row' align='center'>
+          
+          <Link href = "/dashboard">
+            <Button colorScheme='teal' size='lg'>
+              DASHBOARD
+            </Button>
+          </Link>
+
+          <Link href = "/art">
+            <Button colorScheme='teal' size='lg'>
+              ART
+            </Button>
+          </Link>
+
+        </Stack>
         {/* <button><Link href = "/art">generate art</Link></button> */}
-        <button><Link href = "/dashboard">view dashboard</Link></button>
+        <button></button>
       </>
     );
   }
