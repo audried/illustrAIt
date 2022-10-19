@@ -51,11 +51,9 @@ export default function Home() {
     
 
     return (
-      <>
-      <head></head>
-      <body className={styles.body}>
-      <Button size='sm' onClick={() => signOut()}>Sign out</Button>
-        <Container maxW={'8xl'}>
+
+        <Container maxW={'8xl'} className={styles.body}>
+        <Button size='sm' onClick={() => signOut()}>Sign out</Button>
       <Stack
         // textAlign={'center'}
         align={'center'}
@@ -63,7 +61,7 @@ export default function Home() {
         py={{ base: 20, md: 28 }}>
         <Heading
           fontWeight={600}
-          fontSize={{ base: '6xl', sm: '5xl', md: '8xl' }}
+          fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
           lineHeight={'110%'}>
           <Text as={'span'} color={'white'}>
             AI generated art. <br/>
@@ -96,19 +94,56 @@ export default function Home() {
           </Link>
         </Stack>
         <Flex w={'full'}>
-          carousel here
+          
         </Flex>
       </Stack>
     </Container>
-    </body>
-      </>
+    
+
     );
   }
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+
+     
+        <Container maxW={'8xl'} className={styles.body}>
+      <Stack
+        // textAlign={'center'}
+        align={'center'}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 20, md: 28 }}>
+        <Heading
+          fontWeight={600}
+          fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
+          lineHeight={'110%'}>
+          <Text as={'span'} color={'white'}>
+            AI generated art. <br/>
+          </Text>
+          <Text as={'span'} color={'white'}>
+            Based on your listening. 
+          </Text>
+        </Heading>
+        <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
+          [NAME] analyzes your spotify listening history from the past month and uses 
+          DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
+          DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
+        </Text>
+        <Stack spacing={6} direction={'row'}>
+  
+            <Button onClick={() => signIn()} rounded={'full'}
+              size='lg'
+              px={6}
+              bg={'purple.200'}
+              _hover={{ bg: 'purple.300' }}>
+              <Text color={'purple.900'}>Sign in with Spotify</Text>
+            </Button>
+         
+        </Stack>
+        <Flex w={'full'}>
+          
+        </Flex>
+      </Stack>
+    </Container>
+ 
   );
 }
 
@@ -130,3 +165,7 @@ export default function Home() {
 //           </Link>
 
 //         </Stack>
+
+// Not signed in <br />
+// <button onClick={() => signIn()}>Sign in</button>
+// </>
