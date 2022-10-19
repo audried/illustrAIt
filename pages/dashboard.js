@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Grid, GridItem } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { Heading } from '@chakra-ui/react';
+import { Box } from "@chakra-ui/react";
 
 
 export default function Dashboard() {
@@ -30,43 +31,56 @@ export default function Dashboard() {
             <GridItem pl='2' area={'header'} margin="auto">
                 <Heading size='3xl'>Dashboard</Heading>
             </GridItem>
-            <GridItem pl='2' bg='pink.100' area={'tracks'}>
+
+            <GridItem pl='2' area={'tracks'}>
+                <Box boxShadow='xxl' p='6' rounded='md' bg='white'>
+
                 <Heading size = 'lg'>Top Tracks</Heading>
                 {data.tracks.map((item) => (
                     <div key={item.id}>
                     <h5>{item.name.substring(0,50)}</h5>
                     </div>
                 ))}
+                </Box>
             </GridItem>
-            <GridItem pl='2' bg='red.100' area={'artists'}>
+            <GridItem pl='2' area={'artists'}>
+                <Box boxShadow='xxl' p='6' rounded='md' bg='white'>
                 <Heading size='lg'>Top Artists</Heading>
                 {data.artists.map((item) => (
                     <div key={item.id}>
                     <h5>{item.name}</h5>
                     </div>
                 ))}
+                </Box>
             </GridItem>
-            <GridItem pl='2' bg='orange.100' area={'genres'}>
+            <GridItem pl='2' area={'genres'}>
+                <Box boxShadow='xxl' p='6' rounded='md' bg='white'>
                 <Heading size = 'lg'>Genres</Heading>
                 {data.genres.map((item) => (
                     <h5>{item}</h5>
 
                 ))}
+                </Box>
             </GridItem>
-
-            <GridItem pl='2' bg='yellow.100' area={'apop'}>
+            
+            <GridItem pl='2' area={'apop'}>
+                <Box boxShadow='xl' p='6' rounded='md' bg='white'>
                 <Heading size = 'lg'>Avg Artist Popularity</Heading>
                 <h5>{data.artist_pop}</h5>
+                </Box>
             </GridItem>
 
-            <GridItem pl='2' bg='yellow.100' area={'tpop'}>
+            <GridItem pl='2' area={'tpop'}>
+                <Box boxShadow='xl' p='6' rounded='md' bg='white'>
                 <Heading size = 'lg'>Avg Song Popularity</Heading>
                 <h5>{data.track_pop}</h5>
+                </Box>
             </GridItem>
 
-            <GridItem pl='2' bg='yellow.100' area={'other'}>
+            <GridItem pl='2' area={'other'}>
+                <Box boxShadow='xl' p='6' rounded='md' bg='white'>
                 <Heading size='lg'>Other Stats</Heading>
-                
+                </Box>
             </GridItem>
 
             {/* <div className={styles.container}>

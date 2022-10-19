@@ -10,7 +10,11 @@ const colors = {
     700: '#2a69ac',
   },
 }
-const theme = extendTheme({ colors })
+
+const shadows ={
+  xxl: "5px 5px 15px 5px rgba(0, 0, 0, 0.1), 0 10px 10px 5px rgba(0, 0, 0, 0.04)"
+}
+const theme = extendTheme({ colors, shadows })
 
 
 function MyApp({Component, pageProps: {session, ...pageProps}}) {
