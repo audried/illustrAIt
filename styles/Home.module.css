@@ -1,15 +1,14 @@
-.container {
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  padding-left: 10em;
-}
-.column{
-  margin: auto;
-  padding: 40px
-}
+
 .body{
   background-image: url("../public/bg.jpeg");
   height:100vh;
-  width:100%
+  width:100%;
+  padding:0;
+  margin:0
+}
+.grid{
+  background-image: url("../public/bg2.jpg");
+  height:100vh;
+  width:100%;
+  margin:0
 }

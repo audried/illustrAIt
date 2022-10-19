@@ -27,6 +27,7 @@ import styles from '../styles/Home.module.css';
 //could make genres more accurate by fetching more than 20 artists
 //cutoff long song titles , if cutoff add ...
 //nextauth secret in prod
+//fix backgroun-image width on signin page
 //add danceability
 //vecteezy attribution <a href="https://www.vecteezy.com/free-vector/web">Web Vectors by Vecteezy</a>
 
@@ -51,14 +52,15 @@ export default function Home() {
     
 
     return (
-
-        <Container maxW={'8xl'} className={styles.body}>
+  <body className={styles.body}>
+        <Container  maxWidth={'8xl'}>
         <Button size='sm' onClick={() => signOut()}>Sign out</Button>
       <Stack
         // textAlign={'center'}
         align={'center'}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}>
+         {/* px={{ base: 2, md: 5 }} */}
         <Heading
           fontWeight={600}
           fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
@@ -98,18 +100,19 @@ export default function Home() {
         </Flex>
       </Stack>
     </Container>
-    
+    </body>
 
     );
   }
   return (
 
-     
+
         <Container maxW={'8xl'} className={styles.body}>
       <Stack
         // textAlign={'center'}
         align={'center'}
         spacing={{ base: 8, md: 10 }}
+        
         py={{ base: 20, md: 28 }}>
         <Heading
           fontWeight={600}
@@ -143,7 +146,7 @@ export default function Home() {
         </Flex>
       </Stack>
     </Container>
- 
+
   );
 }
 
