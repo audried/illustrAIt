@@ -10,7 +10,8 @@ import {
     Box
   } from '@chakra-ui/react';
 import useSWR from 'swr';
-import { DataTable } from './components/table';
+import { TrackTable } from './components/table';
+import { ArtistTable } from './components/artist_table';
 import Link from 'next/link';
 
 
@@ -41,39 +42,39 @@ export default function Dashboard() {
             </GridItem>
 
             <GridItem pl='2' area={'tracks'}>
-                <Box boxShadow='xxl' p='6' rounded='md' bg='rgba(173, 6, 185, 0.9)' ml='5'>
-
-                <Heading size = 'sm' color='white' mb='5'>Top Tracks
-                    of
-                    {/* could be something todo later */}
-                    <Select placeholder='the past month' size='sm' display="inline-block" width="initial" mx='2'>
-                        <option value='6months'>the past 6 months</option>
-                        <option value='alltime'>all time</option>
-                    </Select>
-                </Heading>
-                <hr/>
-
-                <DataTable data={data}/>
-
-
+                <Box boxShadow='xxl' p='6' rounded='md' bg='linear-gradient(90deg, rgba(167,25,189,1) 13%, rgba(106,6,120,1) 81%);' ml='5'>
+                    <Heading size = 'sm' color='white' mb='5'>Top Tracks
+                        {/* could be something todo later */}
+                        <Select placeholder='the past month' size='sm' display="inline-block" width="initial" mx='2'>
+                            <option value='6months'>the past 6 months</option>
+                            <option value='alltime'>all time</option>
+                        </Select>
+                    </Heading>
+                    <hr/>
+                    <TrackTable data={data}/>
                 </Box>
             </GridItem>
+
             <GridItem pl='2' area={'artists'}>
-                <Box boxShadow='xxl' p='6' rounded='md' bg='rgba(96, 0, 119, 0.7)' ml='5'>
-                <Heading size='lg'>Top Artists</Heading>
-                {data.artists.map((item) => (
-                    <div key={item.id}>
-                    <h5>{item.name}</h5>
-                    </div>
-                ))}
+                <Box boxShadow='xxl' p='6' rounded='md' bg='linear-gradient(90deg, rgba(106,6,120,1) 15%, rgba(80,3,91,1) 86%);' ml='5'>
+                    <Heading size = 'sm' color='white' mb='5'>Top Artists of
+                        {/* could be something todo later */}
+                        <Select placeholder='the past month' size='sm' display="inline-block" width="initial" mx='2'>
+                            <option value='6months'>the past 6 months</option>
+                            <option value='alltime'>all time</option>
+                        </Select>
+                    </Heading>
+                    <hr/>
+                    <ArtistTable data={data}></ArtistTable>
                 </Box>
             </GridItem>
+
             <GridItem pl='2' area={'genres'}>
-                <Box boxShadow='xxl' p='6' rounded='md' bg='linear-gradient(90deg, rgba(173,0,200,1) 25%, rgba(55,0,111,1) 96%)' ml='5'>
+                <Box boxShadow='xxl' p='6' rounded='md' bg='linear-gradient(90deg, rgba(80,3,91,1) 21%, rgba(67,0,77,1) 86%);' ml='5'>
                 <Heading size = 'md' color='white'>Top genres</Heading>
                 <Text size='sm' color='white'>from the past month</Text>
                 {data.genres.map((item) => (
-                    <h5>{item}</h5>
+                    <Text color='white'>{item}</Text>
 
                 ))}
                 </Box>
