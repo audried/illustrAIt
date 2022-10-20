@@ -42,7 +42,7 @@ export default function Dashboard() {
             </GridItem>
 
             <GridItem pl='2' area={'tracks'}>
-                <Box boxShadow='xxl' p='6' rounded='md' bg='rgba(255,255,255,.6);' ml='5'>
+                <Box className={styles.glass} p='6' rounded='md' ml='5'>
                     <Heading size = 'sm' mb='5'>Top Tracks
                         {/* could be something todo later */}
                         <Select placeholder='the past month' size='sm' display="inline-block" width="initial" mx='2'>
@@ -56,7 +56,7 @@ export default function Dashboard() {
             </GridItem>
 
             <GridItem pl='2' area={'artists'}>
-                <Box boxShadow='xxl' p='6' rounded='md' bg='rgba(255,255,255,.6);' ml='5'>
+                <Box className={styles.glass} p='6' rounded='md' ml='5'>
                     <Heading size = 'sm' mb='5'>Top Artists of
                         {/* could be something todo later */}
                         <Select placeholder='the past month' variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
@@ -81,14 +81,14 @@ export default function Dashboard() {
             </GridItem> */}
             
             <GridItem pl='2' area={'apop'}>
-                <Box boxShadow='xl' p='6' rounded='md' bg='rgba(255,255,255,.6);' mx='5' >
+                <Box className={styles.glass} p='6' rounded='md' mx='5' >
                 <Heading size = 'sm' mb='5' >Top Genres</Heading>
                     <Image src='/../public/piechart.png' width={320} height={320}></Image>
                 </Box>
             </GridItem>
 
             <GridItem pl='2' area={'tpop'}>
-                <Box boxShadow='xl' p='6' rounded='md' bg='rgba(255,255,255,.6);' mx='5' >
+                <Box className={styles.glass} p='6' rounded='md' mx='5' >
                 <Heading size = 'sm' mb='5' >Audio Features</Heading>
                     <Image src='/../public/radarchart.png' width={320} height={320}></Image>
                 </Box>
