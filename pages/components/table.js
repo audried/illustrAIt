@@ -18,24 +18,25 @@ import {
   export function TrackTable(props){
     return (
         <TableContainer>
-        <Table variant='simple' colorScheme={'purple'}>
+        <Table variant='simple' colorScheme={'gray'}>
 
             <Thead>
             <Tr>
-                <Th color='white'>#</Th>
-                <Th color='white'>Title</Th>
-                <Th color='white'>Artist</Th>
-                <Th color='white'>Popularity</Th>
+                <Th >#</Th>
+                <Th >Title</Th>
+                <Th >Artist</Th>
+                <Th >Popularity</Th>
             </Tr>
             </Thead>
 
             <Tbody>
                 {props.data.tracks.slice(0,10).map((item, index) => (
                   <Tr>
-                    <Td>{index}</Td>
-                    <Td color='white'><Image src={item.image} key={item.image} height={30} width={30}></Image>{item.name}</Td>
-                    <Td color='white'>{item.artist}</Td>
-                    <Td color='white'> {item.popularity}%</Td>
+                    <Td>{index+1}</Td>
+                    {/* <Td padding={2}><Image src={item.image} key={item.image} height={40} width={40} border-radius={34} margin-left={3}></Image>{item.name}</Td> */}
+                    <Td>{item.name}</Td>
+                    <Td >{item.artist}</Td>
+                    <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}
             </Tbody>

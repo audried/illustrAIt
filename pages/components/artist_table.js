@@ -14,20 +14,20 @@ import {
   export function ArtistTable(props){
     return (
         <TableContainer>
-        <Table variant='simple' colorScheme={'purple'}>
+        <Table variant='simple' colorScheme={'blackAlpha.700'}>
 
             <Thead>
             <Tr>
-                <Th color='white'>Name</Th>
-                <Th color='white'>Popularity</Th>
+                <Th>Name</Th>
+                <Th>Popularity</Th>
             </Tr>
             </Thead>
 
             <Tbody>
-                {props.data.artists.slice(0,10).map((item) => (
+                {props.data.artists.map((item) => (
                   <Tr>
-                    <Td color='white'>{item.name}</Td>
-                    <Td color='white'> {item.popularity}%</Td>
+                    <Td >{item.name}</Td>
+                    <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}
             </Tbody>
