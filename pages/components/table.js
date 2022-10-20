@@ -2,23 +2,28 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
     TableCaption,
     TableContainer,
-    Grid,
-    GridItem,
-    Text,
-    Select
+    Button
   } from '@chakra-ui/react';
-  import Image from 'next/image'
-// probably do not need all 4 rows, hard to view
+  import Image from 'next/image';
+  import {useState} from 'react';
+
+
   export function TrackTable(props){
+
+    const [numRows, setNumRows] = useState(10);
+
     return (
         <TableContainer>
         <Table variant='simple' colorScheme={'gray'}>
+            <TableCaption>
+                {numRows==10 && <Button onClick={() => setNumRows(20)} variant='link' colorScheme={'blackAlpha.700'}>show more</Button>}
+                {numRows==20 && <Button onClick={() => setNumRows(10)} variant='link' colorScheme={'blackAlpha.700'}>show less</Button>}
+            </TableCaption>
 
             <Thead>
             <Tr>
@@ -30,7 +35,7 @@ import {
             </Thead>
 
             <Tbody>
-                {props.data.tracks.slice(0,10).map((item, index) => (
+                {props.data.tracks.slice(0,numRows).map((item, index) => (
                   <Tr>
                     <Td>{index+1}</Td>
                     {/* <Td padding={2}><Image src={item.image} key={item.image} height={40} width={40} border-radius={34} margin-left={3}></Image>{item.name}</Td> */}

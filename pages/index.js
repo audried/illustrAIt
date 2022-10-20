@@ -15,21 +15,6 @@ import useSWR from 'swr'
 import Dashboard from './dashboard';
 import styles from '../styles/Home.module.css';
 
-//TOD0:
-  //dont show 0's before 'show my top stuff button is pressed
-  //can get danceability, energy and acousticness from track get /audio-features + id
-  //remove parentheses
-  //takes 2 button clicks to load average song popularity
-  //add all genres to set? count # of appearances and can sort low to high
- //https://nextjs.org/docs/basic-features/data-fetching/client-side
- //react router page linking: https://stackoverflow.com/questions/63979705/how-to-link-to-another-page-in-react
-//maybe save all generated art so people can view a gallery
-//could make genres more accurate by fetching more than 20 artists
-//cutoff long song titles , if cutoff add ...
-//nextauth secret in prod
-//fix backgroun-image width on signin page
-//add danceability
-//vecteezy attribution <a href="https://www.vecteezy.com/free-vector/web">Web Vectors by Vecteezy</a>
 
 export default function Home() {
   const {data: session} = useSession();
@@ -46,11 +31,8 @@ export default function Home() {
   // }
 
 
-  //TODO: instead of display top artists, change to 'generate art'
-  //once art is generated, figure out somethign for users to see their stats along with the art
   if (session) {
     
-
     return (
   <body className={styles.body}>
         <Container  maxWidth={'8xl'}>
