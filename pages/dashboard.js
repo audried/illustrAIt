@@ -38,7 +38,7 @@ export default function Dashboard() {
         color='blackAlpha.700'
         >
             <GridItem pl='2' area={'header'} margin="auto">
-                <Link href='/'><Heading size='3xl'>Your Stats</Heading></Link>
+                <Link href='/'><Heading size='3xl' color='white'>Your Stats</Heading></Link>
             </GridItem>
 
             <GridItem pl='2' area={'tracks'}>
