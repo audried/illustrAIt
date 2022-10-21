@@ -20,6 +20,7 @@ export function Landing(){
 
     const [urls, setUrls] = useState([])
     const [query, setQuery] = useState("")
+    const [caption, setCaption] = useState("")
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(false);
  
@@ -30,7 +31,8 @@ export function Landing(){
     if (!data) {
         return <div>loading...</div>
     }else if (query == ""){
-        setQuery(data)
+        setQuery(data[0])
+        setCaption(data[1])
     }
 
     function getDalle2() {
@@ -111,6 +113,7 @@ export function Landing(){
                     urls.map(url =>(<Image src={url} key={url} height={500} width={500}></Image>))
                 }
             </Flex>
+            {visible && <Text color='white'>{caption}</Text>}
         </Stack>
         </Container>
     </body>
