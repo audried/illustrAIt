@@ -68,17 +68,6 @@ export default function Dashboard() {
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
             </GridItem>
-
-            {/* <GridItem pl='2' area={'genres'}>
-                <Box boxShadow='xxl' p='6' rounded='md' bg='linear-gradient(90deg, rgba(80,3,91,1) 21%, rgba(67,0,77,1) 86%);' ml='5'>
-                <Heading size = 'md' color='white'>Top genres</Heading>
-                <Text size='sm' color='white'>from the past month</Text>
-                {data.genres.map((item) => (
-                    <Text color='white'>{item}</Text>
-
-                ))}
-                </Box>
-            </GridItem> */}
             
             <GridItem pl='2' area={'apop'}>
                 <Box className={styles.glass} p='6' rounded='md' mx='5' >
