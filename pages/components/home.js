@@ -7,13 +7,13 @@ import {
   Heading,
   Stack,
   Text,
-  Button,
-  Icon,
-  IconProps,
+  Button
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import useSWR from 'swr';
 import Image from 'next/image'
+
+import { Frame } from './frame';
 
 
 export function Landing(){
@@ -36,9 +36,17 @@ export function Landing(){
     }
 
     function getDalle2() {
+
+        
+const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-ZaCEjvvOEbjA6FQsgZRTKZQM/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=71Mpu4TjXURzBFVw%2BoFap0oFzc3oQszQljgmmgM/pYw%3D",
+"https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-kyzk1htv7iwZ3pkREPbHv2PB/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=ZizgHBFPloZsPq30sKJKZTw2/LpTgJRW9pizFJ1Y4v0%3D",
+"https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-wmCn8raiI1AfHWTDZpaKBrmm/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=69mYh%2Bp1SM4C07BaFWLECoZqqEjEHTKor2p24Z4bnfo%3D",
+"https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-UDIStnnzwHrbolu7M0P2i9JG/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=eYdH4Zefyjt9KG9kyYcqIU6rB66rkU84873ksncq/g4%3D"]
+
         console.log(query)
         setVisible(true)
-        // setError(false);
+        //setUrls(p)
+        //setError(false);
         setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
@@ -113,10 +121,8 @@ export function Landing(){
                 {loading && <div>loading...</div>}
                 {visible &&
                     urls.map(url =>(
-                        <div className={styles.frame}>
-                            <Image src={url} key={url} height={500} width={500} className="art"></Image>
-                            <Heading className={styles.user} size='md'>@audreydock on Spotify</Heading>
-                        </div>))
+                        <Frame url={url} caption={caption}/>
+                    ))
                 }
             </Flex>
             {visible && <Text color='white'>{caption}</Text>}

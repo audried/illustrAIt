@@ -39,6 +39,8 @@
   background: white;
   border: 1px solid black;
   margin: 1%;
+  inline-size: 500px;
+    overflow-wrap: break-word;
 }
 
 .user{
