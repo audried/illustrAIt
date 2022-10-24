@@ -51,7 +51,7 @@ export function Landing(){
           .then((data) => {
             console.log(data.result.data)
             let temp = data.result.data.map(item =>{return item.generation.image_path})
-
+            console.log("urls",temp)
             setUrls(temp)
             setVisible(true)
             setLoading(false);
@@ -71,7 +71,8 @@ export function Landing(){
             // textAlign={'center'}
             align={'center'}
             spacing={{ base: 8, md: 10 }}
-            py={{ base: 20, md: 28 }}>
+            py={{ base: 20, md: 28 }}
+            width='100%'>
             {/* px={{ base: 2, md: 5 }} */}
             <Heading
             fontWeight={600}
@@ -107,10 +108,15 @@ export function Landing(){
                 </Link>
             
             </Stack>
-            <Flex w={'full'}>
+
+            <Flex className={styles.imageContainer} w={'full'}>
                 {loading && <div>loading...</div>}
                 {visible &&
-                    urls.map(url =>(<Image src={url} key={url} height={500} width={500}></Image>))
+                    urls.map(url =>(
+                        <div className={styles.frame}>
+                            <Image src={url} key={url} height={500} width={500} className="art"></Image>
+                            <Heading className={styles.user} size='md'>@audreydock on Spotify</Heading>
+                        </div>))
                 }
             </Flex>
             {visible && <Text color='white'>{caption}</Text>}
