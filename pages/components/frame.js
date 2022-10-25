@@ -10,6 +10,8 @@ import React, { useRef, useEffect } from 'react'
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
+        context.font = '48px serif';
+        
 
         const bg = new Image()
         bg.src='https://www.mactrast.com/wp-content/uploads/2018/02/188038.png'
@@ -22,7 +24,9 @@ import React, { useRef, useEffect } from 'react'
         image.onload = () => {
             console.log("here")
             context.drawImage(image, 0, 0, 500, 500);
+            context.fillText('Hello world', 40, 560);
         };
+        
 
       }, [])
 
