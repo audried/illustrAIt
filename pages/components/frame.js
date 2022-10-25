@@ -10,17 +10,28 @@ import React, { useRef, useEffect } from 'react'
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
+
+        const bg = new Image()
+        bg.src='https://www.mactrast.com/wp-content/uploads/2018/02/188038.png'
+        bg.onload = () => {
+            console.log("second")
+            context.drawImage(bg, 0, 0, 500, 700);
+        };
         const image = new Image()
         image.src = props.url
         image.onload = () => {
             console.log("here")
             context.drawImage(image, 0, 0, 500, 500);
-          };
+        };
+
       }, [])
 
 
     return (
-        <canvas ref={canvasRef} width={500} height={500}/>
+        <div className={styles.frame}> 
+            <canvas ref={canvasRef} width={500} height={700}/>
+        </div>
+       
     )
   }
 

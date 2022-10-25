@@ -34,13 +34,13 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .frame{
-
-  padding-bottom:2%;
+  margin: 3%
+  /* padding-bottom:2%;
   background: white;
   border: 1px solid black;
   margin: 1%;
   inline-size: 500px;
-    overflow-wrap: break-word;
+    overflow-wrap: break-word; */
 }
 
 .user{
