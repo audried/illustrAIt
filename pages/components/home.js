@@ -11,14 +11,16 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import useSWR from 'swr';
-import Image from 'next/image'
-
+import Image from 'next/image';
 import { Frame } from './frame';
+
+
 
 
 export function Landing(){
 
     const [urls, setUrls] = useState([])
+    const [chosen, setChosen] = useState()
     const [query, setQuery] = useState("")
     const [caption, setCaption] = useState("")
     const [visible, setVisible] = useState(false);
@@ -33,19 +35,12 @@ export function Landing(){
     }else if (query == ""){
         setQuery(data[0])
         setCaption(data[1])
+        setChosen(data.slice(2))
     }
 
     function getDalle2() {
-
-        
-const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-ZaCEjvvOEbjA6FQsgZRTKZQM/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=71Mpu4TjXURzBFVw%2BoFap0oFzc3oQszQljgmmgM/pYw%3D",
-"https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-kyzk1htv7iwZ3pkREPbHv2PB/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=ZizgHBFPloZsPq30sKJKZTw2/LpTgJRW9pizFJ1Y4v0%3D",
-"https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-wmCn8raiI1AfHWTDZpaKBrmm/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=69mYh%2Bp1SM4C07BaFWLECoZqqEjEHTKor2p24Z4bnfo%3D",
-"https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-UDIStnnzwHrbolu7M0P2i9JG/image.webp?st=2022-10-24T17%3A56%3A45Z&se=2022-10-24T19%3A54%3A45Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-24T15%3A58%3A12Z&ske=2022-10-31T15%3A58%3A12Z&sks=b&skv=2021-08-06&sig=eYdH4Zefyjt9KG9kyYcqIU6rB66rkU84873ksncq/g4%3D"]
-
         console.log(query)
         setVisible(true)
-        //setUrls(p)
         //setError(false);
         setLoading(true);
 
@@ -71,6 +66,22 @@ const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx
           });
        
       }
+
+
+      function buttonClick(){
+        const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-6SV0NFAaBGHjKL6uLdL5yvYo/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=5m8SdI3Ks56y/9JJDSVoj%2BeS6DMF8vuty0VPbmt7Y8g%3D",
+       
+        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-mg6BvWd8eNIck37XQGwPyI9B/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=ToW%2BlJSu/ZFWr%2Bc6cXnOdAsATAr4ZjY88M35hTj1flQ%3D",
+     
+        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-BAUL74ZHDoGNqcsrbP81bR4J/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=/lvQZey1e6ojPy7mVIklINB0r7iVOo7XvkTqVkwsuLM%3D",
+     
+        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-HcxbHAHmlSh2EjisUKJTxuTv/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=iyfxsnqO%2BTGGluSy2Wntrfc40bELmHljNjrUsk05ZME%3D"]
+        
+       
+        setVisible(true)
+        setUrls(p)
+      }
+
     return(
         <body className={styles.body}>
         <Container  maxWidth={'8xl'}>
@@ -94,14 +105,14 @@ const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx
             </Text>
             </Heading>
             <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-            [NAME] analyzes your spotify listening history from the past month and uses 
+            Artify analyzes your spotify listening history from the past month and uses 
             DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
             DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
             </Text>
             <Stack spacing={6} direction={'row'}>
             
                 <Button
-                    onClick={getDalle2}
+                    onClick={buttonClick}
                     rounded={'full'}
                     size='lg'
                     px={6}
@@ -121,7 +132,9 @@ const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx
                 {loading && <div>loading...</div>}
                 {visible &&
                     urls.map(url =>(
-                        <Frame url={url} caption={caption}/>
+                        // <Frame url={url} caption={caption} chosen={chosen}/>
+                        <Frame url={url}/>
+                        //<Image src={url} width={500} height={500}/>
                     ))
                 }
             </Flex>
