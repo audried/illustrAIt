@@ -34,7 +34,8 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .frame{
-  margin: 3%
+  margin: 3%;
+  border: 10px yellow
   /* padding-bottom:2%;
   background: white;
   border: 1px solid black;
@@ -56,4 +57,9 @@
 }
 .textContainer{
   padding-left: 5%;
+}
+
+.art{
+
+
 }

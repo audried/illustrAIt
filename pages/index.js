@@ -24,7 +24,14 @@ export default function Home() {
 
   if (session) {
     return (
+      <>
+      <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+      <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet"/>
+        </head>
       <Landing/>
+      </>
     );
   }
   return ( 

@@ -112,7 +112,7 @@ export function Landing(){
             <Stack spacing={6} direction={'row'}>
             
                 <Button
-                    onClick={buttonClick}
+                    onClick={getDalle2}
                     rounded={'full'}
                     size='lg'
                     px={6}
@@ -133,7 +133,7 @@ export function Landing(){
                 {visible &&
                     urls.map(url =>(
                         // <Frame url={url} caption={caption} chosen={chosen}/>
-                        <Frame url={url}/>
+                        <Frame url={url} caption={caption} chosen={chosen}/>
                         //<Image src={url} width={500} height={500}/>
                     ))
                 }

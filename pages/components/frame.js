@@ -1,39 +1,78 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading, Text, Button } from '@chakra-ui/react';
 import styles from '../../styles/Home.module.css';
 import {canvas} from 'canvas';
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react';
+import white from '../../public/white.png';
+import canvas2image from "canvas2image-2";
 
+//https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
 
-  export function Frame(props){
+export function Frame(props){
 
     const canvasRef = useRef(null)
 
+    function download(ref){
+        const canvas = document.getElementById('canvas');
+        const dataURL = canvas.toDataURL();
+        console.log(dataURL);
+    };
+
+    function to_image(){
+        var canvas = document.getElementById("canvas");
+        document.getElementById("theimage").src = canvas.toDataURL();
+        Canvas2Image.saveAsPNG(canvas);
+    }
+
+    function dl(){
+        var canvasObj = document.getElementById("canvas");
+        canvas2image.convertToPNG(canvasObj, 500, 720);
+    }
+
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
-        context.font = '48px serif';
         
+    //     const bg = new Image()
+    //    // bg.setAttribute('crossOrigin', 'anonymous');
+    //     //bg.src='https://www.mactrast.com/wp-content/uploads/2018/02/188038.png'
+    //     bg.setAttribute('src','../../public/white.png')
+    //     bg.onload = () => {
+    //         console.log("second")
+    //         context.drawImage(bg, 0, 0, 500, 720);
+    //     };
+        context.fillStyle ='#ffffff'
+        context.fillRect(0, 0, 500, 720);
 
-        const bg = new Image()
-        bg.src='https://www.mactrast.com/wp-content/uploads/2018/02/188038.png'
-        bg.onload = () => {
-            console.log("second")
-            context.drawImage(bg, 0, 0, 500, 700);
-        };
+        
         const image = new Image()
+        //image.setAttribute('crossOrigin', 'anonymous');
         image.src = props.url
+
         image.onload = () => {
             console.log("here")
             context.drawImage(image, 0, 0, 500, 500);
-            context.fillText('Hello world', 40, 560);
+            context.font = '50px Special Elite';
+            context.fillStyle ='#000000'
+            context.fillText('IMAGE 0138', 40, 560);
+            // context.font = '20px Typewriter';
+            //context.fillText("@audreydock on spotify,", 40, 570);
+            context.font = '24px Special Elite';
+            context.fillText(props.chosen[0]+",", 40, 605);
+            context.fillText(props.chosen[1]+",", 40, 635);
+            context.fillText("and "+props.chosen[2] +" music", 40, 665);
+            context.font = '12px Typewriter';
+            context.fillText("create AI generated art based on your music taste at artify.com", 100, 700);
+
         };
-        
+
 
       }, [])
 
 
     return (
         <div className={styles.frame}> 
-            <canvas ref={canvasRef} width={500} height={700}/>
+            <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
+            <Button onClick={dl}>download</Button>
+            <image id="theimage"></image>
         </div>
        
     )
