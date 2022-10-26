@@ -13,7 +13,7 @@ const prompt_handler = async (req, res) => {
   var tracks;
   var artists;
 
-  await Promise.all([getUsersTopTracks(accessToken), getUsersTopArtists(accessToken)])
+  await Promise.all([getUsersTopTracks(accessToken, 'short_term'), getUsersTopArtists(accessToken, 'short_term')])
   .then(responses => Promise.all(responses.map(r => r.json())))
   .then(jsonObjects => {
     tracks = jsonObjects[0].items
