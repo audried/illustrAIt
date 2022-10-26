@@ -3,7 +3,7 @@ import styles from '../../styles/Home.module.css';
 import {canvas} from 'canvas';
 import React, { useRef, useEffect } from 'react';
 import white from '../../public/white.png';
-import canvas2image from "canvas2image-2";
+//import canvas2image from "canvas2image-2";
 
 //https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
 
@@ -52,7 +52,7 @@ export function Frame(props){
             context.drawImage(image, 0, 0, 500, 500);
             context.font = '50px Special Elite';
             context.fillStyle ='#000000'
-            context.fillText('IMAGE 0138', 40, 560);
+            context.fillText(`IMAGE #${Math.floor(Math.random()*10000)}`, 40, 560);
             // context.font = '20px Typewriter';
             //context.fillText("@audreydock on spotify,", 40, 570);
             context.font = '24px Special Elite';
@@ -71,7 +71,7 @@ export function Frame(props){
     return (
         <div className={styles.frame}> 
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
-            <Button onClick={dl}>download</Button>
+            <Button>download</Button>
             <image id="theimage"></image>
         </div>
        
