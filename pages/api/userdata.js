@@ -14,7 +14,9 @@ const handler = async (req, res) => {
   var tracks;
   var artists;
 
-  await Promise.all([getUsersTopTracks(accessToken), getUsersTopArtists(accessToken)])
+  const time_range = req.query.time_range
+
+  await Promise.all([getUsersTopTracks(accessToken, time_range), getUsersTopArtists(accessToken, time_range)])
   .then(responses => Promise.all(responses.map(r => r.json())))
   .then(jsonObjects => {
     tracks = jsonObjects[0].items

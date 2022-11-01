@@ -30,29 +30,24 @@ export function Frame(props){
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
+        const img_id = Math.floor(Math.random()*10000)
         
-    //     const bg = new Image()
-    //    // bg.setAttribute('crossOrigin', 'anonymous');
-    //     //bg.src='https://www.mactrast.com/wp-content/uploads/2018/02/188038.png'
-    //     bg.setAttribute('src','../../public/white.png')
-    //     bg.onload = () => {
-    //         console.log("second")
-    //         context.drawImage(bg, 0, 0, 500, 720);
-    //     };
-        context.fillStyle ='#ffffff'
-        context.fillRect(0, 0, 500, 720);
 
         
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
         image.src = props.url
+        context.clearRect(0, 0, 500, 720);
+        context.fillStyle ='#ffffff'
+        context.fillRect(0, 0, 500, 720);
 
         image.onload = () => {
             console.log("here")
+
             context.drawImage(image, 0, 0, 500, 500);
             context.font = '50px Special Elite';
             context.fillStyle ='#000000'
-            context.fillText(`IMAGE #${Math.floor(Math.random()*10000)}`, 40, 560);
+            context.fillText(`IMAGE #${img_id}`, 40, 560);
             // context.font = '20px Typewriter';
             //context.fillText("@audreydock on spotify,", 40, 570);
             context.font = '24px Special Elite';

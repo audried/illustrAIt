@@ -17,11 +17,17 @@ import Image from 'next/image'
 
 
 export default function Dashboard() {
+
+    const [time_range, setTimeRange] = useState("short_term");
+    const time_range_map = {'short_term':' the past month', 'medium_term':' the past 6 months', 'long_term':' all time'}
+
+
     const fetcher = (...args) => fetch(...args).then(res => res.json());
-    const { data, error } = useSWR('/api/userdata', fetcher)
+    const { data, error } = useSWR(`/api/userdata?time_range=${time_range}`, fetcher)
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
 
+    
     return(
         <Grid
         className={styles.grid}
@@ -43,11 +49,12 @@ export default function Dashboard() {
 
             <GridItem pl='2' area={'tracks'}>
                 <Box className={styles.glass} p='6' rounded='md' ml='5'>
-                    <Heading size = 'sm' mb='5'>Top Tracks
+                    <Heading size = 'sm' mb='5'>Top Tracks of
                         {/* could be something todo later */}
-                        <Select placeholder='the past month' size='sm' display="inline-block" width="initial" mx='2'>
-                            <option value='6months'>the past 6 months</option>
-                            <option value='alltime'>all time</option>
+                        <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
+                            <option value='short_term'>the past month</option>
+                            <option value='medium_term'>the past 6 months</option>
+                            <option value='long_term'>all time</option>
                         </Select>
                     </Heading>
                     <hr/>
@@ -59,9 +66,10 @@ export default function Dashboard() {
                 <Box className={styles.glass} p='6' rounded='md' ml='5'>
                     <Heading size = 'sm' mb='5'>Top Artists of
                         {/* could be something todo later */}
-                        <Select placeholder='the past month' variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
-                            <option value='6months'>the past 6 months</option>
-                            <option value='alltime'>all time</option>
+                        <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
+                            <option value='short_term'>the past month</option>
+                            <option value='medium_term'>the past 6 months</option>
+                            <option value='long_term'>all time</option>
                         </Select>
                     </Heading>
                     <hr/>
@@ -82,19 +90,6 @@ export default function Dashboard() {
                     <Image src='/../public/radarchart.png' width={320} height={320}></Image>
                 </Box>
             </GridItem>
-
-             {/*<GridItem pl='2' area={'tpop'}>
-                <Box boxShadow='xl' p='6' rounded='md' bg='rgba(173, 6, 185, 0.9)' mx='5'>
-                <Heading size = 'lg'>Avg Song Popularity</Heading>
-                <h5>{data.track_pop}</h5>
-                </Box>
-            </GridItem>
-
-            <GridItem pl='2' area={'other'}>
-                <Box boxShadow='xl' p='6' rounded='md' bg='rgba(173, 6, 185, 0.9)' mx='5'>
-                <Heading size='lg'>Other Stats</Heading>
-                </Box>
-            </GridItem> */}
 
         </Grid>
 
