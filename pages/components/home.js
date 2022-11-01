@@ -138,7 +138,7 @@ export function Landing(){
                     ))
                 }
             </Flex>
-            {visible && <Text color='white'>{caption}</Text>}
+
         </Stack>
         </Container>
     </body>
