@@ -1,3 +1,5 @@
+//https://www.chartjs.org/docs/latest/axes/styling.html
+
 import React from 'react';
 import {
   Chart as ChartJS,
@@ -38,7 +40,22 @@ export function RadarChart(props) {
            legend: {
               display: false
            }
-        }
+        },
+        scales: {
+            r: {
+              pointLabels: {
+                color: 'black'
+              },
+              max: 1,
+              min: 0,
+              ticks:{
+                showLabelBackdrop: false,
+                stepSize: 0.2,
+                z:1,
+                //color:'black'
+              }
+            }
+        }    
       }
 
 
