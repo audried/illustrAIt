@@ -32,8 +32,6 @@ export function Frame(props){
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
         
-
-        
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
         image.src = props.url
