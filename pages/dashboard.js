@@ -7,13 +7,15 @@ import {
     Text,
     Select,
     Heading,
-    Box
+    Box,
+    Button
   } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { TrackTable } from './components/table';
 import { ArtistTable } from './components/artist_table';
 import Link from 'next/link';
 import Image from 'next/image'
+import { getAudioFeatures } from '../lib/spotify';
 
 
 export default function Dashboard() {
@@ -26,6 +28,7 @@ export default function Dashboard() {
     const { data, error } = useSWR(`/api/userdata?time_range=${time_range}`, fetcher)
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
+
 
     
     return(
@@ -89,6 +92,7 @@ export default function Dashboard() {
                 <Heading size = 'sm' mb='5' >Audio Features</Heading>
                     <Image src='/../public/radarchart.png' width={320} height={320}></Image>
                 </Box>
+                
             </GridItem>
 
         </Grid>
