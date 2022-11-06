@@ -11,6 +11,7 @@ export function Frame(props){
 
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
+    //canvasRef.current.getContext("2d").font = '50px Special Elite';
 
     function download(ref){
         const canvas = document.getElementById('canvas');
@@ -41,9 +42,7 @@ export function Frame(props){
         context.fillRect(0, 0, 500, 720);
 
         image.onload = () => {
-            console.log("here")
-
-            context.drawImage(image, 0, 0, 500, 500);
+             context.drawImage(image, 0, 0, 500, 500);
             context.font = '50px Special Elite';
             context.fillStyle ='#000000'
             context.fillText(`IMAGE #${img_id}`, 40, 560);
@@ -64,6 +63,7 @@ export function Frame(props){
 
     return (
         <div className={styles.frame}> 
+            <Text className={styles.loadFont}>.</Text>
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
             <Button>download</Button>
             <image id="theimage"></image>
