@@ -45,17 +45,18 @@ export function Landing(){
         setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
-          method: "POST",
+          //method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data.result.data)
-            let temp = data.result.data.map(item =>{return item.generation.image_path})
-            console.log("urls",temp)
-            setUrls(temp)
+            //console.log(data.result.data)
+            console.log(data)
+            // let temp = data.result.data.map(item =>{return item.generation.image_path})
+            // console.log("urls",temp)
+            setUrls(data)
             setVisible(true)
             setLoading(false);
           })
