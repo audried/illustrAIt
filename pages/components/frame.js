@@ -11,6 +11,7 @@ export function Frame(props){
 
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
+    //canvasRef.current.getContext("2d").font = '50px Special Elite';
 
     function download(ref){
         const canvas = document.getElementById('canvas');
@@ -31,7 +32,6 @@ export function Frame(props){
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
-        
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
         image.src = props.url
@@ -40,8 +40,6 @@ export function Frame(props){
         context.fillRect(0, 0, 500, 720);
 
         image.onload = () => {
-            console.log("here")
-
             context.drawImage(image, 0, 0, 500, 500);
             context.font = '50px Special Elite';
             context.fillStyle ='#000000'
@@ -63,6 +61,8 @@ export function Frame(props){
 
     return (
         <div className={styles.frame}> 
+            {/* purpose of Text is to load font */}
+            <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
             <Button>download</Button>
             <image id="theimage"></image>
@@ -70,14 +70,3 @@ export function Frame(props){
        
     )
   }
-
-        // {/* <div className={styles.frame}>
-        //     <Image src={props.url} height={500} width={500} className="art"></Image>
-            
-        //     <div className={styles.textContainer}>
-        //         <Heading className={styles.user} size='lg'>ARTIFY #234 by @audreydock</Heading>
-        //         <Heading size='md' className={styles.user}>{props.chosen[0]}</Heading>
-        //         <Heading size='md' className={styles.user}>{props.chosen[1]}</Heading>
-        //         <Heading size='md' className={styles.user}>{props.chosen[2]} music</Heading>
-        //     </div>
-        // </div> */}

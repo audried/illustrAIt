@@ -54,7 +54,6 @@ export default function Dashboard() {
             <GridItem pl='2' area={'tracks'}>
                 <Box className={styles.glass} p='6' rounded='md' ml='5'>
                     <Heading size = 'sm' mb='5'>Top Tracks of
-                        {/* could be something todo later */}
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
                             <option value='medium_term'>the past 6 months</option>
@@ -69,7 +68,6 @@ export default function Dashboard() {
             <GridItem pl='2' area={'artists'}>
                 <Box className={styles.glass} p='6' rounded='md' ml='5'>
                     <Heading size = 'sm' mb='5'>Top Artists of
-                        {/* could be something todo later */}
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
                             <option value='medium_term'>the past 6 months</option>
@@ -100,7 +98,3 @@ export default function Dashboard() {
 
     );
   }
-
-//   bg='linear-gradient(90deg, rgba(167,25,189,1) 13%, rgba(106,6,120,1) 81%);'
-//'linear-gradient(90deg, rgba(106,6,120,1) 15%, rgba(80,3,91,1) 86%);'
-//linear-gradient(90deg, rgba(80,3,91,1) 21%, rgba(67,0,77,1) 86%);
