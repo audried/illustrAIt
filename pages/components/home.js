@@ -29,6 +29,7 @@ export function Landing(){
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('../api/prompt', fetcher)
     if (error) return <div>failed to load</div>
+    console.log("data",data)
 
     if (!data) {
         return <div>loading...</div>
@@ -39,13 +40,17 @@ export function Landing(){
     }
 
     function getDalle2() {
+        setVisible(false)
+        setQuery(data[0])
+        setCaption(data[1])
+        setChosen(data.slice(2))
         console.log(query)
-        setVisible(true)
+        
         //setError(false);
         setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
-          //method: "POST",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -130,6 +135,7 @@ export function Landing(){
                 {visible &&
                     urls.map(url =>(
                         <Frame url={url} caption={caption} chosen={chosen}/>
+                        
                     ))
                 }
             </Flex>

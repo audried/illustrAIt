@@ -1,17 +1,14 @@
-import { Heading, Text, Button } from '@chakra-ui/react';
+import {Text, Button } from '@chakra-ui/react';
 import styles from '../../styles/Home.module.css';
-import {canvas} from 'canvas';
 import React, { useRef, useEffect } from 'react';
-import white from '../../public/white.png';
-//import canvas2image from "canvas2image-2";
 
 //https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
+//font fix: https://stackoverflow.com/questions/2756575/drawing-text-to-canvas-with-font-face-does-not-work-at-the-first-time
 
 export function Frame(props){
 
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
-    //canvasRef.current.getContext("2d").font = '50px Special Elite';
 
     function download(ref){
         const canvas = document.getElementById('canvas');
@@ -44,8 +41,6 @@ export function Frame(props){
             context.font = '50px Special Elite';
             context.fillStyle ='#000000'
             context.fillText(`IMAGE #${img_id}`, 40, 560);
-            // context.font = '20px Typewriter';
-            //context.fillText("@audreydock on spotify,", 40, 570);
             context.font = '24px Special Elite';
             context.fillText(props.chosen[0]+",", 40, 605);
             context.fillText(props.chosen[1]+",", 40, 635);
@@ -54,7 +49,6 @@ export function Frame(props){
             context.fillText("create AI generated art based on your music taste at artify.com", 100, 700);
 
         };
-
 
       }, [])
 
