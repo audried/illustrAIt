@@ -34,7 +34,10 @@ export function Frame(props){
         const context = canvasRef.current.getContext("2d");
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
-        image.src = props.url
+        const proxy_url = "http://localhost:3000/api/image-proxy?q=" + props.url
+        console.log(proxy_url)
+
+        image.src = proxy_url
         context.clearRect(0, 0, 500, 720);
         context.fillStyle ='#ffffff'
         context.fillRect(0, 0, 500, 720);
