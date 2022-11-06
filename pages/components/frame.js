@@ -9,6 +9,7 @@ import white from '../../public/white.png';
 
 export function Frame(props){
 
+    const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
 
     function download(ref){
@@ -30,9 +31,6 @@ export function Frame(props){
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
-        const img_id = Math.floor(Math.random()*10000)
-        
-
         
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
