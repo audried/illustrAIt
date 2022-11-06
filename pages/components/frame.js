@@ -31,6 +31,7 @@ export function Frame(props){
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
+        context.font = '50px Special Elite';
         
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
