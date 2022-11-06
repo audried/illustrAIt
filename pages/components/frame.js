@@ -32,8 +32,6 @@ export function Frame(props){
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
-        context.font = '50px Special Elite';
-        
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
         image.src = props.url
@@ -42,7 +40,7 @@ export function Frame(props){
         context.fillRect(0, 0, 500, 720);
 
         image.onload = () => {
-             context.drawImage(image, 0, 0, 500, 500);
+            context.drawImage(image, 0, 0, 500, 500);
             context.font = '50px Special Elite';
             context.fillStyle ='#000000'
             context.fillText(`IMAGE #${img_id}`, 40, 560);
@@ -63,7 +61,8 @@ export function Frame(props){
 
     return (
         <div className={styles.frame}> 
-            <Text className={styles.loadFont}>.</Text>
+            {/* purpose of Text is to load font */}
+            <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
             <Button>download</Button>
             <image id="theimage"></image>
@@ -71,14 +70,3 @@ export function Frame(props){
        
     )
   }
-
-        // {/* <div className={styles.frame}>
-        //     <Image src={props.url} height={500} width={500} className="art"></Image>
-            
-        //     <div className={styles.textContainer}>
-        //         <Heading className={styles.user} size='lg'>ARTIFY #234 by @audreydock</Heading>
-        //         <Heading size='md' className={styles.user}>{props.chosen[0]}</Heading>
-        //         <Heading size='md' className={styles.user}>{props.chosen[1]}</Heading>
-        //         <Heading size='md' className={styles.user}>{props.chosen[2]} music</Heading>
-        //     </div>
-        // </div> */}

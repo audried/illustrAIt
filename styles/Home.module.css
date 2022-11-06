@@ -60,6 +60,7 @@
   padding-left: 5%;
 }
 
+/* used in frame component to load the font before canvas is texted on */
 .loadFont{
   font-family: 'Special Elite';
   color: rgba( 255, 255, 255, 0.1 );
