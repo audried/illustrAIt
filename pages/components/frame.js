@@ -17,18 +17,11 @@ export function Frame(props){
         const canvas = document.getElementById('canvas');
         const dataURL = canvas.toDataURL();
         console.log(dataURL);
+        var link = document.createElement('a');
+        link.download = "my-image.png";
+        link.href = dataURL;
+        link.click();
     };
-
-    function to_image(){
-        var canvas = document.getElementById("canvas");
-        document.getElementById("theimage").src = canvas.toDataURL();
-        Canvas2Image.saveAsPNG(canvas);
-    }
-
-    function dl(){
-        var canvasObj = document.getElementById("canvas");
-        canvas2image.convertToPNG(canvasObj, 500, 720);
-    }
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
@@ -67,7 +60,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
-            <Button>download</Button>
+            <Button onClick={download}>download</Button>
             <image id="theimage"></image>
         </div>
        
