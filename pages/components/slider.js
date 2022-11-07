@@ -10,7 +10,7 @@ import styles from '../../styles/Swiper.module.css';
 
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper";
+import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
 export default function SimpleSlider() {
 
@@ -33,15 +33,17 @@ export default function SimpleSlider() {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"auto"}
-        coverflowEffect={{
-          rotate: 15,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        loop={true}
+        // coverflowEffect={{
+        //   rotate: 15,
+        //   stretch: 0,
+        //   depth: 100,
+        //   modifier: 1,
+        //   slideShadows: true,
+        // }}
+       
+        modules={[ Navigation]}
+        navigation={true}
         className={styles.swiper}
       >
         {srclist.map((url) => { return(
