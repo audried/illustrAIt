@@ -17,24 +17,20 @@ export function Frame(props){
         const canvas = document.getElementById('canvas');
         const dataURL = canvas.toDataURL();
         console.log(dataURL);
+        var link = document.createElement('a');
+        link.download = "my-image.png";
+        link.href = dataURL;
+        link.click();
     };
-
-    function to_image(){
-        var canvas = document.getElementById("canvas");
-        document.getElementById("theimage").src = canvas.toDataURL();
-        Canvas2Image.saveAsPNG(canvas);
-    }
-
-    function dl(){
-        var canvasObj = document.getElementById("canvas");
-        canvas2image.convertToPNG(canvasObj, 500, 720);
-    }
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
-        image.src = props.url
+        const proxy_url = "http://localhost:3000/api/image-proxy?q=" + props.url
+        console.log(proxy_url)
+
+        image.src = proxy_url
         context.clearRect(0, 0, 500, 720);
         context.fillStyle ='#ffffff'
         context.fillRect(0, 0, 500, 720);
@@ -64,7 +60,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
-            <Button>download</Button>
+            <Button onClick={download}>download</Button>
             <image id="theimage"></image>
         </div>
        
