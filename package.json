@@ -12,8 +12,6 @@
     "@chakra-ui/react": "^2.3.6",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "canvas": "^2.10.2",
-    "canvas2image-2": "^2.3.0",
     "chart.js": "^3.9.1",
     "dalle-node": "^1.0.7",
     "framer-motion": "^6.5.1",
