@@ -3,17 +3,22 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from 'next/image';
 
+
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+
 import styles from '../../styles/Swiper.module.css';
 
 
 // import required modules
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
-export default function SimpleSlider() {
+export default function PhotoSwiper() {
 
     const srclist=[
         '/dalle-generations/a.png',

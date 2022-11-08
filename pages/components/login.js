@@ -14,7 +14,7 @@ import {
 import Link from 'next/link';
 import useSWR from 'swr'
 import Dashboard from '../dashboard';
-import SimpleSlider from './slider'
+import PhotoSwiper from './swiper'
 
 
 export function Login(){
@@ -55,7 +55,7 @@ export function Login(){
          
         </Stack>
         <Flex w={'full'}>
-          <SimpleSlider></SimpleSlider>
+          <PhotoSwiper></PhotoSwiper>
         </Flex>
       </Stack>
     </Container>
