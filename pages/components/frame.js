@@ -25,7 +25,7 @@ export function Frame(props){
         const image = new Image()
         //image.setAttribute('crossOrigin', 'anonymous');
         const proxy_url = "http://localhost:3000/api/image-proxy?q=" + props.url
-        console.log(proxy_url)
+        //console.log(proxy_url)
 
         image.src = proxy_url
         context.clearRect(0, 0, 500, 720);

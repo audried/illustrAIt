@@ -11,7 +11,7 @@
 
 module.exports = {
   images: {
-    domains: ['openailabsprodscus.blob.core.windows.net',"openailabsprodscus.blob.core.windows.net", 'i.scdn.co' ],
+    domains: ['openailabsprodscus.blob.core.windows.net',"openailabsprodscus.blob.core.windows.net", 'i.scdn.co', 'labs.openai.com' ],
     formats: ['image/avif', 'image/webp'],
   },
   reactStrictMode: true,
