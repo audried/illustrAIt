@@ -54,7 +54,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
-            <Button onClick={download}>download</Button>
+            <Button onClick={download} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Download image</Button>
             <image id="theimage"></image>
         </div>
        

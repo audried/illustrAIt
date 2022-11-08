@@ -35,7 +35,11 @@
 }
 .frame{
   margin: 3%;
-  border: 10px yellow
+  border: 10px yellow;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* padding-bottom:2%;
   background: white;
   border: 1px solid black;
