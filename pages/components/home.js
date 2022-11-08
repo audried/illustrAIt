@@ -42,9 +42,11 @@ export function Landing(){
     function getDalle2() {
         setVisible(false)
         setQuery(data[0])
-        setCaption(data[1])
+        setCaption("")
+        setChosen()
         setChosen(data.slice(2))
-        console.log(query)
+        console.log("q",query)
+        console.log("c",chosen)
         
         //setError(false);
         setLoading(true);
