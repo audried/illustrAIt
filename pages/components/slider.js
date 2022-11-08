@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from 'next/image';
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,17 +15,24 @@ import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
 export default function SimpleSlider() {
 
-    const srclist = [
-        "https://swiperjs.com/demos/images/nature-1.jpg",
-        "https://swiperjs.com/demos/images/nature-2.jpg",
-        "https://swiperjs.com/demos/images/nature-3.jpg",
-        "https://swiperjs.com/demos/images/nature-4.jpg",
-        "https://swiperjs.com/demos/images/nature-5.jpg",
-        "https://swiperjs.com/demos/images/nature-6.jpg",
-        "https://swiperjs.com/demos/images/nature-7.jpg",
-        "https://swiperjs.com/demos/images/nature-8.jpg",
-        "https://swiperjs.com/demos/images/nature-9.jpg"
-
+    const srclist=[
+        '/dalle-generations/a.png',
+        '/dalle-generations/b.png',
+        '/dalle-generations/c.png',
+        '/dalle-generations/d.png',
+        '/dalle-generations/e.png',
+        '/dalle-generations/f.png',
+        '/dalle-generations/g.png',
+        '/dalle-generations/h.png',
+        '/dalle-generations/i.png',
+        '/dalle-generations/j.png',
+        '/dalle-generations/k.png',
+        '/dalle-generations/l.png',
+        '/dalle-generations/m.png',
+        '/dalle-generations/n.png',
+        '/dalle-generations/o.png',
+        '/dalle-generations/p.png',
+        '/dalle-generations/q.png',
     ]
   return (
     <>
@@ -48,7 +56,7 @@ export default function SimpleSlider() {
       >
         {srclist.map((url) => { return(
             <SwiperSlide className={styles.swiperslide}>
-                <img src={url} />
+                <Image src={url} height={250} width={250}/>
             </SwiperSlide>)
         })}
 
