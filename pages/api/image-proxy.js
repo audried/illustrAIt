@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
     var url = req.query.q
-    console.log(url)
+    //console.log(url)
     if (url.slice(0,57) !== "https://oaidalleapiprodscus.blob.core.windows.net/private") {
         res.status(400).send("Bad request")
         return
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
             url = url + "&" + key + "=" + encodeURIComponent(req.query[key])
         }
     })
-    console.log(url)
+    //console.log(url)
 
     fetch(url).then(actual => {
         actual.headers.forEach((v, n) => res.setHeader(n, v));

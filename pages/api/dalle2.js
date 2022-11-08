@@ -5,6 +5,7 @@ export default async function handler(req, res) {
     apiKey: process.env.OPENAI_API_KEY,
   });
   const openai = new OpenAIApi(configuration);
+  console.log('THISISQUERY', req.query.q)
 
   const response = await openai.createImage({
     prompt: req.query.q,
