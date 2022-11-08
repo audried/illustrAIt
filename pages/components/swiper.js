@@ -16,7 +16,7 @@ import styles from '../../styles/Swiper.module.css';
 
 
 // import required modules
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 
 export default function PhotoSwiper() {
 
@@ -47,6 +47,10 @@ export default function PhotoSwiper() {
         centeredSlides={true}
         slidesPerView={"auto"}
         loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         // coverflowEffect={{
         //   rotate: 15,
         //   stretch: 0,
@@ -55,9 +59,18 @@ export default function PhotoSwiper() {
         //   slideShadows: true,
         // }}
        
-        modules={[ Navigation]}
-        navigation={true}
+        modules={[ Navigation, Autoplay]}
+        //navigation={true}
         className={styles.swiper}
+        // breakpoints={{
+        //   500: {
+        //     slidesPerView: 1,
+        //   },
+        //   1024: {
+        //     slidesPerView:'auto'
+        //   },
+        // }
+        // }
       >
         {srclist.map((url) => { return(
             <SwiperSlide className={styles.swiperslide}>

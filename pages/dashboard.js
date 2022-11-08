@@ -41,8 +41,8 @@ export default function Dashboard() {
                         "tracks artists other"`}
         gridTemplateRows={'1fr 1fr 1fr 8fr'}
         gridTemplateColumns={'2fr 2fr 2fr'}
-        h='200vh'
-        w='100%'
+        //h='200vh'
+        //w='100%'
         m='auto'
         gap='3'
         color='blackAlpha.700'
