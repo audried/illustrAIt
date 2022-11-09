@@ -38,7 +38,22 @@ export default function PhotoSwiper() {
         '/dalle-generations/o.png',
         '/dalle-generations/p.png',
         '/dalle-generations/q.png',
-    ]
+        '/dalle-generations/r.png',
+        '/dalle-generations/s.png',
+        '/dalle-generations/t.png',
+        '/dalle-generations/u.png',
+        '/dalle-generations/v.png',
+        '/dalle-generations/w.png',
+        '/dalle-generations/x.png',
+        '/dalle-generations/y.png',
+        '/dalle-generations/z.png',
+        '/dalle-generations/aa.png',
+        '/dalle-generations/bb.png',
+        '/dalle-generations/cc.png',
+        '/dalle-generations/dd.png',
+        '/dalle-generations/ee.png',
+    ].sort(() => (Math.random() > .5) ? 1 : -1)
+
   return (
     <>
       <Swiper
