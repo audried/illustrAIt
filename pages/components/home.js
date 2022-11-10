@@ -13,7 +13,7 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { Frame } from './frame';
-//import { Loading } from './loading'
+import { Loading } from './loading'
 
 
 
@@ -32,7 +32,7 @@ export function Landing(){
     console.log("data",data)
 
     if (!data) {
-        return <div>...</div>
+        return (<Loading></Loading>)
     }else if (query == ""){
         setQuery(data[0])
         setCaption(data[1])
@@ -131,7 +131,7 @@ export function Landing(){
             </Stack>
 
             <Flex className={styles.imageContainer} w={'full'}>
-                {loading && <div>loading...</div>}
+                {loading && <Loading></Loading>}
                 {visible &&
                     urls.map(url =>(
                         <Frame url={url} caption={caption} chosen={chosen}/>

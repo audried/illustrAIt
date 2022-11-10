@@ -66,7 +66,11 @@ export default function PhotoSwiper() {
         '/dalle-generations/pp.png',
         '/dalle-generations/qq.png',
         '/dalle-generations/rr.png',
-        '/dalle-generations/ss.png'
+        '/dalle-generations/ss.png',
+        '/dalle-generations/tt.png',
+        '/dalle-generations/uu.png',
+        '/dalle-generations/vv.png',
+        '/dalle-generations/ww.png'
   
     ].sort(() => (Math.random() > .5) ? 1 : -1)
 
