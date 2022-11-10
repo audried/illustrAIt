@@ -13,7 +13,7 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { Frame } from './frame';
-
+//import { Loading } from './loading'
 
 
 
@@ -32,7 +32,7 @@ export function Landing(){
     console.log("data",data)
 
     if (!data) {
-        return <div>loading...</div>
+        return <div>...</div>
     }else if (query == ""){
         setQuery(data[0])
         setCaption(data[1])
