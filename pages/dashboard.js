@@ -17,7 +17,7 @@ import Link from 'next/link';
 import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
 import { RadarChart } from './components/radar'
-
+import Header  from './components/header';
 
 export default function Dashboard() {
 
@@ -43,12 +43,12 @@ export default function Dashboard() {
         gridTemplateColumns={'2fr 2fr 2fr'}
         //h='200vh'
         //w='100%'
-        m='auto'
+        //m='auto'
         gap='3'
         color='blackAlpha.700'
         >
-            <GridItem pl='2' area={'header'} margin="auto">
-                <Link href='/'><Heading size='3xl' color='white'>Your Stats</Heading></Link>
+            <GridItem pl='2' area={'header'}>
+                <Header></Header>
             </GridItem>
 
             <GridItem pl='2' area={'tracks'}>

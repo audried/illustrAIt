@@ -1,11 +1,14 @@
 import {Text, Button } from '@chakra-ui/react';
 import styles from '../../styles/Home.module.css';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 //https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
 //font fix: https://stackoverflow.com/questions/2756575/drawing-text-to-canvas-with-font-face-does-not-work-at-the-first-time
 
+//need to have canvas element present, BUT not show up until image is loaded...
 export function Frame(props){
+
+    const [isVisible, setIsVisible] = useState(false)
 
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
@@ -42,8 +45,8 @@ export function Frame(props){
             context.fillText(props.chosen[1]+",", 40, 635);
             context.fillText("and "+props.chosen[2] +" music", 40, 665);
             context.font = '12px Typewriter';
-            context.fillText("create AI generated art based on your music taste at artify.com", 100, 700);
-
+            context.fillText("create AI generated art based on your music taste at illustrait.us", 100, 700);
+            setIsVisible(true)
         };
 
       }, [])
@@ -53,7 +56,7 @@ export function Frame(props){
         <div className={styles.frame}> 
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
-            <canvas id="canvas" ref={canvasRef} width={500} height={720}/>
+            <canvas id="canvas" ref={canvasRef} width={500} height={720} style={ isVisible ? {} : { visibility: "hidden" } }/>
             <Button onClick={download} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Download image</Button>
             <image id="theimage"></image>
         </div>
