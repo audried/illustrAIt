@@ -14,7 +14,7 @@ import useSWR from 'swr';
 import Image from 'next/image';
 import { Frame } from './frame';
 import { Loading } from './loading'
-
+import  Header from './heading'
 
 
 export function Landing(){
@@ -87,8 +87,14 @@ export function Landing(){
 
     return(
         <body className={styles.body}>
-        <Container  maxWidth={'8xl'}>
-        <Button size='sm' onClick={() => signOut()}>Sign out</Button>
+        <Container  maxWidth={'100%'} mx={0} px={0}>
+            {/* <Flex alignItems={'center'}>
+                <Image src='/logo2.png' height={60} width={260}></Image>
+                <Text size='md' mx={10}>About</Text>
+                <Button size='md' variant='ghost' onClick={() => signOut()}>Sign out</Button>
+            </Flex> */}
+            <Header></Header>
+        
         <Stack
             // textAlign={'center'}
             align={'center'}

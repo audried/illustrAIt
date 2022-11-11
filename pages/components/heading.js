@@ -1,0 +1,63 @@
+
+import {
+  Box,
+  Flex,
+  Avatar,
+  HStack,
+  Link,
+  Button, 
+  useDisclosure,
+  useColorModeValue,
+  Stack,
+} from '@chakra-ui/react';
+import Image from 'next/image';
+import NextLink from "next/link"
+//import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+
+const Links = ['Dashboard', 'Projects', 'Team'];
+
+const Header = () => (
+  <Link
+    px={2}
+    py={1}
+    rounded={'md'}
+    _hover={{
+      textDecoration: 'none',
+      bg: useColorModeValue('gray.200', 'gray.700'),
+    }}
+    href={'#'}>
+   hello
+  </Link>
+);
+
+export default function Simple() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Box bg={'rgba(230, 230, 230, 0)'} px={4}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+          
+          <HStack spacing={8} alignItems={'center'}>
+            <Box><Image src='/logo2.png' height={60} width={260}></Image></Box>
+            <HStack
+              as={'nav'}
+              spacing={4}
+              display={{ base: 'none', md: 'flex' }}>
+              
+               <Button size='md' color={'white'} variant='link' onClick={() => signOut()}>Sign out</Button>
+                <NextLink href='/about' passHref>
+                    <Link color={'white'} >About</Link>
+                </NextLink>
+
+             
+            </HStack>
+          </HStack>
+          
+        </Flex>
+
+      </Box>
+
+    </>
+  );
+}
