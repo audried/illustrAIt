@@ -45,7 +45,7 @@ export function Frame(props){
             context.fillText(props.chosen[1]+",", 40, 635);
             context.fillText("and "+props.chosen[2] +" music", 40, 665);
             context.font = '12px Typewriter';
-            context.fillText("create AI generated art based on your music taste at artify.com", 100, 700);
+            context.fillText("create AI generated art based on your music taste at illustrait.us", 100, 700);
             setIsVisible(true)
         };
 

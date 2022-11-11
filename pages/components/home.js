@@ -31,9 +31,10 @@ export function Landing(){
     if (error) return <div>failed to load</div>
     console.log("data",data)
 
-    if (!data) {
-        return (<Loading></Loading>)
-    }else if (query == ""){
+    // if (!data) {
+    //     return 
+    // }else 
+    if (data && query == ""){
         setQuery(data[0])
         setCaption(data[1])
         setChosen(data.slice(2))
@@ -59,7 +60,7 @@ export function Landing(){
           .then((data) => {
             setUrls(data)
             setVisible(true)
-            setLoading(false);
+            setLoading(false); //needs to happen later - once canvas element appears
           })
           .catch((err) => {
             console.log(err);
