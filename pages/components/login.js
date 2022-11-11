@@ -1,5 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import styles from '../../styles/Home.module.css';
+import { Venmo } from './venmo'
 import {useState} from 'react';
 import {
   Flex,
@@ -53,7 +54,7 @@ export function Login(){
          
         </Stack>
         <Flex w={'full'}>
-          
+          <Venmo />
         </Flex>
       </Stack>
     </Container>

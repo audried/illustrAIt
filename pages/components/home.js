@@ -1,4 +1,5 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
+import { Venmo } from './venmo'
 import styles from '../../styles/Home.module.css';
 import {useState} from 'react';
 import {
@@ -6,6 +7,7 @@ import {
   Container,
   Heading,
   Stack,
+  VStack,
   Text,
   Button
 } from '@chakra-ui/react';
@@ -33,13 +35,19 @@ export function Landing(){
 
     if (!data) {
         return <div>loading...</div>
-    }else if (query == ""){
+    }else if (query == "" && !data.image_urls){
         setQuery(data[0])
         setCaption(data[1])
         setChosen(data.slice(2))
     }
 
-    function getDalle2() {
+    if (data && data.image_urls && urls.length == 0) {
+        console.log("in")
+        setUrls(data.image_urls)
+        setVisible(true)
+    }
+
+    async function getDalle2() {
         setVisible(false)
         setQuery(data[0])
         setCaption(data[1])
@@ -55,11 +63,17 @@ export function Landing(){
             "Content-Type": "application/json",
           },
         })
-          .then((res) => res.json())
-          .then((data) => {
-            setUrls(data)
-            setVisible(true)
-            setLoading(false);
+          .then(async (res) => {
+            const data = await res.json()
+            console.log(data)
+            if (res.status == 200) {
+                setUrls(data)
+                setVisible(true)
+                setLoading(false);
+            } else {
+                console.log(data)
+                setLoading(false);
+            }
           })
           .catch((err) => {
             console.log(err);
@@ -69,6 +83,23 @@ export function Landing(){
        
       }
 
+    async function validatePayment(order_id){
+        let headers = new Headers();
+        headers.set('Authorization', 'Basic ' + Buffer.from(client_id + ":" + client_secret).toString('base64'));
+        headers.set('Content-Type', "application/x-www-form-urlencoded")
+
+        const token = await fetch("http://localhost:3000/api/payment-verify", {
+            method: 'POST',
+            headers: headers,
+            body: 'grant_type=client_credentials'
+        }).then(function (resp) {
+            return resp.json();
+        }).then(function (data) {
+            // Log the API data
+            console.log('token', data);
+                return data.access_token
+        })
+    }
 
       function buttonClick(){
         const p = ["https://oaidalleapiprodscus.blob.core.windows.net/private/org-EqtOqYOQ3gfM2v1xrwx4NjUA/user-bJIqmx887APGHewBpZ3qUiQU/img-pq8NfLZ4hMLBK1j6ez2D5cV8.png?st=2022-11-06T03:16:50Z",
@@ -130,6 +161,7 @@ export function Landing(){
             
             </Stack>
 
+
             <Flex className={styles.imageContainer} w={'full'}>
                 {loading && <div>loading...</div>}
                 {visible &&
@@ -139,7 +171,7 @@ export function Landing(){
                     ))
                 }
             </Flex>
-
+            {visible && <Venmo validatePayment={validatePayment}/>}
         </Stack>
         </Container>
     </body>
