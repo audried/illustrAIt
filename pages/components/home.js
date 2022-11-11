@@ -86,8 +86,8 @@ export function Landing(){
       }
 
     return(
-        <body className={styles.body}>
-        <Container  maxWidth={'100%'} mx={0} px={0}>
+        // <body className={styles.body}>
+        <Container  maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
             {/* <Flex alignItems={'center'}>
                 <Image src='/logo2.png' height={60} width={260}></Image>
                 <Text size='md' mx={10}>About</Text>
@@ -149,6 +149,6 @@ export function Landing(){
 
         </Stack>
         </Container>
-    </body>
+    // </body>
     )
 }

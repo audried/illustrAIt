@@ -16,14 +16,19 @@
   background-size: cover;
 }
 
- .grid, .login, .about{
+ .grid, .login, .about, .homepage{
   /* background-image: url("../public/bg.jpeg"); */
   /* background: rgb(238,174,202);  */
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(166,184,227,1) 50%, rgba(63,158,151,1) 100%);
   height:100vh;
   width:100%;
-  margin:0
+  margin:0;
+  padding-left: 5;
+  padding-right: 5;
 } 
+.dashloading{
+  margin: auto
+}
 
 .glass{
   background: rgba( 255, 255, 255, 0.4 );

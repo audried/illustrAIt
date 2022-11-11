@@ -8,7 +8,9 @@ import {
     Select,
     Heading,
     Box,
-    Button
+    Button,
+    Container,
+    Flex
   } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { TrackTable } from './components/table';
@@ -18,6 +20,7 @@ import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
 import { RadarChart } from './components/radar'
 import Header  from './components/header';
+import { Loading } from './components/loading'
 
 export default function Dashboard() {
 
@@ -28,7 +31,12 @@ export default function Dashboard() {
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR(`/api/userdata?time_range=${time_range}`, fetcher)
     if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
+    if (!data) return( 
+        <Container maxW={'100%'} className={styles.grid}>
+            <Flex alignItems={'center'} justifyContent={'center'} height={'100vh'}>
+                <Loading />
+            </Flex>
+        </Container>)
 
 
     
