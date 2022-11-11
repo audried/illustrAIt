@@ -14,7 +14,7 @@ import useSWR from 'swr';
 import Image from 'next/image';
 import { Frame } from './frame';
 import { Loading } from './loading'
-import  Header from './heading'
+import  Header from './header'
 
 
 export function Landing(){

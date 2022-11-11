@@ -17,26 +17,25 @@ import {useSession, signIn, signOut} from 'next-auth/react';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
-const Header = () => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-   hello
-  </Link>
-);
+// const Header = () => (
+//   <Link
+//     px={2}
+//     py={1}
+//     rounded={'md'}
+//     _hover={{
+//       textDecoration: 'none',
+//       bg: useColorModeValue('gray.200', 'gray.700'),
+//     }}
+//     href={'#'}>
+//    hello
+//   </Link>
+// );
 
-export default function Simple() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export default function Header() {
 
   return (
     <>
-      <Box bg={'rgba(230, 230, 230, 0)'} px={4}>
+      <Box bg={'rgba(230, 230, 230, 0)'} px={4} py={3}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           
           <HStack spacing={8} alignItems={'center'}>
