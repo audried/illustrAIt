@@ -11,7 +11,8 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import NextLink from "next/link"
+import NextLink from "next/link";
+import {useSession, signIn, signOut} from 'next-auth/react';
 //import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 const Links = ['Dashboard', 'Projects', 'Team'];

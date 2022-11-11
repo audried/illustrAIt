@@ -20,7 +20,7 @@ import PhotoSwiper from './swiper'
 export function Login(){
     return(
 
-    <Container maxW={'8xl'} className={styles.login}>
+    <Container maxW={'100%'} className={styles.login}>
       <Stack
         // textAlign={'center'}
         align={'center'}
@@ -54,7 +54,7 @@ export function Login(){
             </Button>
          
         </Stack>
-        <Flex w={'full'}>
+        <Flex w={'80%'}>
           <PhotoSwiper></PhotoSwiper>
         </Flex>
       </Stack>
