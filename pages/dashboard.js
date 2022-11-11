@@ -43,12 +43,13 @@ export default function Dashboard() {
     return(
         <Grid
         className={styles.grid}
-        templateAreas={`"header header header "
-                        "tracks artists features"
-                        "tracks artists genres"
-                        "tracks artists other"`}
-        gridTemplateRows={'1fr 1fr 1fr 8fr'}
-        gridTemplateColumns={'2fr 2fr 2fr'}
+        
+        // templateAreas={`"header header header "
+        //                 "tracks artists features"
+        //                 "tracks artists genres"
+        //                 "tracks artists other"`}
+        // gridTemplateRows={'1fr 1fr 1fr 8fr'}
+        // gridTemplateColumns={'2fr 2fr 2fr'}
         //h='200vh'
         //w='100%'
         //m='auto'
