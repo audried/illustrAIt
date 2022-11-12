@@ -5,7 +5,6 @@ import { Bars } from  'react-loader-spinner'
 
 export function Loading(){
     return(
-        // <Flex direction='column'>
         <Bars
         height="80"
         width="80"
@@ -15,7 +14,5 @@ export function Loading(){
         wrapperClass=""
         visible={true}
         />
-        /* <Text color={'white'} fontSize='lg'>loading...</Text>
-        </Flex> */
     )
 }
