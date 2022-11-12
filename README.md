@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## illustrait
+
+This is a [Next.js](https://nextjs.org/) project built upon the Spotify API and Dalle API that allows users can view AI generated art inspired by their music taste. .
 
 ## Running the app locally:
 
