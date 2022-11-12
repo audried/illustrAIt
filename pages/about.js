@@ -8,9 +8,10 @@ export default function About() {
         <Container maxW={'100%'} className={styles.about}>
         <Header></Header>
         <Box className={styles.glass} p='6' rounded='md' ml='5'>
-            <Heading>About illustrait:</Heading>
-            <Text>heyy</Text>
+            {/* <Heading>About illustrait:</Heading> */}
+            <Text>Illustrait is </Text>
             <Link href={'https://github.com/audried/spotify-art'}>Github</Link>
+            <Text>add FAQs? </Text>
         </Box>
         </Container>
     )
