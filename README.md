@@ -15,9 +15,10 @@ In settings, register http://localhost:3000/api/auth/callback/spotify as a Redir
 
 Create a folder in the root directory named `.env` and add your Spotify Client ID and Client Secret. 
 It should look like this:
-```SPOTIFY_CLIENT_ID=xxxx
-SPOTIFY_CLIENT_SECRET=xxxx```
 
+```SPOTIFY_CLIENT_ID=xxxx
+SPOTIFY_CLIENT_SECRET=xxxx
+```
 
 #### OpenAI Credentials
 
@@ -26,7 +27,8 @@ Create a new secret key and add it to the .env file. It should now look like:
 
 ```SPOTIFY_CLIENT_ID=xxxx
 SPOTIFY_CLIENT_SECRET=xxxx
-OPENAI_API_KEY=sk-xxxx```
+OPENAI_API_KEY=sk-xxxx
+```
 
 ## Getting Started
 
