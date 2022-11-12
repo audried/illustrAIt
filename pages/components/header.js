@@ -62,9 +62,10 @@ export default function Header() {
               <NextLink href='/dashboard' passHref>
                   <Link color={'white'} >Dashboard</Link>
               </NextLink>
-              <NextLink href='/about' passHref>
+              {/* Will add 'about' page once we have more to say about it / FAQs */}
+              {/* <NextLink href='/about' passHref>
                 <Link color={'white'} >About</Link>
-              </NextLink>
+              </NextLink> */}
               <NextLink href='/contact' passHref>
                 <Link color={'white'} >Contact</Link>
               </NextLink>

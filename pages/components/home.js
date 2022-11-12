@@ -144,7 +144,6 @@ export function Landing(){
                 {visible &&
                     urls.map(url =>(
                         <Frame url={url} caption={caption} chosen={chosen}/>
-                        
                     ))
                 }
             </Flex>
