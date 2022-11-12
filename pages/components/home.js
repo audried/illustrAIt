@@ -13,7 +13,8 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { Frame } from './frame';
-import { Loading } from './loading'
+import { Loading } from './loading';
+import { Error } from './error'
 import  Header from './header'
 
 
@@ -25,6 +26,7 @@ export function Landing(){
     const [caption, setCaption] = useState("")
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isError, setError] = useState(false)
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('../api/prompt', fetcher)
@@ -46,8 +48,7 @@ export function Landing(){
         setCaption(data[1])
         setChosen(data.slice(2))
         console.log(query)
-        
-        //setError(false);
+        setError(false);
         setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
@@ -65,7 +66,7 @@ export function Landing(){
           .catch((err) => {
             console.log(err);
             setLoading(false);
-            // setError(true);
+            setError(true);
           });
        
       }
@@ -85,60 +86,61 @@ export function Landing(){
         setUrls(p)
       }
 
+      function testError(){
+        setError(true)
+      }
+
     return(
         // <body className={styles.body}>
         <Container  maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
-            {/* <Flex alignItems={'center'}>
-                <Image src='/logo2.png' height={60} width={260}></Image>
-                <Text size='md' mx={10}>About</Text>
-                <Button size='md' variant='ghost' onClick={() => signOut()}>Sign out</Button>
-            </Flex> */}
+
             <Header></Header>
         
-        <Stack
-            // textAlign={'center'}
-            align={'center'}
-            spacing={{ base: 8, md: 10 }}
-            py={{ base: 20, md: 28 }}
-            width='100%'>
-            {/* px={{ base: 2, md: 5 }} */}
-            <Heading
-            fontWeight={600}
-            fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
-            lineHeight={'110%'}>
-            <Text as={'span'} color={'white'}>
-                AI generated art. <br/>
-            </Text>
-            <Text as={'span'} color={'white'}>
-                Based on your listening. 
-            </Text>
-            </Heading>
-            <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-            Artify analyzes your spotify listening history from the past month and uses 
-            DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
-            DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
-            </Text>
-            <Stack spacing={6} direction={'row'}>
-            
-                <Button
-                    onClick={getDalle2}
-                    rounded={'full'}
-                    size='lg'
-                    px={6}
-                    colorScheme={'purple'}
-                    bg={'purple.400'}
-                    _hover={{ bg: 'purple.500' }}>
-                    Generate Art
-                </Button>
+            <Stack
+                // textAlign={'center'}
+                align={'center'}
+                spacing={{ base: 8, md: 10 }}
+                py={{ base: 20, md: 28 }}
+                width='100%'>
+                {/* px={{ base: 2, md: 5 }} */}
+                <Heading
+                fontWeight={600}
+                fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
+                lineHeight={'110%'}>
+                <Text as={'span'} color={'white'}>
+                    AI generated art. <br/>
+                </Text>
+                <Text as={'span'} color={'white'}>
+                    Based on your listening. 
+                </Text>
+                </Heading>
+                <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
+                Artify analyzes your spotify listening history from the past month and uses 
+                DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
+                DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
+                </Text>
+                <Stack spacing={6} direction={'row'}>
+                
+                    <Button
+                        onClick={getDalle2}
+                        rounded={'full'}
+                        size='lg'
+                        px={6}
+                        colorScheme={'purple'}
+                        bg={'purple.400'}
+                        _hover={{ bg: 'purple.500' }}>
+                        Generate Art
+                    </Button>
 
-                <Link href = "/dashboard">
-                    <Button rounded={'full'} px={6} size='lg'> Dashboard</Button>
-                </Link>
-            
-            </Stack>
+                    <Link href = "/dashboard">
+                        <Button rounded={'full'} px={6} size='lg'> Dashboard</Button>
+                    </Link>
+                
+                </Stack>
 
             <Flex className={styles.imageContainer} w={'full'}>
                 {loading && <Loading></Loading>}
+                {isError && <Error></Error>}
                 {visible &&
                     urls.map(url =>(
                         <Frame url={url} caption={caption} chosen={chosen}/>
