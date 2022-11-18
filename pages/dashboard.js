@@ -70,18 +70,24 @@ export default function Dashboard() {
                     <hr/>
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
+
+                <Flex direction={{ base: 'column', md: 'row' }} className={styles.flex}>
     
-                <Box className={styles.glass} p='6' rounded='md'  >
-                <Heading size = 'sm' mb='5' >Audio Features</Heading>
-                    <RadarChart data={data.audio_features} labels={data.feature_labels}/>
-                </Box>
-      
-                <Box className={styles.glass} p='6' rounded='md' mx='5' >
-                <Heading size = 'sm' mb='5' >Top Genres</Heading>
-                    <PieChart data={data.piedata} labels={data.pielabels}></PieChart>
-                </Box>
+                    <Box className={styles.flexglass} p='6' rounded='md' width={{md:'49%'}}>
+                    <Heading size = 'sm' mb='5' >Audio Features</Heading>
+                        <RadarChart data={data.audio_features} labels={data.feature_labels}/>
+                    </Box>
+        
+                    <Box className={styles.flexglass} p='6' rounded='md' mt={{ base: '5', md: '0' }} width={{md:'49%'}}>
+                    <Heading size = 'sm'  >Top Genres</Heading>
+                    <Text className={styles.subhead} color='gray' mb='5' >
+                        Click on a section to display label
+                    </Text>
+                        <PieChart data={data.piedata} labels={data.pielabels}></PieChart>
+                    </Box>
+                </Flex>
          
-</Container>
+    </Container>
 
     );
   }
