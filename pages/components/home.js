@@ -109,15 +109,14 @@ export function Landing(){
                 fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
                 lineHeight={'110%'}>
                 <Text as={'span'} color={'white'}>
-                AI generated art. <br/>
+                If your music taste could <br/>
               </Text>
               <Text as={'span'} color={'white'}>
-                Based on your listening. 
+                paint a picture. 
               </Text>
                 </Heading>
                 <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-                illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
-                The images are generated using DALLE-2, a cutting-edge artifical intelligence system that can create never-seen-before pictures based on a description. 
+                illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to you. 
                 Want to try it out yourself? Click the button below
                 </Text>
                 <Stack spacing={6} direction={'row'}>

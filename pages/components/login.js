@@ -39,9 +39,8 @@ export function Login(){
           </Text>
         </Heading>
         <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-        illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
-                The images are generated using DALLE-2, a cutting-edge artifical intelligence system that can create never-seen-before pictures based on a description. 
-                Check out the photos below to see real examples that were created based on users' spotify profiles. 
+          illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
+          Check out the photos below to see real examples that were created based on users' spotify profiles. 
         </Text>
         <Stack spacing={6} direction={'row'}>
   
