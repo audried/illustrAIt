@@ -71,7 +71,7 @@ export default function Dashboard() {
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
 
-                <Flex direction={{ base: 'column', md: 'row' }} className={styles.flex}>
+                <Flex direction={{ base: 'column', md: 'row' }} justify={'space-between'} className={styles.flex}>
     
                     <Box className={styles.flexglass} p='6' rounded='md' width={{md:'49%'}}>
                     <Heading size = 'sm' mb='5' >Audio Features</Heading>

@@ -20,7 +20,7 @@ export function PieChart(props) {
               '#90b2d3',
               '#68a8b5',
               '#3f9e97',
-              '#7faec7',
+              '#7fbec7',
               '#7faec7',
               '#ceb2d5',
               '#d991b0',
