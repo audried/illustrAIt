@@ -33,7 +33,7 @@ SPOTIFY_CLIENT_SECRET=xxxx
 OPENAI_API_KEY=sk-xxxx
 ```
 
-#### viewing the webpage
+#### Running the app
 
 First, run the development server:
 
