@@ -20,6 +20,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import {useSession, signIn, signOut} from 'next-auth/react';
 import Image from 'next/image';
+import styles from '../../styles/Home.module.css';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -51,6 +52,7 @@ export default function Header() {
             aria-label={'Open Menu'}
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
+            className={styles.glass}
           />
 
           <HStack spacing={8} alignItems={'center'}>
@@ -78,7 +80,7 @@ export default function Header() {
         </Flex>
 
         {isOpen ? (
-          <Box bg={'whiteAlpha.400'} pb={4} display={{ md: 'none' }}>
+          <Box  pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               <NextLink href='/dashboard' passHref>
                   <Link color={'white'} >Dashboard</Link>
