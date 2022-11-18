@@ -1,6 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Dash.module.css';
 import {
     Grid,
     GridItem,
@@ -19,6 +19,7 @@ import Link from 'next/link';
 import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
 import { RadarChart } from './components/radar'
+import { PieChart } from './components/pie'
 import Header  from './components/header';
 import { Loading } from './components/loading'
 
@@ -33,6 +34,7 @@ export default function Dashboard() {
     if (error) return <div>failed to load</div>
     if (!data) return( 
         <Container maxW={'100%'} className={styles.grid}>
+            <Header></Header>
             <Flex alignItems={'center'} justifyContent={'center'} height={'100vh'}>
                 <Loading />
             </Flex>
@@ -41,27 +43,11 @@ export default function Dashboard() {
 
     
     return(
-        <Grid
-        className={styles.grid}
-        
-        // templateAreas={`"header header header "
-        //                 "tracks artists features"
-        //                 "tracks artists genres"
-        //                 "tracks artists other"`}
-        // gridTemplateRows={'1fr 1fr 1fr 8fr'}
-        // gridTemplateColumns={'2fr 2fr 2fr'}
-        //h='200vh'
-        //w='100%'
-        //m='auto'
-        gap='3'
-        color='blackAlpha.700'
-        >
-            <GridItem pl='2' area={'header'}>
+    
+        <Container maxW={'100%'} className={styles.dash}>
                 <Header></Header>
-            </GridItem>
-
-            <GridItem pl='2' area={'tracks'}>
-                <Box className={styles.glass} p='6' rounded='md' ml='5'>
+           
+                <Box className={styles.glass} p='6' rounded='md'  my='5'>
                     <Heading size = 'sm' mb='5'>Top Tracks of
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
@@ -72,10 +58,8 @@ export default function Dashboard() {
                     <hr/>
                     <TrackTable data={data}/>
                 </Box>
-            </GridItem>
-
-            <GridItem pl='2' area={'artists'}>
-                <Box className={styles.glass} p='6' rounded='md' ml='5'>
+       
+                <Box className={styles.glass} p='6' rounded='md' mb='5'>
                     <Heading size = 'sm' mb='5'>Top Artists of
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
@@ -86,24 +70,18 @@ export default function Dashboard() {
                     <hr/>
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
-            </GridItem>
-
-            <GridItem pl='2' area={'features'}>
-                <Box className={styles.glass} p='6' rounded='md' mx='5' >
+    
+                <Box className={styles.glass} p='6' rounded='md'  >
                 <Heading size = 'sm' mb='5' >Audio Features</Heading>
                     <RadarChart data={data.audio_features} labels={data.feature_labels}/>
                 </Box>
-            </GridItem>  
-
-            <GridItem pl='2' area={'genres'}>
+      
                 <Box className={styles.glass} p='6' rounded='md' mx='5' >
                 <Heading size = 'sm' mb='5' >Top Genres</Heading>
-                    <Image src='/../public/piechart.png' width={320} height={320}></Image>
+                    <PieChart data={data.piedata} labels={data.pielabels}></PieChart>
                 </Box>
-            </GridItem>
-
-        </Grid>
-
+         
+</Container>
 
     );
   }

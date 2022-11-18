@@ -82,12 +82,16 @@ export default function Header() {
         {isOpen ? (
           <Box  pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
+              <NextLink href='/' passHref>
+                  <Link color={'white'} >Home</Link>
+              </NextLink>
               <NextLink href='/dashboard' passHref>
                   <Link color={'white'} >Dashboard</Link>
               </NextLink>
+              {/* once we have users, add about  page
               <NextLink href='/about' passHref>
                 <Link color={'white'} >About</Link>
-              </NextLink>
+              </NextLink> */}
               <NextLink href='/contact' passHref>
                 <Link color={'white'} >Contact</Link>
               </NextLink>
