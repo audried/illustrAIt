@@ -9,8 +9,8 @@ export default function About() {
         <Header></Header>
         <Box className={styles.glass} p='6' rounded='md' ml='5'>
             {/* <Heading>About illustrait:</Heading> */}
-            <Text>Illustrait is </Text>
-            <Link href={'https://github.com/audried/spotify-art'}>Github</Link>
+            <Text>Illustrait was inspired by Spotify wrapped and my fascination with DALLE</Text>
+            <Text>If you care about how it was made, check out the Github Repository: <Link href={'https://github.com/audried/spotify-art'}>https://github.com/audried/spotify-art</Link></Text>
             <Text>add FAQs? </Text>
         </Box>
         </Container>

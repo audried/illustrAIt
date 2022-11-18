@@ -100,6 +100,7 @@ export function Landing(){
                 // textAlign={'center'}
                 align={'center'}
                 spacing={{ base: 8, md: 10 }}
+                px={{ base: 5, md: 5 }}
                 py={{ base: 20, md: 28 }}
                 width='100%'>
                 {/* px={{ base: 2, md: 5 }} */}
@@ -108,16 +109,16 @@ export function Landing(){
                 fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
                 lineHeight={'110%'}>
                 <Text as={'span'} color={'white'}>
-                    AI generated art. <br/>
-                </Text>
-                <Text as={'span'} color={'white'}>
-                    Based on your listening. 
-                </Text>
+                AI generated art. <br/>
+              </Text>
+              <Text as={'span'} color={'white'}>
+                Based on your listening. 
+              </Text>
                 </Heading>
                 <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-                Artify analyzes your spotify listening history from the past month and uses 
-                DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
-                DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
+                illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
+                The images are generated using DALLE-2, a cutting-edge artifical intelligence system that can create never-seen-before pictures based on a description. 
+                Want to try it out yourself? Click the button below
                 </Text>
                 <Stack spacing={6} direction={'row'}>
                 
