@@ -47,7 +47,7 @@ export default function Dashboard() {
         <Container maxW={'100%'} className={styles.dash}>
                 <Header></Header>
            
-                <Box className={styles.glass} p='6' rounded='md'  my='5'>
+                <Box className={styles.glass} p='6' rounded='md'  my='5' maxW={'850px'} mx={'auto'}>
                     <Heading size = 'sm' mb='5'>Top Tracks of
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
@@ -59,7 +59,7 @@ export default function Dashboard() {
                     <TrackTable data={data}/>
                 </Box>
        
-                <Box className={styles.glass} p='6' rounded='md' mb='5'>
+                <Box className={styles.glass} p='6' rounded='md' mb='5' maxW={'850px'} mx={'auto'}>
                     <Heading size = 'sm' mb='5'>Top Artists of
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
@@ -71,7 +71,7 @@ export default function Dashboard() {
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
 
-                <Flex direction={{ base: 'column', md: 'row' }} justify={'space-between'} className={styles.flex}>
+                <Flex direction={{ base: 'column', md: 'row' }} justify={'space-between'} className={styles.flex} maxW={'850px'} mx={'auto'} mb={'10px'}>
     
                     <Box className={styles.flexglass} p='6' rounded='md' width={{md:'49%'}}>
                     <Heading size = 'sm' mb='5' >Audio Features</Heading>
