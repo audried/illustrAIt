@@ -12,6 +12,7 @@ export function Frame(props){
 
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
+    
 
     function download(ref){
         const canvas = document.getElementById('canvas');
