@@ -26,9 +26,7 @@
   padding-left: 5;
   padding-right: 5;
 } 
-.dashloading{
-  margin: auto
-}
+
 
 .glass{
   background: rgba( 255, 255, 255, 0.4 );
@@ -38,6 +36,19 @@
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
+ 
+
+.contactGlass{
+  background: rgba( 255, 255, 255, 0.4 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7px );
+  -webkit-backdrop-filter: blur( 7px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  margin-left: 0
+}
+
 .frame{
   margin: 3%;
   border: 10px yellow;
@@ -82,18 +93,4 @@
   background-color: aqua;
 }
 
-.grid{
-  grid-template-areas: "header header header "
-    "tracks artists features"
-    "tracks artists genres"
-    "tracks artists other";
-    grid-template-rows: '1fr 1fr 1fr 8fr';
-    grid-template-columns:'33% 33% 33%' ;
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(166,184,227,1) 50%, rgba(63,158,151,1) 100%);
-    height:100vh;
-    width:100%;
-    margin:0;
-    padding-left: 5;
-    padding-right: 5;
 
-}

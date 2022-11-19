@@ -31,12 +31,9 @@ export function Landing(){
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('../api/prompt', fetcher)
     if (error) return <div>failed to load</div>
-    console.log("data",data)
 
-    // if (!data) {
-    //     return 
-    // }else 
-    if (data && query == ""){
+    
+   if (data && query == ""){
         setQuery(data[0])
         setCaption(data[1])
         setChosen(data.slice(2))
@@ -71,17 +68,10 @@ export function Landing(){
        
       }
 
-
+      //for testing purposes, when you don't want to spend money for urls
       function buttonClick(){
         const p = ["https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-6SV0NFAaBGHjKL6uLdL5yvYo/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=5m8SdI3Ks56y/9JJDSVoj%2BeS6DMF8vuty0VPbmt7Y8g%3D",
-       
-        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-mg6BvWd8eNIck37XQGwPyI9B/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=ToW%2BlJSu/ZFWr%2Bc6cXnOdAsATAr4ZjY88M35hTj1flQ%3D",
-     
-        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-BAUL74ZHDoGNqcsrbP81bR4J/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=/lvQZey1e6ojPy7mVIklINB0r7iVOo7XvkTqVkwsuLM%3D",
-     
-        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-HcxbHAHmlSh2EjisUKJTxuTv/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=iyfxsnqO%2BTGGluSy2Wntrfc40bELmHljNjrUsk05ZME%3D"]
-        
-       
+        "https://openailabsprodscus.blob.core.windows.net/private/user-bJIqmx887APGHewBpZ3qUiQU/generations/generation-mg6BvWd8eNIck37XQGwPyI9B/image.webp?st=2022-10-25T18%3A39%3A43Z&se=2022-10-25T20%3A37%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-10-25T18%3A00%3A23Z&ske=2022-11-01T18%3A00%3A23Z&sks=b&skv=2021-08-06&sig=ToW%2BlJSu/ZFWr%2Bc6cXnOdAsATAr4ZjY88M35hTj1flQ%3D"]
         setVisible(true)
         setUrls(p)
       }
@@ -91,7 +81,7 @@ export function Landing(){
       }
 
     return(
-        // <body className={styles.body}>
+    
         <Container  maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
 
             <Header></Header>
@@ -100,6 +90,7 @@ export function Landing(){
                 // textAlign={'center'}
                 align={'center'}
                 spacing={{ base: 8, md: 10 }}
+                px={{ base: 5, md: 5 }}
                 py={{ base: 20, md: 28 }}
                 width='100%'>
                 {/* px={{ base: 2, md: 5 }} */}
@@ -107,17 +98,22 @@ export function Landing(){
                 fontWeight={600}
                 fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
                 lineHeight={'110%'}>
-                <Text as={'span'} color={'white'}>
-                    AI generated art. <br/>
-                </Text>
-                <Text as={'span'} color={'white'}>
-                    Based on your listening. 
-                </Text>
+                {/* <Text as={'span'} color={'white'}>
+                If your music taste could <br/>
+              </Text>
+              <Text as={'span'} color={'white'}>
+                paint a picture. 
+              </Text> */}
+              <Text as={'span'} color={'white'}>
+                AI generated art. <br/>
+              </Text>
+              <Text as={'span'} color={'white'}>
+                Based on your listening. 
+              </Text>
                 </Heading>
                 <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-                Artify analyzes your spotify listening history from the past month and uses 
-                DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
-                DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
+                illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to you. 
+                Want to try it out yourself? Click the button below
                 </Text>
                 <Stack spacing={6} direction={'row'}>
                 
@@ -150,6 +146,6 @@ export function Landing(){
 
         </Stack>
         </Container>
-    // </body>
+
     )
 }

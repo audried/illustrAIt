@@ -25,7 +25,6 @@ const handler = async (req, res) => {
     ids = jsonObjects[0].items.map(t=>{return t.id})
   })
 
-
   const audio_features_response = await getAudioFeatures(accessToken, ids)
   const audio_features_json = await audio_features_response.json()
   userdata = parseData(tracks,artists, audio_features_json["audio_features"])

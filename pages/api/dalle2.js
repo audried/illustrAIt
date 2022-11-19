@@ -1,3 +1,5 @@
+//sends array of image urls to api/dalle2
+
 export default async function handler(req, res) {
 
   const { Configuration, OpenAIApi } = require("openai");

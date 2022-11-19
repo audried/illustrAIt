@@ -1,9 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
 import {getUsersTopArtists} from '../../lib/spotify';
 import {getUsersTopTracks} from '../../lib/spotify';
 import {getSession} from 'next-auth/react';
 import { generatePrompt } from '../../lib/generate_prompt';
 
+//sends prompt, caption, and chosen media to api/prompt
 const prompt_handler = async (req, res) => {
 
   const {
