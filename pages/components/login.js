@@ -1,6 +1,5 @@
-import {useSession, signIn, signOut} from 'next-auth/react';
+import {signIn} from 'next-auth/react';
 import styles from '../../styles/Home.module.css';
-import {useState} from 'react';
 import {
   Flex,
   Container,
@@ -8,12 +7,7 @@ import {
   Stack,
   Text,
   Button,
-  Icon,
-  IconProps,
 } from '@chakra-ui/react';
-import Link from 'next/link';
-import useSWR from 'swr'
-import Dashboard from '../dashboard';
 import PhotoSwiper from './swiper'
 
 
@@ -22,7 +16,7 @@ export function Login(){
 
     <Container maxW={'100%'} className={styles.login}>
       <Stack
-        // textAlign={'center'}
+        
         align={'center'}
         spacing={{ base: 8, md: 10 }}
         

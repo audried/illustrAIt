@@ -2,41 +2,19 @@ import { ReactNode } from 'react';
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
-  useColorModeValue,
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
-import {useSession, signIn, signOut} from 'next-auth/react';
+import {signOut} from 'next-auth/react';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
 
-const Links = ['Dashboard', 'Projects', 'Team'];
-
-// const NavLink = ({ children }: { children: ReactNode }) => (
-//   <Link
-//     px={2}
-//     py={1}
-//     rounded={'md'}
-//     _hover={{
-//       textDecoration: 'none',
-//       bg: useColorModeValue('gray.200', 'gray.700'),
-//     }}
-//     href={'#'}>
-//     {children}
-//   </Link>
-// );
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();

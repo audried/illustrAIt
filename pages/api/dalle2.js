@@ -1,3 +1,5 @@
+//sends array of image urls to api/dalle2
+
 export default async function handler(req, res) {
 
   const { Configuration, OpenAIApi } = require("openai");
@@ -9,7 +11,7 @@ export default async function handler(req, res) {
 
   const response = await openai.createImage({
     prompt: req.query.q,
-    n: 2,
+    n: 1,
     size: "1024x1024",
   });
 
