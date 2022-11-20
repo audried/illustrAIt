@@ -33,7 +33,7 @@ export default function Header() {
             className={styles.glass}
           />
 
-          <HStack spacing={8} alignItems={'center'}>
+          <HStack spacing={8} alignItems={'center'} mt={2}>
             <Link href = "/"><Image src='/logo2.png' height={40} width={180}></Image></Link>
             <HStack
               as={'nav'}

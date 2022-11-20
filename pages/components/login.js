@@ -18,7 +18,6 @@ export function Login(){
 
     <Container maxW={'100%'} className={styles.login}>
       <Stack
-        
         align={'center'}
         spacing={{ base: 8, md: 10 }}
         
