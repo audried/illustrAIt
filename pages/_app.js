@@ -2,6 +2,7 @@
 import {SessionProvider} from 'next-auth/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
+import '../styles/styles.css'
 
 const colors = {
   brand: {

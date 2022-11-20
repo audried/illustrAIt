@@ -5,6 +5,7 @@ import {getSession} from 'next-auth/react';
 import {userLookup} from '../../lib/user_lookup';
 import {putUser} from '../../lib/user_lookup';
 import { generatePrompt } from '../../lib/generate_prompt';
+//sends array of image urls to api/dalle2
 
 export default async function handler(req, res) {
     const {
@@ -44,6 +45,7 @@ export default async function handler(req, res) {
         apiKey: process.env.OPENAI_API_KEY,
     });
     const openai = new OpenAIApi(configuration);
+    console.log('THISISQUERY', promptArr[0])
 
     const response = await openai.createImage({
         prompt: promptArr[0],

@@ -1,4 +1,4 @@
-import {useSession, signIn, signOut} from 'next-auth/react';
+import {signIn} from 'next-auth/react';
 import styles from '../../styles/Home.module.css';
 import { Venmo } from './venmo'
 import {useState} from 'react';
@@ -9,19 +9,16 @@ import {
   Stack,
   Text,
   Button,
-  Icon,
-  IconProps,
 } from '@chakra-ui/react';
-import Link from 'next/link';
-import useSWR from 'swr'
-import Dashboard from '../dashboard';
+import PhotoSwiper from './swiper'
+
 
 export function Login(){
     return(
 
-    <Container maxW={'8xl'} className={styles.login}>
+    <Container maxW={'100%'} className={styles.login}>
       <Stack
-        // textAlign={'center'}
+        
         align={'center'}
         spacing={{ base: 8, md: 10 }}
         
@@ -38,9 +35,8 @@ export function Login(){
           </Text>
         </Heading>
         <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
-          [NAME] analyzes your spotify listening history from the past month and uses 
-          DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah  listening history from the past month and uses 
-          DALLE-2 to create a masterpiece that is truly unique to your music taste. Blah Blah 
+          illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
+          Check out the photos below to see real examples that were created based on users' spotify profiles. 
         </Text>
         <Stack spacing={6} direction={'row'}>
   
@@ -53,8 +49,8 @@ export function Login(){
             </Button>
          
         </Stack>
-        <Flex w={'full'}>
-          <Venmo />
+        <Flex w={'80%'}>
+          <PhotoSwiper></PhotoSwiper>
         </Flex>
       </Stack>
     </Container>

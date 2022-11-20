@@ -18,7 +18,7 @@ import {
 
     return (
         <TableContainer>
-        <Table variant='simple' colorScheme={'blackAlpha.700'}>
+        <Table variant='simple' colorScheme={'gray'}>
         <TableCaption>
             {numRows==10 && <Button onClick={() => setNumRows(20)} variant='link' colorScheme={'blackAlpha.700'}>show more</Button>}
             {numRows==20 && <Button onClick={() => setNumRows(10)} variant='link' colorScheme={'blackAlpha.700'}>show less</Button>}

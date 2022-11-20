@@ -1,6 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Dash.module.css';
 import {
     Grid,
     GridItem,
@@ -8,7 +8,9 @@ import {
     Select,
     Heading,
     Box,
-    Button
+    Button,
+    Container,
+    Flex
   } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { TrackTable } from './components/table';
@@ -17,7 +19,9 @@ import Link from 'next/link';
 import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
 import { RadarChart } from './components/radar'
-
+import { PieChart } from './components/pie'
+import Header  from './components/header';
+import { Loading } from './components/loading'
 
 export default function Dashboard() {
 
@@ -28,31 +32,22 @@ export default function Dashboard() {
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR(`/api/userdata?time_range=${time_range}`, fetcher)
     if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
+    if (!data) return( 
+        <Container maxW={'100%'} className={styles.grid}>
+            <Header></Header>
+            <Flex alignItems={'center'} justifyContent={'center'} height={'100vh'}>
+                <Loading />
+            </Flex>
+        </Container>)
 
 
     
     return(
-        <Grid
-        className={styles.grid}
-        templateAreas={`"header header header "
-                        "tracks artists features"
-                        "tracks artists genres"
-                        "tracks artists other"`}
-        gridTemplateRows={'1fr 1fr 1fr 8fr'}
-        gridTemplateColumns={'2fr 2fr 2fr'}
-        h='200vh'
-        w='100%'
-        m='auto'
-        gap='3'
-        color='blackAlpha.700'
-        >
-            <GridItem pl='2' area={'header'} margin="auto">
-                <Link href='/'><Heading size='3xl' color='white'>Your Stats</Heading></Link>
-            </GridItem>
-
-            <GridItem pl='2' area={'tracks'}>
-                <Box className={styles.glass} p='6' rounded='md' ml='5'>
+    
+        <Container maxW={'100%'} className={styles.dash}>
+                <Header></Header>
+           
+                <Box className={styles.glass} p='6' rounded='md'  my='5'>
                     <Heading size = 'sm' mb='5'>Top Tracks of
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
@@ -63,10 +58,8 @@ export default function Dashboard() {
                     <hr/>
                     <TrackTable data={data}/>
                 </Box>
-            </GridItem>
-
-            <GridItem pl='2' area={'artists'}>
-                <Box className={styles.glass} p='6' rounded='md' ml='5'>
+       
+                <Box className={styles.glass} p='6' rounded='md' mb='5'>
                     <Heading size = 'sm' mb='5'>Top Artists of
                         <Select onChange={(e) => {setTimeRange(e.target.value)}} placeholder={time_range_map[time_range]} variant='outline' size='sm' display="inline-block" width="initial" mx='2'>
                             <option value='short_term'>the past month</option>
@@ -77,24 +70,24 @@ export default function Dashboard() {
                     <hr/>
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
-            </GridItem>
 
-            <GridItem pl='2' area={'features'}>
-                <Box className={styles.glass} p='6' rounded='md' mx='5' >
-                <Heading size = 'sm' mb='5' >Audio Features</Heading>
-                    <RadarChart data={data.audio_features} labels={data.feature_labels}/>
-                </Box>
-            </GridItem>  
-
-            <GridItem pl='2' area={'genres'}>
-                <Box className={styles.glass} p='6' rounded='md' mx='5' >
-                <Heading size = 'sm' mb='5' >Top Genres</Heading>
-                    <Image src='/../public/piechart.png' width={320} height={320}></Image>
-                </Box>
-            </GridItem>
-
-        </Grid>
-
+                <Flex direction={{ base: 'column', md: 'row' }} justify={'space-between'} className={styles.flex}>
+    
+                    <Box className={styles.flexglass} p='6' rounded='md' width={{md:'49%'}}>
+                    <Heading size = 'sm' mb='5' >Audio Features</Heading>
+                        <RadarChart data={data.audio_features} labels={data.feature_labels}/>
+                    </Box>
+        
+                    <Box className={styles.flexglass} p='6' rounded='md' mt={{ base: '5', md: '0' }} width={{md:'49%'}}>
+                    <Heading size = 'sm'  >Top Genres</Heading>
+                    <Text className={styles.subhead} color='gray' mb='5' >
+                        Click on a section to display label
+                    </Text>
+                        <PieChart data={data.piedata} labels={data.pielabels}></PieChart>
+                    </Box>
+                </Flex>
+         
+    </Container>
 
     );
   }
