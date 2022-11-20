@@ -36,7 +36,6 @@ export function Landing(){
     if (!data) {
         return <div>loading...</div>
     }else if (data.promptArr && urls.length ===0){
-        console.log("inyer")
         console.log(data.promptArr)
         setUrls(data.image_urls)
         setQuery(data.promptArr[0])
