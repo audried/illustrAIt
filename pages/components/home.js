@@ -29,32 +29,24 @@ export function Landing(){
     const [loading, setLoading] = useState(false);
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
-    const { data, error } = useSWR('../api/prompt', fetcher)
+    const { data, error } = useSWR('../api/check-used', fetcher)
     if (error) return <div>failed to load</div>
     console.log("data",data)
 
     if (!data) {
         return <div>loading...</div>
-    }else if (query == "" && !data.image_urls){
-        setQuery(data[0])
-        setCaption(data[1])
-        setChosen(data.slice(2))
-    }
-
-    if (data && data.image_urls && urls.length == 0) {
-        console.log("in")
+    }else if (data.promptArr && urls.length ===0){
+        console.log("inyer")
+        console.log(data.promptArr)
         setUrls(data.image_urls)
+        setQuery(data.promptArr[0])
+        setCaption(data.promptArr[1])
+        setChosen(data.promptArr.slice(2))
         setVisible(true)
     }
 
     async function getDalle2() {
         setVisible(false)
-        setQuery(data[0])
-        setCaption(data[1])
-        setChosen(data.slice(2))
-        console.log(query)
-        
-        //setError(false);
         setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
@@ -67,7 +59,10 @@ export function Landing(){
             const data = await res.json()
             console.log(data)
             if (res.status == 200) {
-                setUrls(data)
+                setQuery(data["promptArr"][0])
+                setCaption(data["promptArr"][1])
+                setChosen(data["promptArr"].slice(2))
+                setUrls(data["image_urls"])
                 setVisible(true)
                 setLoading(false);
             } else {

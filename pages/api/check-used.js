@@ -6,7 +6,7 @@ import {getUsersInfo} from '../../lib/spotify';
 import {getSession} from 'next-auth/react';
 import { generatePrompt } from '../../lib/generate_prompt';
 
-const prompt_handler = async (req, res) => {
+const check_used_handler = async (req, res) => {
 
     const {
         token: {accessToken},
@@ -27,18 +27,11 @@ const prompt_handler = async (req, res) => {
     if (user) {
         if (user["hasUsed"]) {
             console.log("has used", user["hasUsed"])
-            res.status(400).json({"message":"Already used today", "image_urls": user["image_urls"]}).send()
+            res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
             return
         }
+    } else {
+        res.status(200).json({"message":"User has not yet generated an image today."})
     }
-    await Promise.all([getUsersTopTracks(accessToken, 'short_term'), getUsersTopArtists(accessToken, 'short_term')])
-    .then(responses => Promise.all(responses.map(r => r.json())))
-    .then(jsonObjects => {
-        tracks = jsonObjects[0].items
-        artists = jsonObjects[1].items
-    });
-
-
-    res.status(200).json(generatePrompt(tracks,artists))
 } 
-export default prompt_handler;
+export default check_used_handler;
