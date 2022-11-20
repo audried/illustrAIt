@@ -42,6 +42,7 @@ export function Landing(){
             setCaption(data.promptArr[1])
             setChosen(data.promptArr.slice(2))
             setVisible(true)
+        }
     }
 
     async function getDalle2() {
