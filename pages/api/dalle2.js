@@ -31,6 +31,7 @@ export default async function handler(req, res) {
 
     var tracks;
     var artists;
+    
     await Promise.all([getUsersTopTracks(accessToken, 'short_term'), getUsersTopArtists(accessToken, 'short_term')])
     .then(responses => Promise.all(responses.map(r => r.json())))
     .then(jsonObjects => {

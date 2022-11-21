@@ -1,5 +1,5 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import styles from '../../styles/Dash.module.css';
+import styles from '../styles/Dash.module.css';
 import {
   Text,
   Modal,
@@ -21,7 +21,7 @@ export function Venmo(props) {
                     {/* Change to true or remove conditional for Venmo integration.  */}
                     {false && <ModalBody>
                         <Text>
-                            If you really want another image, you can Venmo us a dollar and we'll generate another 2 images for you!
+                            If you really want another image, you can Venmo us a dollar and we&#39;ll generate another 2 images for you!
                         </Text>
                         <div style={{paddingTop: "2vh"}}>
                             <PayPalScriptProvider style={{width: "100%", height:"100%"}} options={{ "enable-funding":"venmo", "currency": "USD", "components": "buttons,funding-eligibility", "client-id": "AdJ1KVzaTxZ_QSvsdByZ1z6AdUNBrbafSjIP0YsBIbd31kSYIhu9YShEIXd2oUETeM14SqPNflvSxn4u" }}>

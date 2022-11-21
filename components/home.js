@@ -1,6 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import { Venmo } from './venmo'
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import {useState} from 'react';
 import {
   Flex,
@@ -171,7 +171,7 @@ export function Landing(){
                 {isError && <Error></Error>}
                 {visible &&
                     urls.map(url =>(
-                        <Frame url={url} caption={caption} chosen={chosen}/>
+                        <Frame url={url} caption={caption} chosen={chosen} key={url}/>
                     ))
                 }
             </Flex>

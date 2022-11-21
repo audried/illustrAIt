@@ -1,6 +1,6 @@
 
 import {Text, Button } from '@chakra-ui/react';
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import React, { useRef, useEffect, useState } from 'react';
 
 //https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image

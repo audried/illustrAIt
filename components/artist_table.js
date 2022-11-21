@@ -33,7 +33,7 @@ import {
 
             <Tbody>
                 {props.data.artists.slice(0,numRows).map((item, index) => (
-                  <Tr>
+                  <Tr key={index}>
                     <Td>{index+1}</Td>
                     <Td >{item.name}</Td>
                     <Td > {item.popularity}%</Td>

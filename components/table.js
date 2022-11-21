@@ -36,7 +36,7 @@ import {
 
             <Tbody>
                 {props.data.tracks.slice(0,numRows).map((item, index) => (
-                  <Tr>
+                  <Tr key={index}>
                     <Td>{index+1}</Td>
                     {/* <Td padding={2}><Image src={item.image} key={item.image} height={40} width={40} border-radius={34} margin-left={3}></Image>{item.name}</Td> */}
                     <Td>{item.name}</Td>
