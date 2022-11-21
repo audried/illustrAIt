@@ -171,7 +171,7 @@ export function Landing(){
                 {isError && <Error></Error>}
                 {visible &&
                     urls.map(url =>(
-                        <Frame url={url} caption={caption} chosen={chosen}/>
+                        <Frame url={url} caption={caption} chosen={chosen} key={url}/>
                     ))
                 }
             </Flex>

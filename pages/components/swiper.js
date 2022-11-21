@@ -111,8 +111,8 @@ export default function PhotoSwiper() {
         // }
       >
         {srclist.map((url) => { return(
-            <SwiperSlide className={styles.swiperslide}>
-                <Image src={url} height={250} width={250}/>
+            <SwiperSlide className={styles.swiperslide} key={url}>
+                <Image src={url} height={250} width={250} key={url}/>
             </SwiperSlide>)
         })}
 
