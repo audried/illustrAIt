@@ -18,7 +18,8 @@ export function Venmo(props) {
             <ModalContent>
                     <ModalHeader>Generating images costs us money, so we have to limit you to one per day. Please check back after midnight EST!</ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody>
+                    {/* Change to true or remove conditional for Venmo integration.  */}
+                    {false && <ModalBody>
                         <Text>
                             If you really want another image, you can Venmo us a dollar and we'll generate another 2 images for you!
                         </Text>
@@ -47,7 +48,7 @@ export function Venmo(props) {
                                 </PayPalButtons>
                             </PayPalScriptProvider>
                         </div>
-                    </ModalBody>
+                    </ModalBody>}
             </ModalContent>
         </Modal>
     )
