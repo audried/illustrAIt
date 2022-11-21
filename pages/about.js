@@ -1,4 +1,4 @@
-import Header  from './components/header';
+import Header  from '../components/header';
 import styles from '../styles/Home.module.css';
 import { Container, Box, Text, Heading} from '@chakra-ui/react';
 import Link from 'next/link';

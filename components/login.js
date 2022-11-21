@@ -1,5 +1,5 @@
 import {signIn} from 'next-auth/react';
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import { Venmo } from './venmo'
 import {useState} from 'react';
 import {

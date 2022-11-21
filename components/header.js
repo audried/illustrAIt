@@ -13,7 +13,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import {signOut} from 'next-auth/react';
 import Image from 'next/image';
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 
 
 export default function Header() {

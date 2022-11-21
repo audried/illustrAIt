@@ -13,15 +13,15 @@ import {
     Flex
   } from '@chakra-ui/react';
 import useSWR from 'swr';
-import { TrackTable } from './components/table';
-import { ArtistTable } from './components/artist_table';
+import { TrackTable } from '../components/table';
+import { ArtistTable } from '../components/artist_table';
 import Link from 'next/link';
 import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
-import { RadarChart } from './components/radar'
-import { PieChart } from './components/pie'
-import Header  from './components/header';
-import { Loading } from './components/loading'
+import { RadarChart } from '../components/radar'
+import { PieChart } from '../components/pie'
+import Header  from '../components/header';
+import { Loading } from '../components/loading'
 
 export default function Dashboard() {
 

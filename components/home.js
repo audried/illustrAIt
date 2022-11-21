@@ -1,6 +1,6 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
 import { Venmo } from './venmo'
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import {useState} from 'react';
 import {
   Flex,

@@ -1,5 +1,5 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import styles from '../../styles/Dash.module.css';
+import styles from '../styles/Dash.module.css';
 import {
   Text,
   Modal,

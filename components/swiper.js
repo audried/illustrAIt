@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import "swiper/css/lazy";
 
 
-import styles from '../../styles/Swiper.module.css';
+import styles from '../styles/Swiper.module.css';
 
 
 // import required modules
