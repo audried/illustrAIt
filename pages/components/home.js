@@ -7,9 +7,9 @@ import {
   Container,
   Heading,
   Stack,
-  VStack,
   Text,
-  Button
+  Button,
+  useDisclosure
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -21,7 +21,7 @@ import  Header from './header'
 
 
 export function Landing(){
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const [urls, setUrls] = useState([])
     const [chosen, setChosen] = useState()
     const [query, setQuery] = useState("")
@@ -60,6 +60,9 @@ export function Landing(){
             const data = await res.json()
             console.log(data)
             if (res.status == 200) {
+                if (data.message === "Already used today") {
+                        onOpen()
+                }
                 setQuery(data["promptArr"][0])
                 setCaption(data["promptArr"][1])
                 setChosen(data["promptArr"].slice(2))
@@ -145,7 +148,6 @@ export function Landing(){
                 Want to try it out yourself? Click the button below
                 </Text>
                 <Stack spacing={6} direction={'row'}>
-                
                     <Button
                         onClick={getDalle2}
                         rounded={'full'}
@@ -156,7 +158,7 @@ export function Landing(){
                         _hover={{ bg: 'purple.500' }}>
                         Generate Art
                     </Button>
-
+                    <Venmo isOpen={isOpen} onClose={onClose} validatePayment={validatePayment}/>
                     <Link href = "/dashboard">
                         <Button rounded={'full'} px={6} size='lg'> Dashboard</Button>
                     </Link>
@@ -173,7 +175,6 @@ export function Landing(){
                     ))
                 }
             </Flex>
-            {visible && <Venmo validatePayment={validatePayment}/>}
         </Stack>
         </Container>
 
