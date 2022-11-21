@@ -1,4 +1,5 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
+import { Venmo } from './venmo'
 import styles from '../../styles/Home.module.css';
 import {useState} from 'react';
 import {
@@ -7,7 +8,8 @@ import {
   Heading,
   Stack,
   Text,
-  Button
+  Button,
+  useDisclosure
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -19,7 +21,7 @@ import  Header from './header'
 
 
 export function Landing(){
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const [urls, setUrls] = useState([])
     const [chosen, setChosen] = useState()
     const [query, setQuery] = useState("")
@@ -29,22 +31,22 @@ export function Landing(){
     const [isError, setError] = useState(false)
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
-    const { data, error } = useSWR('../api/prompt', fetcher)
+    const { data, error } = useSWR('../api/check-used', fetcher)
     if (error) return <div>failed to load</div>
 
-    
-   if (data && query == ""){
-        setQuery(data[0])
-        setCaption(data[1])
-        setChosen(data.slice(2))
+    if (data) {
+        if (data.promptArr && urls.length ===0){
+            console.log(data.promptArr)
+            setUrls(data.image_urls)
+            setQuery(data.promptArr[0])
+            setCaption(data.promptArr[1])
+            setChosen(data.promptArr.slice(2))
+            setVisible(true)
+        }
     }
 
-    function getDalle2() {
+    async function getDalle2() {
         setVisible(false)
-        setQuery(data[0])
-        setCaption(data[1])
-        setChosen(data.slice(2))
-        console.log(query)
         setError(false);
         setLoading(true);
 
@@ -54,11 +56,23 @@ export function Landing(){
             "Content-Type": "application/json",
           },
         })
-          .then((res) => res.json())
-          .then((data) => {
-            setUrls(data)
-            setVisible(true)
-            setLoading(false); //needs to happen later - once canvas element appears
+          .then(async (res) => {
+            const data = await res.json()
+            console.log(data)
+            if (res.status == 200) {
+                if (data.message === "Already used today") {
+                        onOpen()
+                }
+                setQuery(data["promptArr"][0])
+                setCaption(data["promptArr"][1])
+                setChosen(data["promptArr"].slice(2))
+                setUrls(data["image_urls"])
+                setVisible(true)
+                setLoading(false);
+            } else {
+                console.log(data)
+                setLoading(false);
+            }
           })
           .catch((err) => {
             console.log(err);
@@ -67,6 +81,24 @@ export function Landing(){
           });
        
       }
+
+    async function validatePayment(order_id){
+        let headers = new Headers();
+        headers.set('Authorization', 'Basic ' + Buffer.from(client_id + ":" + client_secret).toString('base64'));
+        headers.set('Content-Type', "application/x-www-form-urlencoded")
+
+        const token = await fetch("http://localhost:3000/api/payment-verify", {
+            method: 'POST',
+            headers: headers,
+            body: 'grant_type=client_credentials'
+        }).then(function (resp) {
+            return resp.json();
+        }).then(function (data) {
+            // Log the API data
+            console.log('token', data);
+                return data.access_token
+        })
+    }
 
       //for testing purposes, when you don't want to spend money for urls
       function buttonClick(){
@@ -116,7 +148,6 @@ export function Landing(){
                 Want to try it out yourself? Click the button below
                 </Text>
                 <Stack spacing={6} direction={'row'}>
-                
                     <Button
                         onClick={getDalle2}
                         rounded={'full'}
@@ -127,12 +158,13 @@ export function Landing(){
                         _hover={{ bg: 'purple.500' }}>
                         Generate Art
                     </Button>
-
+                    <Venmo isOpen={isOpen} onClose={onClose} validatePayment={validatePayment}/>
                     <Link href = "/dashboard">
                         <Button rounded={'full'} px={6} size='lg'> Dashboard</Button>
                     </Link>
                 
                 </Stack>
+
 
             <Flex className={styles.imageContainer} w={'full'}>
                 {loading && <Loading></Loading>}
@@ -143,7 +175,6 @@ export function Landing(){
                     ))
                 }
             </Flex>
-
         </Stack>
         </Container>
 

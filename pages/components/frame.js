@@ -32,8 +32,9 @@ export function Frame(props){
         const height = canvas.height
         const width = canvas.width
         //image.setAttribute('crossOrigin', 'anonymous');
-        const proxy_url = "http://localhost:3000/api/image-proxy?q=" + props.url
-        //console.log(proxy_url)
+        console.log(process.env.NEXT_PUBLIC_API_URL)
+        const proxy_url = process.env.NEXT_PUBLIC_API_URL + "/api/image-proxy?q=" + props.url
+        console.log(proxy_url)
 
         image.src = proxy_url
         context.clearRect(0, 0, width, height);
