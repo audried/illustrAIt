@@ -59,7 +59,8 @@ export default async function handler(req, res) {
         const put = putUser(email, image_urls, promptArr)
         res.status(200).json({"image_urls": image_urls, "promptArr": promptArr})
     } catch (ex){
-        console.log(ex)
+        console.log(ex.data.error)
+        console.log(ex.data.error.json())
         res.status(500).json({error: ex})
     }
 }
