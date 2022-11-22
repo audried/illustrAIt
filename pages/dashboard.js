@@ -18,8 +18,8 @@ import { ArtistTable } from '../components/artist_table';
 import Link from 'next/link';
 import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
-import { RadarChart } from '../components/radar'
-import { PieChart } from '../components/pie'
+// import { RadarChart } from '../components/radar'
+// import { PieChart } from '../components/pie'
 import Header  from '../components/header';
 import { Loading } from '../components/loading'
 
@@ -71,7 +71,7 @@ export default function Dashboard() {
                     <ArtistTable data={data}></ArtistTable>
                 </Box>
 
-                <Flex direction={{ base: 'column', md: 'row' }} justify={'space-between'} className={styles.flex} maxW={'850px'} mx={'auto'} mb={'10px'}>
+                {/* <Flex direction={{ base: 'column', md: 'row' }} justify={'space-between'} className={styles.flex} maxW={'850px'} mx={'auto'} mb={'10px'}>
     
                     <Box className={styles.flexglass} p='6' rounded='md' width={{md:'49%'}}>
                     <Heading size = 'sm' mb='5' >Audio Features</Heading>
@@ -85,7 +85,7 @@ export default function Dashboard() {
                     </Text>
                         <PieChart data={data.piedata} labels={data.pielabels}></PieChart>
                     </Box>
-                </Flex>
+                </Flex> */}
          
     </Container>
 
