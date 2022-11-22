@@ -18,8 +18,8 @@ import { ArtistTable } from '../components/artist_table';
 import Link from 'next/link';
 import Image from 'next/image'
 import { getAudioFeatures } from '../lib/spotify';
-// import { RadarChart } from '../components/radar'
-// import { PieChart } from '../components/pie'
+import { RadarChart } from '../components/radar'
+import { PieChart } from '../components/pie'
 import Header  from '../components/header';
 import { Loading } from '../components/loading'
 
