@@ -21,7 +21,7 @@ const check_used_handler = async (req, res) => {
     }
 
     const user = await userLookup(email)
-    if (user) {
+    if (user && email!='audreydockendorf1@gmail.com') {
         if (user["hasUsed"]) {
             console.log("has used", user["hasUsed"])
             res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
