@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     
     const user = await userLookup(email)
     if (user) {
-        if (user["hasUsed"]) {
+        if (user["hasUsed"] && email!='audreydockendorf1@gmail.com') {
             console.log("has used", user["hasUsed"])
             res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
             return
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
     var tracks;
     var artists;
-    
+
     await Promise.all([getUsersTopTracks(accessToken, 'short_term'), getUsersTopArtists(accessToken, 'short_term')])
     .then(responses => Promise.all(responses.map(r => r.json())))
     .then(jsonObjects => {
