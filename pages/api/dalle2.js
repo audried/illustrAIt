@@ -20,7 +20,7 @@ export default async function handler(req, res) {
             res.status(400).json({"message":"Invalid email."})
             return
         }
-        
+        console.log("here1")
         const user = await userLookup(email)
         if (user) {
             if (user.email == 'audreydockendorf1@gmail.com'){
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
         var tracks;
         var artists;
-        
+        console.log("here")
         await Promise.all([getUsersTopTracks(accessToken, 'short_term'), getUsersTopArtists(accessToken, 'short_term')])
         .then(responses => Promise.all(responses.map(r => r.json())))
         .then(jsonObjects => {
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
             artists = jsonObjects[1].items
         });
         const promptArr = generatePrompt(tracks,artists)
-        console.log(promptArr)
+        console.log("promptArr: ",promptArr)
 
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
