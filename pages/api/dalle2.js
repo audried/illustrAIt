@@ -8,11 +8,12 @@ import { generatePrompt } from '../../lib/generate_prompt';
 //sends array of image urls to api/dalle2
 
 export default async function handler(req, res) {
-    // try {
+    try {
+        console.log('hi')
         const {
         token: {accessToken},
         } = await getSession({req});
-
+        console.log("hellohere")
         const userInfo = await getUsersInfo(accessToken) 
         const userJson = await userInfo.json()
         const email = userJson["email"]
@@ -61,8 +62,8 @@ export default async function handler(req, res) {
         var image_urls = response.data.data.map(item=>{return item.url})
         const put = putUser(email, image_urls, promptArr)
         res.status(200).json({"image_urls": image_urls, "promptArr": promptArr})
-    // } catch (ex){
-    //     console.log(ex)
-    //     res.status(500).json({error: ex})
-    // }
+    } catch (ex){
+        console.log(ex)
+        res.status(500).json({error: ex})
+    }
 }

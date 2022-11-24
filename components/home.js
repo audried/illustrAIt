@@ -51,7 +51,7 @@ export function Landing(){
         setLoading(true);
 
         fetch(`/api/dalle2?q=${query}`, {
-          method: "POST",
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
