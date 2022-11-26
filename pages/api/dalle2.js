@@ -8,7 +8,7 @@ import { generatePrompt } from '../../lib/generate_prompt';
 //sends array of image urls to api/dalle2
 
 export default async function handler(req, res) {
-    try {
+    // try {
         const {
         token: {accessToken},
         } = await getSession({req});
@@ -20,10 +20,13 @@ export default async function handler(req, res) {
             res.status(400).json({"message":"Invalid email."})
             return
         }
-        
+        console.log("here1")
         const user = await userLookup(email)
         if (user) {
-            if (user["hasUsed"]) {
+            if (user.email == 'audreydockendorf1@gmail.com'){
+              console.log('he')
+            }
+            else if (user["hasUsed"]) {
                 console.log("has used", user["hasUsed"])
                 res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
                 return
@@ -32,7 +35,7 @@ export default async function handler(req, res) {
 
         var tracks;
         var artists;
-        
+        console.log("here")
         await Promise.all([getUsersTopTracks(accessToken, 'short_term'), getUsersTopArtists(accessToken, 'short_term')])
         .then(responses => Promise.all(responses.map(r => r.json())))
         .then(jsonObjects => {
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
             artists = jsonObjects[1].items
         });
         const promptArr = generatePrompt(tracks,artists)
-        console.log(promptArr)
+        console.log("promptArr: ",promptArr)
 
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
@@ -58,8 +61,8 @@ export default async function handler(req, res) {
         var image_urls = response.data.data.map(item=>{return item.url})
         const put = putUser(email, image_urls, promptArr)
         res.status(200).json({"image_urls": image_urls, "promptArr": promptArr})
-    } catch (ex){
-        console.log(ex)
-        res.status(500).json({error: ex})
-    }
+    // } catch (ex){
+    //     console.log(ex)
+    //     res.status(500).json({error: ex})
+    // }
 }
