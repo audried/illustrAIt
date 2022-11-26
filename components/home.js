@@ -145,7 +145,8 @@ export function Landing(){
                 </Heading>
                 <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
                 illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to you. 
-                Want to try it out yourself? Click the button below. (NOTE: This site is awaiting Spotify approval, so you will not be able to generate images or view dahsboard unless your email is registered. We hope to make this site available to the public soon!)
+                Want to try it out yourself? Click the button below. (NOTE: This site is awaiting Spotify approval, so you will not be able to generate images or view dashboard unless your email is registered. 
+                We hope to make this site available to the public soon! In the meantime, you can view a demo <Link href = "https://drive.google.com/file/d/1azRLGX-SkSVj5O6uI-O7sjR9ZP0zTjAQ/view?usp=sharing" className={styles.link}>here</Link> )
                 </Text>
                 <Stack spacing={6} direction={'row'}>
                     <Button
