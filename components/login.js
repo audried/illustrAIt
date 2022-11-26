@@ -1,7 +1,5 @@
 import {signIn} from 'next-auth/react';
 import styles from '../styles/Home.module.css';
-import { Venmo } from './venmo'
-import {useState} from 'react';
 import {
   Flex,
   Container,
@@ -11,6 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
+import { Link } from '@chakra-ui/react';
 
 
 export function Login(){
@@ -35,7 +34,7 @@ export function Login(){
         </Heading>
         <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
           illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
-          Check out the photos below to see real examples that were created based on users&#39; spotify profiles. 
+          Check out the photos below to see real examples that were created based on users&#39; spotify profiles. You can view a demo <Link href = "https://drive.google.com/file/d/1azRLGX-SkSVj5O6uI-O7sjR9ZP0zTjAQ/view?usp=sharing" className={styles.link}>here</Link>
         </Text>
         <Stack spacing={6} direction={'row'}>
   

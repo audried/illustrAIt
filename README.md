@@ -1,7 +1,8 @@
 ## illustrait
 
 This is a [Next.js](https://nextjs.org/) project built upon the Spotify API and Dalle API that allows users can view AI generated art inspired by their music taste.
-View the website at [illustrait.us](https://nextjs.org/)
+View the website at [illustrait.vercel.app](https://illustrait.vercel.app). 
+While this app awaits spotify approval, it can only be used by registered emails but you can check out a demo [here](https://drive.google.com/file/d/1azRLGX-SkSVj5O6uI-O7sjR9ZP0zTjAQ/view?usp=sharing)
 
 ## To run this app locally:
 
