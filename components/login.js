@@ -9,7 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
-import { Link } from '@chakra-ui/react';
+import Link from 'next/link';
 
 
 export function Login(){
