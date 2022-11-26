@@ -112,7 +112,7 @@ export default function PhotoSwiper() {
       >
         {srclist.map((url) => { return(
             <SwiperSlide className={styles.swiperslide} key={url}>
-                <Image src={url} height={250} width={250} key={url}/>
+                <Image src={url} height={250} width={250} key={url} alt='image generated with DALLE-2 in a carousel'/>
             </SwiperSlide>)
         })}
 

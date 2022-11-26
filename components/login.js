@@ -1,7 +1,5 @@
 import {signIn} from 'next-auth/react';
 import styles from '../styles/Home.module.css';
-import { Venmo } from './venmo'
-import {useState} from 'react';
 import {
   Flex,
   Container,
@@ -11,6 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
+import { Link } from '@chakra-ui/react';
 
 
 export function Login(){
