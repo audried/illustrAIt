@@ -58,9 +58,10 @@ export default async function handler(req, res) {
             size: "1024x1024",
         });
 
-        var image_urls = response.data.data.map(item=>{return item.url})
-        const put = putUser(email, image_urls, promptArr)
-        res.status(200).json({"image_urls": image_urls, "promptArr": promptArr})
+        // var image_urls = response.data.data.map(item=>{return item.url})
+        // const put = putUser(email, image_urls, promptArr)
+        // res.status(200).json({"image_urls": image_urls, "promptArr": promptArr})
+        res.status(200).json({"res": response.json()})
     } catch (ex){
         console.log("ERROR: ",ex)
         res.status(500).json({error: ex})
