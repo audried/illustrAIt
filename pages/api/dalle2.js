@@ -61,7 +61,8 @@ export default async function handler(req, res) {
         // var image_urls = response.data.data.map(item=>{return item.url})
         // const put = putUser(email, image_urls, promptArr)
         // res.status(200).json({"image_urls": image_urls, "promptArr": promptArr})
-        res.status(200).json({"res": response.json()})
+        console.log(response.data)
+        res.status(200).json({"res": response.data.error})
     } catch (ex){
         console.log("ERROR: ",ex)
         res.status(500).json({error: ex})
