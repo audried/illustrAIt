@@ -59,9 +59,9 @@ export default async function handler(req, res) {
         });
 
         console.log(response.data)
-        if (response.data.error !== null) {
-            throw new Error(response.data.error)
-        }
+        // if (response.data.error !== null) {
+        //     throw new Error(response.data.error)
+        // }
 
         var image_urls = response.data.data.map(item=>{return item.url})
         const put = putUser(email, image_urls, promptArr)
