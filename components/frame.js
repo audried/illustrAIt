@@ -53,7 +53,7 @@ export function Frame(props){
             context.fillText("and "+props.chosen[2] +" music", .08*width, .924*height);
             context.font = width==500 ? '12px Times New Roman' : '10px Times New Roman'
             context.textAlign = 'center'
-            context.fillText("create AI generated art based on your music taste at illustrait.us", width/2, .98*height);
+            context.fillText("create AI generated art based on your music taste at illustrait.vercel.app", width/2, .98*height);
             setIsVisible(true)
         };
 
