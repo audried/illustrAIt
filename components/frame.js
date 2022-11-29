@@ -27,11 +27,11 @@ export function Frame(props){
         link.click();
     };
 
-    function download2(){
-        const canvas = document.getElementById(`canvas${url}`);
-        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        window.location.href=image;
-    }
+    // function download2(){
+    //     const canvas = document.getElementById(`canvas${url}`);
+    //     var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    //     window.location.href=image;
+    // }
 
     //  handleSharing = async () => {
     //     const canvas = document.getElementById('canvas');
@@ -125,7 +125,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id={`canvas${url}`} ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
-            <Button onClick={download2} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
+            <Button onClick={download} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
             {/* <Button onClick={share} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button> */}
             <image id="theimage"></image>
         </div>
