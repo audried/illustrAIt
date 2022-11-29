@@ -10,6 +10,7 @@ import React, { useRef, useEffect, useState } from 'react';
 export function Frame(props){
 
     const [isVisible, setIsVisible] = useState(false)
+    const [url, setUrl] = useState('')
 
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
@@ -69,6 +70,34 @@ export function Frame(props){
         navigator.share(dataUrl);
       }
 
+      function share(){
+        const canvas = document.getElementById('canvas');
+        var img = canvas.toDataURL("image/jpg")
+        document.createElement(
+            `<img src=${url}/>`
+        );
+      }
+
+      async function shareImage() {
+        console.log("hellop")
+        const response = await fetch('nacho.jpg');
+        const blob = await response.blob();
+        const filesArray = [
+          new File(
+            [blob],
+            'meme.jpg',
+            {
+              type: "image/jpeg",
+              lastModified: new Date().getTime()
+            }
+         )
+        ];
+        const shareData = {
+          files: filesArray,
+        };
+        navigator.share(shareData);
+      }
+
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
         const image = new Image()
@@ -78,8 +107,8 @@ export function Frame(props){
         image.setAttribute('crossOrigin', 'anonymous');
         console.log(process.env.NEXT_PUBLIC_API_URL)
         const proxy_url = process.env.NEXT_PUBLIC_API_URL + "/api/image-proxy?q=" + props.url
-        console.log(proxy_url)
-
+        console.log("PROXY:",proxy_url)
+        setUrl(proxy_url)
         image.src = proxy_url
         context.clearRect(0, 0, width, height);
         context.fillStyle ='#ffffff'
@@ -110,7 +139,7 @@ export function Frame(props){
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
             <Button onClick={download} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
-            <Button onClick={shareCanvas} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button>
+            <Button onClick={share} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button>
             <image id="theimage"></image>
         </div>
        
