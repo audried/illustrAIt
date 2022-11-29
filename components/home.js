@@ -34,13 +34,13 @@ export function Landing(){
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('../api/check-used', fetcher)
     if (error) {
-      // if (!alreadyReloaded){
-      //   setAlreadyReloaded(true)
-      //   location.reload()
-      // }
-      // else{
+      if (!alreadyReloaded){
+        setAlreadyReloaded(true)
+        location.reload()
+      }
+      else{
         return <Error/>
-     // }
+      }
 
     }
     if (data) {
