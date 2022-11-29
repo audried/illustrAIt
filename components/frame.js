@@ -25,28 +25,28 @@ export function Frame(props){
         link.click();
     };
 
-    const handleSharing = async () => {
-        const canvas = document.getElementById('canvas');
-        const dataUrl = canvas.toDataURL();
-        const shareDetails = {dataUrl}
+    //  handleSharing = async () => {
+    //     const canvas = document.getElementById('canvas');
+    //     const dataUrl = canvas.toDataURL();
+    //     const shareDetails = {dataUrl}
 
-        if (navigator.canShare) {
-          try {
-            await navigator
-              .share(shareDetails)
-              .then(() =>
-                console.log("Hooray! Your content was shared to tha world")
-              );
-          } catch (error) {
-            console.log(`Oops! I couldn't share to the world because: ${error}`);
-          }
-        } else {
-          // fallback code
-          console.log(
-            "Web share is currently not supported on this browser. Please provide a callback"
-          );
-        }
-    };
+    //     if (navigator.canShare) {
+    //       try {
+    //         await navigator
+    //           .share(shareDetails)
+    //           .then(() =>
+    //             console.log("Hooray! Your content was shared to tha world")
+    //           );
+    //       } catch (error) {
+    //         console.log(`Oops! I couldn't share to the world because: ${error}`);
+    //       }
+    //     } else {
+    //       // fallback code
+    //       console.log(
+    //         "Web share is currently not supported on this browser. Please provide a callback"
+    //       );
+    //     }
+    // };
 
     async function shareCanvas() {
         const canvasElement = document.getElementById('canvas');
@@ -66,7 +66,7 @@ export function Frame(props){
           files: filesArray,
         };
         console.log(shareData)
-        navigator.share(shareData);
+        navigator.share(dataUrl);
       }
 
     useEffect(() => {
@@ -75,7 +75,7 @@ export function Frame(props){
         const canvas = document.getElementById('canvas');
         const height = canvas.height
         const width = canvas.width
-        //image.setAttribute('crossOrigin', 'anonymous');
+        image.setAttribute('crossOrigin', 'anonymous');
         console.log(process.env.NEXT_PUBLIC_API_URL)
         const proxy_url = process.env.NEXT_PUBLIC_API_URL + "/api/image-proxy?q=" + props.url
         console.log(proxy_url)
@@ -109,6 +109,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
+            <Button onClick={download} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
             <Button onClick={shareCanvas} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button>
             <image id="theimage"></image>
         </div>
