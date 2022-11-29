@@ -24,6 +24,7 @@ export function Frame(props){
         link.download = "my-image.png";
         link.href = dataURL;
         link.click();
+        
     };
 
     //  handleSharing = async () => {
