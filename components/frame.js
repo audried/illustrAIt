@@ -65,6 +65,7 @@ export function Frame(props){
         const shareData = {
           files: filesArray,
         };
+        console.log(shareData)
         navigator.share(shareData);
       }
 
@@ -108,7 +109,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
-            <Button onClick={shareCanvas} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Download image</Button>
+            <Button onClick={shareCanvas} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button>
             <image id="theimage"></image>
         </div>
        
