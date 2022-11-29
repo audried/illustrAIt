@@ -29,11 +29,20 @@ export function Landing(){
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(false);
     const [isError, setError] = useState(false)
+    const [alreadyReloaded, setAlreadyReloaded] = useState(false)
  
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const { data, error } = useSWR('../api/check-used', fetcher)
-    if (error) return <div>failed to load</div>
+    if (error) {
+      if (!alreadyReloaded){
+        setAlreadyReloaded(true)
+        location.reload()
+      }
+      else{
+        return <Error/>
+      }
 
+    }
     if (data) {
         if (data.promptArr && urls.length ===0){
             console.log(data.promptArr)
