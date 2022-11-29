@@ -2,6 +2,7 @@
 import {Text, Button } from '@chakra-ui/react';
 import styles from '../styles/Home.module.css';
 import React, { useRef, useEffect, useState } from 'react';
+import { useWindowDimensions } from 'react-native-web';
 
 //https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
 //font fix: https://stackoverflow.com/questions/2756575/drawing-text-to-canvas-with-font-face-does-not-work-at-the-first-time
@@ -24,8 +25,13 @@ export function Frame(props){
         link.download = "my-image.png";
         link.href = dataURL;
         link.click();
-        
     };
+
+    function download2(){
+        const canvas = document.getElementById(`canvas${url}`);
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        window.location.href=image;
+    }
 
     //  handleSharing = async () => {
     //     const canvas = document.getElementById('canvas');
@@ -79,26 +85,6 @@ export function Frame(props){
         );
       }
 
-      async function shareImage() {
-        console.log("hellop")
-        const response = await fetch('nacho.jpg');
-        const blob = await response.blob();
-        const filesArray = [
-          new File(
-            [blob],
-            'meme.jpg',
-            {
-              type: "image/jpeg",
-              lastModified: new Date().getTime()
-            }
-         )
-        ];
-        const shareData = {
-          files: filesArray,
-        };
-        navigator.share(shareData);
-      }
-
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
         const image = new Image()
@@ -139,7 +125,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id={`canvas${url}`} ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
-            <Button onClick={download} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
+            <Button onClick={download2} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
             {/* <Button onClick={share} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button> */}
             <image id="theimage"></image>
         </div>
