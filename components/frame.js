@@ -17,7 +17,7 @@ export function Frame(props){
     
 
     function download(ref){
-        const canvas = document.getElementById('canvas');
+        const canvas = document.getElementById(`canvas${url}`);
         const dataURL = canvas.toDataURL();
         console.log(dataURL);
         var link = document.createElement('a');
@@ -51,7 +51,7 @@ export function Frame(props){
     // };
 
     async function shareCanvas() {
-        const canvasElement = document.getElementById('canvas');
+        const canvasElement = document.getElementById(`canvas${url}`);
         const dataUrl = canvasElement.toDataURL();
         const blob = await (await fetch(dataUrl)).blob();
         const filesArray = [
@@ -72,7 +72,7 @@ export function Frame(props){
       }
 
       function share(){
-        const canvas = document.getElementById('canvas');
+        const canvas = document.getElementById(`canvas${url}`);
         var img = canvas.toDataURL("image/jpg")
         document.createElement(
             `<img src=${url}/>`
@@ -102,7 +102,7 @@ export function Frame(props){
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
         const image = new Image()
-        const canvas = document.getElementById('canvas');
+        const canvas = document.getElementById(`canvas${url}`);
         const height = canvas.height
         const width = canvas.width
         image.setAttribute('crossOrigin', 'anonymous');
@@ -138,9 +138,9 @@ export function Frame(props){
         <div className={styles.frame}> 
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
-            <canvas id="canvas" ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
+            <canvas id={`canvas${url}`} ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
             <Button onClick={download} rounded={'full'} px={6} size='lg' mt={'5'} className={styles.db}>Download</Button>
-            <Button onClick={share} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button>
+            {/* <Button onClick={share} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Share</Button> */}
             <image id="theimage"></image>
         </div>
        
