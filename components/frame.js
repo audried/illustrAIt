@@ -48,26 +48,25 @@ export function Frame(props){
         }
     };
 
-    async function share(){
-        const canvas = document.getElementById('canvas');
-        const dataUrl = canvas.toDataURL();
+    async function shareCanvas() {
+        const canvasElement = document.getElementById('canvas');
+        const dataUrl = canvasElement.toDataURL();
         const blob = await (await fetch(dataUrl)).blob();
         const filesArray = [
-            new File(
-              [blob],
-              'image.jpg',
-              {
-                type: blob.type,
-                lastModified: new Date().getTime()
-              }
-            )
-          ];
-          console.log(filesArray)
-          const shareData = {
-            files: filesArray,
-          };
-        navigator.canShare() && navigator.share(shareData);  
-    }
+          new File(
+            [blob],
+            'animation.png',
+            {
+              type: blob.type,
+              lastModified: new Date().getTime()
+            }
+          )
+        ];
+        const shareData = {
+          files: filesArray,
+        };
+        navigator.share(shareData);
+      }
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
@@ -109,7 +108,7 @@ export function Frame(props){
             {/* purpose of Text is to load font */}
             <Text className={styles.loadFont}>.</Text> 
             <canvas id="canvas" ref={canvasRef} width={window.innerWidth >= 550 ? 500 : .9*window.innerWidth} height={window.innerWidth >= 550 ? 720 : 1.296*window.innerWidth} style={ isVisible ? {} : { visibility: "hidden" } }/>
-            <Button onClick={share} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Download image</Button>
+            <Button onClick={shareCanvas} rounded={'full'} px={6} size='lg' m={'5'} className={styles.db}>Download image</Button>
             <image id="theimage"></image>
         </div>
        
