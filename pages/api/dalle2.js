@@ -23,10 +23,11 @@ export default async function handler(req, res) {
         console.log("here1")
         const user = await userLookup(email)
         if (user) {
-            if (user.email == 'audreydockendorf1@gmail.com'){
-              console.log('he')
-            }
-            else if (user["hasUsed"]) {
+            // if (user.email == 'audreydockendorf1@gmail.com'){
+            //   console.log('he')
+            // }
+            // else 
+            if (user["hasUsed"]) {
                 console.log("has used", user["hasUsed"])
                 res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
                 return
