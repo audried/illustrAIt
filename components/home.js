@@ -87,7 +87,8 @@ export function Landing(){
         headers.set('Authorization', 'Basic ' + Buffer.from(client_id + ":" + client_secret).toString('base64'));
         headers.set('Content-Type', "application/x-www-form-urlencoded")
 
-        const token = await fetch("http://localhost:3000/api/payment-verify", {
+        const url = NEXT_PUBLIC_API_URL + "/api/payment-verify" 
+        const token = await fetch(url, {
             method: 'POST',
             headers: headers,
             body: 'grant_type=client_credentials'
