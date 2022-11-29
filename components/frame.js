@@ -55,7 +55,7 @@ export function Frame(props){
         const filesArray = [
           new File(
             [blob],
-            'animation.png',
+            'my-image.jpeg',
             {
               type: blob.type,
               lastModified: new Date().getTime()

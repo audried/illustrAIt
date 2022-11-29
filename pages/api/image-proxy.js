@@ -14,6 +14,7 @@ export default async function handler(req, res) {
             url = url + "&" + key + "=" + encodeURIComponent(req.query[key])
         }
     })
+    console.log("urlllll", url)
 
     fetch(url).then(actual => {
         actual.headers.forEach((v, n) => res.setHeader(n, v));
