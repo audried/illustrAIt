@@ -39,8 +39,8 @@ import {
                   <Tr key={index}>
                     <Td>{index+1}</Td>
                     {/* <Td padding={2}><Image src={item.image} key={item.image} height={40} width={40} border-radius={34} margin-left={3}></Image>{item.name}</Td> */}
-                    <Td>{item.name}</Td>
-                    <Td >{item.artist}</Td>
+                    <Td>{item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}</Td>
+                    <Td >{item.artist.length > 34 ? item.artist.slice(0,34)+'...' : item.artist}</Td>
                     <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}
