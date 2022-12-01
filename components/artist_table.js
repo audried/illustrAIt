@@ -35,7 +35,7 @@ import {
                 {props.data.artists.slice(0,numRows).map((item, index) => (
                   <Tr key={index}>
                     <Td>{index+1}</Td>
-                    <Td >{item.name}</Td>
+                    <Td >{item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}</Td>
                     <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}
