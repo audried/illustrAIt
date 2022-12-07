@@ -15,6 +15,8 @@ import {
 
   export function TrackTable(props){
 
+    console.log(props.data.tracks)
+
     const [numRows, setNumRows] = useState(10);
 
     return (
