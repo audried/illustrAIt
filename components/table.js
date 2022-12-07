@@ -44,7 +44,9 @@ import {
                     <Td>
                         <Link href={`https://open.spotify.com/track/${item.id}`}>{item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}</Link>
                     </Td>
-                    <Td >{item.artist.length > 34 ? item.artist.slice(0,34)+'...' : item.artist}</Td>
+                    <Td >
+                        <Link href={`https://open.spotify.com/artist/${item.artistid}`}>{item.artist.length > 34 ? item.artist.slice(0,34)+'...' : item.artist}</Link>
+                    </Td>
                     <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}
