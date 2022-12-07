@@ -19,7 +19,7 @@ export function Venmo(props) {
                     <ModalHeader>Generating images costs us money, so we have to limit you to one per day. Please check back after midnight EST!</ModalHeader>
                     <ModalCloseButton />
                     {/* Change to true or remove conditional for Venmo integration.  */}
-                    {true && <ModalBody>
+                    {false && <ModalBody>
                         <Text>
                             If you really want another image, you can Venmo us a dollar and we&#39;ll generate another 2 images for you!
                         </Text>
