@@ -53,7 +53,7 @@ export function Login(){
         </Flex>
       </Stack>
     </Container>
-    <SpotifyFooter/>
+    <SpotifyFooter login={false}/>
     </>
     )
 }
