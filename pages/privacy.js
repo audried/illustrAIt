@@ -20,7 +20,7 @@ export default function Privacy() {
         </Text>
             <Text>None of your spotify listening data is stored or shared with any third parties. <br/>
                 The email associated with your spotify account is stored until 11:59 PM EST on the day you generate an image to prevent multiple uses in one day. Your email will never be shared with any third parties.</Text>
-            <Text>If at any point you would like to revoke Illustrait's permissions, you can do so by following the guide <Link href='https://support.spotify.com/us/article/spotify-on-other-apps/'><u>here</u></Link></Text>
+            <Text>If at any point you would like to revoke Illustrait&#39;s permissions, you can do so by following the guide <Link href='https://support.spotify.com/us/article/spotify-on-other-apps/'><u>here</u></Link></Text>
             <Text>Feel free to <Link href='/contact'><u>contact us</u></Link> with any questions</Text>
         </Box>
         </Container>
