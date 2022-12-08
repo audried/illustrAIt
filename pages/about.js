@@ -31,8 +31,8 @@ export default function About() {
             <Text>If you care about how it was made, check out the Github Repository: <Link href={'https://github.com/audried/spotify-art'}><u>https://github.com/audried/spotify-art</u></Link> for the complete source code. </Text>
             <br/>
 
-            <Heading size={'md'}>I downloaded my picture, but I don't see it in my photos</Heading>
-            <Text>On desktop and mobile, the photo will save to the Downloads folder in your files, under name 'my-image.png'. If you're on an iphone, go to the &#39;Files&#39; app. 
+            <Heading size={'md'}>I downloaded my picture, but I don&#39;t see it in my photos</Heading>
+            <Text>On desktop and mobile, the photo will save to the Downloads folder in your files, under name &#39;my-image.png&#39;. If you&#39;re on an iphone, go to the &#39;Files&#39; app. 
                 You can then export the image to your photos. Or you can just take a screenshot if you prefer</Text>
             <br/>
 
