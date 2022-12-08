@@ -22,7 +22,7 @@ export default function About() {
             <Heading size={'md'}>How are the images generated? </Heading>
             <Text>The images are generated with the help of DALLE-2, a cutting edge artificial intelligence system that can generate realistic images based off a description.
                 This website chooses a random song from your top 5 songs of the past month, a random album from your top 5 albums of the past month, and your top genre from the past month and uses those to create a prompt to give DALLE. 
-                We also add in some fandom filler words (ex. 'oil panting', 'dreamscape', 'abstract', etc.) to give our images more variety. 
+                We also add in some fandom filler words (ex. &#39;oil panting&#39;, &#39;dreamscape&#39;, &#39;abstract&#39;, etc.) to give our images more variety. 
                 We use the same prompt to generate 2 images so you can choose the one you like the best!
             </Text>
             <br/>
@@ -32,7 +32,7 @@ export default function About() {
             <br/>
 
             <Heading size={'md'}>I downloaded my picture, but I don't see it in my photos</Heading>
-            <Text>On desktop and mobile, the photo will save to the 'downloads' folder in your files, under name 'my-image.png'. If you're on an iphone, go to the 'files' app. 
+            <Text>On desktop and mobile, the photo will save to the Downloads folder in your files, under name 'my-image.png'. If you're on an iphone, go to the &#39;Files&#39; app. 
                 You can then export the image to your photos. Or you can just take a screenshot if you prefer</Text>
             <br/>
 
