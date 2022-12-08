@@ -19,7 +19,7 @@ export default function Contact() {
 
         </Box>
         </Container>
-        <SpotifyFooter/>
+        <SpotifyFooter login={false}/>
         </>
     )
 }

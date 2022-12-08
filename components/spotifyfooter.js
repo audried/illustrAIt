@@ -19,7 +19,7 @@ import {
   
 
 
-  export default function SpotifyFooter() {
+  export default function SpotifyFooter(props) {
     return (
       <Box
         className={styles.footerglass}>
@@ -32,11 +32,15 @@ import {
            justify={{ base: 'center', md: 'space-between' }}
            align={{ base: 'center', md: 'center' }}>
           <Link href='https://open.spotify.com'><Logo /></Link>
-          <Stack direction={'row'} spacing={6}>
+          {
+            !props.login && <Stack direction={'row'} spacing={6}>
             <Link href={'/'}>Home</Link>
             <Link href={'/about'}>About</Link>
             <Link href={'/contact'}>Contact</Link>
+            <Link href={'/privacy'}>Privacy Policy</Link>
           </Stack>
+          }
+          
         </Container>
   
       </Box>

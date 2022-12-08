@@ -90,7 +90,7 @@ export default function Dashboard() {
          
     </Container>
     
-    <SpotifyFooter/>
+    <SpotifyFooter login={false}/>
     </>
     );
   }
