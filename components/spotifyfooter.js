@@ -32,11 +32,11 @@ import {
            justify={{ base: 'center', md: 'space-between' }}
            align={{ base: 'center', md: 'center' }}>
           <Link href='https://open.spotify.com'><Logo /></Link>
-          {/* <Stack direction={'row'} spacing={6}>
+          <Stack direction={'row'} spacing={6}>
             <Link href={'/'}>Home</Link>
             <Link href={'/about'}>About</Link>
             <Link href={'/contact'}>Contact</Link>
-          </Stack> */}
+          </Stack>
         </Container>
   
       </Box>

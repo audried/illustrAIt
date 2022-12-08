@@ -116,7 +116,7 @@ export function Frame(props){
 
         const logo = new Image()
         logo.setAttribute('crossOrigin', 'anonymous');
-        logo.src = '/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'
+        logo.src = '/spotify-icons-logos/icons/01_RGB/02_PNG/smallicon.png'
         logo.width=50
         logo.height=50
 
@@ -136,7 +136,7 @@ export function Frame(props){
             context.textAlign = 'center'
             context.fillText("create AI art on illustrait.vercel.app", width/2, .98*height);
             // context.imageSmoothingEnabled = false;
-            context.drawImage(logo, .88*width, .92*height, 50, 50);
+            context.drawImage(logo, .85*width, .9*height, .1*width, .1*width);
             
             setIsVisible(true)
             //  }

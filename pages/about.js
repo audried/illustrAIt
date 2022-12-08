@@ -2,18 +2,46 @@ import Header  from '../components/header';
 import styles from '../styles/Home.module.css';
 import { Container, Box, Text, Heading} from '@chakra-ui/react';
 import Link from 'next/link';
+import SpotifyFooter from '../components/spotifyfooter';
+
 
 export default function About() {
     return(
-        <Container maxW={'100%'} className={styles.about}>
+        <>
+        <Container maxW={'100%'}  height={'100vh'} className={styles.about}>
         <Header></Header>
-        <Box className={styles.glass} p='6' rounded='md' ml='5'>
+        <Box className={styles.contactGlass}  p='6' rounded='md' mt={5}>
             {/* <Heading>About illustrait:</Heading> */}
-            <Text>Illustrait was inspired by Spotify wrapped and my fascination with DALLE</Text>
-            <Text>The images are generated with the help of DALLE-2, a cutting edge artificial intelligence system that can generate realistic images based off a description. </Text>
-            <Text>If you care about how it was made, check out the Github Repository: <Link href={'https://github.com/audried/spotify-art'} underline={'1px'}>https://github.com/audried/spotify-art</Link></Text>
-            <Text>add FAQs? </Text>
+          
+            <Heading>FAQs</Heading>
+            <br/>
+            <Heading size={'md'}>Can I use if I have apple music? </Heading>
+            <Text>Currently this site is only for spotify users. If we have enough interest, we will work on adding apple music</Text>
+            <br/>
+
+            <Heading size={'md'}>How are the images generated? </Heading>
+            <Text>The images are generated with the help of DALLE-2, a cutting edge artificial intelligence system that can generate realistic images based off a description.
+                This website chooses a random song from your top 5 songs of the past month, a random album from your top 5 albums of the past month, and your top genre from the past month and uses those to create a prompt to give DALLE. 
+                We also add in some fandom filler words (ex. 'oil panting', 'dreamscape', 'abstract', etc.) to give our images more variety. 
+                We use the same prompt to generate 2 images so you can choose the one you like the best!
+            </Text>
+            <br/>
+
+            <Heading size={'md'}>How did you make this?</Heading>
+            <Text>If you care about how it was made, check out the Github Repository: <Link href={'https://github.com/audried/spotify-art'}><u>https://github.com/audried/spotify-art</u></Link> for the complete source code. </Text>
+            <br/>
+
+            <Heading size={'md'}>I downloaded my picture, but I don't see it in my photos</Heading>
+            <Text>On desktop and mobile, the photo will save to the 'downloads' folder in your files, under name 'my-image.png'. If you're on an iphone, go to the 'files' app. 
+                You can then export the image to your photos. Or you can just take a screenshot if you prefer</Text>
+            <br/>
+
+            <Heading size={'md'}>Can DALLE make any image you want?</Heading>
+            <Text>Pretty much! If you want to play around with it yourself, make an account <Link href={'https://openai.com/dall-e-2/'}><u>here</u></Link>  </Text>
+            <br/>   
         </Box>
         </Container>
+        <SpotifyFooter/>
+        </>
     )
 }
