@@ -22,6 +22,7 @@ import { RadarChart } from '../components/radar'
 import { PieChart } from '../components/pie'
 import Header  from '../components/header';
 import { Loading } from '../components/loading'
+import SpotifyFooter from '../components/spotifyfooter';
 
 export default function Dashboard() {
 
@@ -43,8 +44,8 @@ export default function Dashboard() {
 
     
     return(
-    
-        <Container maxW={'100%'} className={styles.dash}>
+    <>
+        <Container maxW={'100%'} height={'100%'} className={styles.dash}>
                 <Header></Header>
            
                 <Box className={styles.glass} p='6' rounded='md'  my='5' maxW={'850px'} mx={'auto'}>
@@ -88,6 +89,8 @@ export default function Dashboard() {
                 </Flex>
          
     </Container>
-
+    
+    <SpotifyFooter/>
+    </>
     );
   }

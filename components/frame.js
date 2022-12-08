@@ -11,7 +11,6 @@ export function Frame(props){
 
     const [isVisible, setIsVisible] = useState(false)
     const [url, setUrl] = useState('')
-
     const img_id = Math.floor(Math.random()*10000)
     const canvasRef = useRef(null)
     
@@ -115,21 +114,38 @@ export function Frame(props){
         context.fillStyle ='#ffffff'
         context.fillRect(0, 0, width, height);
 
+        const logo = new Image()
+        logo.setAttribute('crossOrigin', 'anonymous');
+        logo.src = '/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'
+        logo.width=50
+        logo.height=50
+
         image.onload = () => {
+            // logo.onload = () => {
             context.textAlign = 'left'
             context.drawImage(image, 0, 0, width, width);
+            
             context.font = width==500 ? '50px Special Elite' : '40px Special Elite'
             context.fillStyle ='#000000'
             context.fillText(`IMAGE #${img_id}`, .08*width, .78*height);
             width == 500 ? context.font = '24px Special Elite' : context.font = '18px Special Elite'
             context.fillText(props.chosen[0]+",", .08*width, .84*height);
             context.fillText(props.chosen[1]+",", .08*width, .88*height);
-            context.fillText("and "+props.chosen[2] +" music", .08*width, .924*height);
+            context.fillText("and "+props.chosen[2] +" music", .08*width, .92*height);
             context.font = width==500 ? '12px Times New Roman' : '10px Times New Roman'
             context.textAlign = 'center'
-            context.fillText("create AI generated art based on your music taste at illustrait.vercel.app", width/2, .98*height);
+            context.fillText("create AI art on illustrait.vercel.app", width/2, .98*height);
+            // context.imageSmoothingEnabled = false;
+            context.drawImage(logo, .88*width, .92*height, 50, 50);
+            
             setIsVisible(true)
+            //  }
         };
+        //logo.naturalWidth*.05
+
+        // logo.onload = () => {
+        //     context.drawImage(logo, .9*width, .9*height, width, height);
+        // }
 
       }, [])
 

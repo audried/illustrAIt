@@ -17,7 +17,8 @@ import Image from 'next/image';
 import { Frame } from './frame';
 import { Loading } from './loading';
 import { Error } from './error'
-import  Header from './header'
+import  Header from './header';
+import SpotifyFooter from './spotifyfooter';
 
 
 export function Landing(){
@@ -123,8 +124,8 @@ export function Landing(){
       }
 
     return(
-    
-        <Container  maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
+    <>
+        <Container  height={'100%'} maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
 
             <Header></Header>
         
@@ -188,6 +189,8 @@ export function Landing(){
             </Flex>
         </Stack>
         </Container>
+        <SpotifyFooter/>
+        </>
 
     )
 }
