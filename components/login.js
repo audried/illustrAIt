@@ -10,12 +10,13 @@ import {
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
 import Link from 'next/link';
+import SpotifyFooter from './spotifyfooter';
 
 
 export function Login(){
     return(
-
-    <Container maxW={'100%'} className={styles.login}>
+<>
+    <Container maxW={'100%'} height={'100vh'}className={styles.login}>
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
@@ -52,6 +53,7 @@ export function Login(){
         </Flex>
       </Stack>
     </Container>
-
+    <SpotifyFooter/>
+    </>
     )
 }

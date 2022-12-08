@@ -11,9 +11,11 @@ import {
   } from '@chakra-ui/react';
   import Image from 'next/image';
   import {useState} from 'react';
-
+  import {Link} from '@chakra-ui/react';
 
   export function TrackTable(props){
+
+    console.log(props.data.tracks)
 
     const [numRows, setNumRows] = useState(10);
 
@@ -39,8 +41,12 @@ import {
                   <Tr key={index}>
                     <Td>{index+1}</Td>
                     {/* <Td padding={2}><Image src={item.image} key={item.image} height={40} width={40} border-radius={34} margin-left={3}></Image>{item.name}</Td> */}
-                    <Td>{item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}</Td>
-                    <Td >{item.artist.length > 34 ? item.artist.slice(0,34)+'...' : item.artist}</Td>
+                    <Td>
+                        <Link href={`https://open.spotify.com/track/${item.id}`}>{item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}</Link>
+                    </Td>
+                    <Td >
+                        <Link href={`https://open.spotify.com/artist/${item.artistid}`}>{item.artist.length > 34 ? item.artist.slice(0,34)+'...' : item.artist}</Link>
+                    </Td>
                     <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}

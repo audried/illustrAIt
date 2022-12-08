@@ -11,10 +11,12 @@ import {
  Button, 
   } from '@chakra-ui/react'
   import {useState} from 'react';
+  import {Link} from '@chakra-ui/react';
 // probably do not need all 4 rows, hard to view
   export function ArtistTable(props){
 
     const [numRows, setNumRows] = useState(10);
+    console.log('artists', props.data.artists)
 
     return (
         <TableContainer>
@@ -35,7 +37,13 @@ import {
                 {props.data.artists.slice(0,numRows).map((item, index) => (
                   <Tr key={index}>
                     <Td>{index+1}</Td>
-                    <Td >{item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}</Td>
+
+                    <Td >
+                      <Link href={`https://open.spotify.com/artist/${item.id}`}>
+                        {item.name.length > 34 ? item.name.slice(0,34)+'...' : item.name}
+                      </Link>
+                    </Td>
+
                     <Td > {item.popularity}%</Td>
                 </Tr>  
                 ))}
