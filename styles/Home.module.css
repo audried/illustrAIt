@@ -48,6 +48,12 @@ bottom:0;
 right:0; */
 }
  
+.foot{
+   position:absolute;
+left:0;
+bottom:0;
+right:0; 
+}
 
 .contactGlass{
   background: rgba( 255, 255, 255, 0.4 );

@@ -125,7 +125,7 @@ export function Landing(){
 
     return(
     <>
-        <Container  height={'100%'} maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
+        <Container height={visible?'100%':'100vh'} maxWidth={'100%'} mx={0} px={0} className={styles.homepage}>
 
             <Header></Header>
         
@@ -189,7 +189,7 @@ export function Landing(){
             </Flex>
         </Stack>
         </Container>
-        <SpotifyFooter/>
+        <SpotifyFooter className={styles.foot}/>
         </>
 
     )
