@@ -51,7 +51,7 @@ export function Landing(){
             setQuery(data.promptArr[0])
             setCaption(data.promptArr[1])
             setChosen(data.promptArr.slice(2))
-            // setVisible(true)
+            setVisible(true)
         }
     }
 
