@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
 import Link from 'next/link';
-import SpotifyFooter from './spotifyfooter';
+import LoginFooter from './loginfooter';
 
 
 export function Login(){
@@ -53,7 +53,8 @@ export function Login(){
         </Flex>
       </Stack>
     </Container>
-    <SpotifyFooter login={false}/>
+    <LoginFooter/>
+    {/* <SpotifyFooter login={false} className={styles.bottom}/> */}
     </>
     )
 }
