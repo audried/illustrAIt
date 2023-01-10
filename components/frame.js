@@ -120,6 +120,10 @@ export function Frame(props){
         logo.width=50
         logo.height=50
 
+        //cut off long titles at 25 characters
+        var chosensong = props.chosen[0].length > 25 ? props.chosen[0].split(0,25)+'...' : props.chosen[0]
+        var chosenalbum = props.chosen[1].length > 25 ? props.chosen[1].split(0,25)+'...' : props.chosen[1]
+
         image.onload = () => {
             // logo.onload = () => {
             context.textAlign = 'left'
@@ -129,8 +133,8 @@ export function Frame(props){
             context.fillStyle ='#000000'
             context.fillText(`IMAGE #${img_id}`, .08*width, .78*height);
             width == 500 ? context.font = '24px Special Elite' : context.font = '18px Special Elite'
-            context.fillText(props.chosen[0]+",", .08*width, .84*height);
-            context.fillText(props.chosen[1]+",", .08*width, .88*height);
+            context.fillText(chosensong+",", .08*width, .84*height);
+            context.fillText(chosenalbum+",", .08*width, .88*height);
             context.fillText("and "+props.chosen[2] +" music", .08*width, .92*height);
             context.font = width==500 ? '12px Times New Roman' : '10px Times New Roman'
             context.textAlign = 'center'
