@@ -1,6 +1,7 @@
 
 import {Text, Button } from '@chakra-ui/react';
 import styles from '../styles/Home.module.css';
+import cutOff from '../lib/cutoff'
 import React, { useRef, useEffect, useState } from 'react';
 
 //https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
@@ -121,8 +122,9 @@ export function Frame(props){
         logo.height=50
 
         //cut off long titles at 25 characters
-        var chosensong = props.chosen[0].length > 25 ? props.chosen[0].split(0,25)+'...' : props.chosen[0]
-        var chosenalbum = props.chosen[1].length > 25 ? props.chosen[1].split(0,25)+'...' : props.chosen[1]
+        var chosensong = cutOff(props.chosen[0], 30)
+        var chosenalbum = cutOff(props.chosen[1], 30)
+        console.log(chosensong, chosenalbum)
 
         image.onload = () => {
             // logo.onload = () => {
