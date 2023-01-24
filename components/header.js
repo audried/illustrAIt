@@ -19,6 +19,10 @@ import styles from '../styles/Home.module.css';
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  function signOutFromHeader(){
+
+  }
+
   return (
     <>
       <Box bg={'rgba(1,1,1,0)'} px={4}>
@@ -56,7 +60,7 @@ export default function Header() {
           </HStack>
 
           <Flex alignItems={'center'}>
-            <Button size='md' color={'white'} variant='link' onClick={() => signOut()}>Sign out</Button>
+            <Button size='md' color={'white'} variant='link' onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_API_URL })}>Sign out</Button>
           </Flex>
         </Flex>
 

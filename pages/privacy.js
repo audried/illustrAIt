@@ -10,7 +10,7 @@ import SpotifyFooter from '../components/spotifyfooter';
 export default function Privacy() {
     return(
         <>
-        <Container maxW={'100%'} height={'100vh'} className={styles.about}>
+        <Container maxW={'100%'} height={'100%'} className={styles.about}>
         <Header></Header>
         <Box className={styles.contactGlass} p='6' rounded='md' mt={5}>
             <Heading>Privacy Policy</Heading>

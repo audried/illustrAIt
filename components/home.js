@@ -189,7 +189,7 @@ export function Landing(){
             </Flex>
         </Stack>
         </Container>
-        <SpotifyFooter login={false} className={styles.foot}/>
+        <SpotifyFooter/>
         </>
 
     )
