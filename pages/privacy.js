@@ -24,7 +24,7 @@ export default function Privacy() {
             <Text>Feel free to <Link href='/contact'><u>contact us</u></Link> with any questions</Text>
         </Box>
         </Container>
-        <SpotifyFooter login={false}/>
+        <SpotifyFooter />
         </>
     )
 }
