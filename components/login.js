@@ -11,12 +11,13 @@ import {
 import PhotoSwiper from './swiper'
 import Link from 'next/link';
 import LoginFooter from './loginfooter';
+import SpotifyFooter from '../components/spotifyfooter';
 
 
 export function Login(){
     return(
 <>
-    <Container maxW={'100%'} height={'100vh'}className={styles.login}>
+    <Container maxW={'100%'} height={'100%'} className={styles.login}>
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
@@ -53,8 +54,8 @@ export function Login(){
         </Flex>
       </Stack>
     </Container>
-    <LoginFooter/>
-    {/* <SpotifyFooter login={false} className={styles.bottom}/> */}
+    {/* <LoginFooter /> */}
+    <SpotifyFooter login={false} className={styles.bottom}/>
     </>
     )
 }
