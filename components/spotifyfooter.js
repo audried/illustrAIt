@@ -1,12 +1,8 @@
 import {
     Box,
-    chakra,
     Container,
     Link,
     Stack,
-    Text,
-    useColorModeValue,
-    VisuallyHidden,
   } from '@chakra-ui/react';
   import styles from '../styles/Home.module.css';
   import Image from 'next/image';
@@ -16,7 +12,6 @@ import {
       <Image src = '/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png' height={54.5} width={181.7}/>
     );
   };
-  
 
 
   export default function SpotifyFooter() {

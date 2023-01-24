@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction import {getUsersTopArtists} from '../../lib/spotify'; import {getUsersTopTracks} from '../../lib/spotify';
-import {getSession} from 'next-auth/react';
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
@@ -14,7 +13,6 @@ export default async function handler(req, res) {
             url = url + "&" + key + "=" + encodeURIComponent(req.query[key])
         }
     })
-    console.log("urlllll", url)
 
     fetch(url).then(actual => {
         actual.headers.forEach((v, n) => res.setHeader(n, v));

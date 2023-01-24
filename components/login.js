@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
 import Link from 'next/link';
-import LoginFooter from './loginfooter';
 import SpotifyFooter from '../components/spotifyfooter';
 
 

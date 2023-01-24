@@ -9,7 +9,6 @@ import {
     TableContainer,
     Button
   } from '@chakra-ui/react';
-  import Image from 'next/image';
   import {useState} from 'react';
   import {Link} from '@chakra-ui/react';
 

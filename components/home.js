@@ -1,4 +1,3 @@
-import {useSession, signIn, signOut} from 'next-auth/react';
 import { Venmo } from './venmo'
 import styles from '../styles/Home.module.css';
 import {useState} from 'react';
@@ -13,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import useSWR from 'swr';
-import Image from 'next/image';
 import { Frame } from './frame';
 import { Loading } from './loading';
 import { Error } from './error'
