@@ -54,7 +54,7 @@ export function Login(){
         </Flex>
       </Stack>
     </Container>
-    {/* <LoginFooter /> */}
+  
     <SpotifyFooter login={false} className={styles.bottom}/>
     </>
     )
