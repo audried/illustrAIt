@@ -16,7 +16,7 @@
   background-size: cover;
 }
 
-.login, .about, .homepage{
+.login, .homepage{
   /* background-image: url("../public/bg.jpeg"); */
   /* background: rgb(238,174,202);  */
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(166,184,227,1) 50%, rgba(63,158,151,1) 100%);
@@ -26,6 +26,15 @@
   padding-left: 5;
   padding-right: 5;
 } 
+
+.about{
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(166,184,227,1) 50%, rgba(63,158,151,1) 100%);
+  min-height:100vh;
+  width:100%;
+  margin-bottom:10px;
+  padding-left: 5;
+  padding-right: 5;
+}
 
 
 .glass{
