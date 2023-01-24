@@ -1,5 +1,4 @@
 import {Text, Flex} from '@chakra-ui/react';
-import { WarningIcon } from '@chakra-ui/icons'
 
 export function Error(){
     return(

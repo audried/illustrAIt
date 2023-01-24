@@ -1,23 +1,16 @@
-import {useSession, signIn, signOut} from 'next-auth/react';
 import {useState} from 'react';
 import styles from '../styles/Dash.module.css';
 import {
-    Grid,
-    GridItem,
     Text,
     Select,
     Heading,
     Box,
-    Button,
     Container,
     Flex
   } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { TrackTable } from '../components/table';
 import { ArtistTable } from '../components/artist_table';
-import Link from 'next/link';
-import Image from 'next/image'
-import { getAudioFeatures } from '../lib/spotify';
 import { RadarChart } from '../components/radar'
 import { PieChart } from '../components/pie'
 import Header  from '../components/header';
@@ -90,7 +83,7 @@ export default function Dashboard() {
          
     </Container>
     
-    <SpotifyFooter login={false}/>
+    <SpotifyFooter/>
     </>
     );
   }

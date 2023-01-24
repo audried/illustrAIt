@@ -2,9 +2,6 @@ import Header  from '../components/header';
 import styles from '../styles/Home.module.css';
 import { Container, Box, Text} from '@chakra-ui/react';
 import { Link } from '@chakra-ui/react';
-//import Link from 'next/link';
-import { ExternalLinkIcon } from '@chakra-ui/icons'
-import Spotify from 'next-auth/providers/spotify';
 import SpotifyFooter from '../components/spotifyfooter';
 
 export default function Contact() {
@@ -19,7 +16,7 @@ export default function Contact() {
 
         </Box>
         </Container>
-        <SpotifyFooter login={false}/>
+        <SpotifyFooter/>
         </>
     )
 }

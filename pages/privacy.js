@@ -2,9 +2,6 @@ import Header  from '../components/header';
 import styles from '../styles/Home.module.css';
 import { Container, Box, Text} from '@chakra-ui/react';
 import { Link , Heading} from '@chakra-ui/react';
-//import Link from 'next/link';
-import { ExternalLinkIcon } from '@chakra-ui/icons'
-import Spotify from 'next-auth/providers/spotify';
 import SpotifyFooter from '../components/spotifyfooter';
 
 export default function Privacy() {
@@ -24,7 +21,7 @@ export default function Privacy() {
             <Text>Feel free to <Link href='/contact'><u>contact us</u></Link> with any questions</Text>
         </Box>
         </Container>
-        <SpotifyFooter login={false}/>
+        <SpotifyFooter />
         </>
     )
 }

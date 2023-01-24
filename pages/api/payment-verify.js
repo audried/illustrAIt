@@ -4,7 +4,6 @@ import {getUsersInfo} from '../../lib/spotify';
 import fetch, { Headers } from 'node-fetch';
 import {paymentLookup, putPayment, modifyHasUsed} from '../../lib/user_lookup';
 import { object, string } from 'yup';
-let base64 = require('base-64');
 var paypal_token = "";
 
 export default async function handler(req, res) {
