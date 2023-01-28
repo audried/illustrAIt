@@ -140,7 +140,7 @@ export function Frame(props){
             context.fillText("and "+props.chosen[2] +" music", .08*width, .92*height);
             context.font = width==500 ? '12px Times New Roman' : '10px Times New Roman'
             context.textAlign = 'center'
-            context.fillText("create AI art on illustrait.vercel.app", width/2, .98*height);
+            context.fillText("create AI art at illustrait.co", width/2, .98*height);
             // context.imageSmoothingEnabled = false;
             context.drawImage(logo, .85*width, .9*height, .1*width, .1*width);
             
