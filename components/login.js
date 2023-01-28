@@ -35,7 +35,7 @@ export function Login(){
         </Heading>
         <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
           illustrait analyzes your spotify listening history from the past month to create a masterpiece that is truly unique to your music taste.
-          Check out the photos below to see real examples that were created based on users&#39; spotify profiles. You can view a demo <Link href = "https://drive.google.com/file/d/1_zcSk8e8HA8_sS2fw9I-qIdJGWWElKz3/view?usp=sharing"><u>here</u></Link>
+          Check out the photos below to see real examples that were created based on users&#39; spotify profiles. You can also view a demo <Link href = "https://drive.google.com/file/d/1_zcSk8e8HA8_sS2fw9I-qIdJGWWElKz3/view?usp=sharing"><u>here</u></Link>
         </Text>
         <Stack spacing={6} direction={'row'}>
   
