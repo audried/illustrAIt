@@ -44,7 +44,7 @@ export function Landing(){
     }
     if (data) {
         if (data.promptArr && urls.length ===0){
-            console.log(data.promptArr)
+            //console.log(data.promptArr)
             setUrls(data.image_urls)
             setQuery(data.promptArr[0])
             setCaption(data.promptArr[1])
@@ -66,7 +66,7 @@ export function Landing(){
         })
           .then(async (res) => {
             const data = await res.json()
-            console.log(data)
+            //console.log(data)
             if (res.status == 200) {
                 if (data.message === "Already used today") {
                         onOpen()
@@ -78,7 +78,7 @@ export function Landing(){
                 setVisible(true)
                 setLoading(false);
             } else {
-                console.log(data)
+                //console.log(data)
                 setLoading(false);
             }
           })
