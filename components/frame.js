@@ -106,9 +106,9 @@ export function Frame(props){
         const height = canvas.height
         const width = canvas.width
         image.setAttribute('crossOrigin', 'anonymous');
-        console.log(process.env.NEXT_PUBLIC_API_URL)
+        //console.log(process.env.NEXT_PUBLIC_API_URL)
         const proxy_url = process.env.NEXT_PUBLIC_API_URL + "/api/image-proxy?q=" + props.url
-        console.log("PROXY:",proxy_url)
+        //console.log("PROXY:",proxy_url)
         setUrl(proxy_url)
         image.src = proxy_url
         context.clearRect(0, 0, width, height);
@@ -124,7 +124,7 @@ export function Frame(props){
         //cut off long titles at 25 characters
         var chosensong = cutOff(props.chosen[0], 29)
         var chosenalbum = cutOff(props.chosen[1], 29)
-        console.log(chosensong)
+        //console.log(chosensong)
 
         image.onload = () => {
             // logo.onload = () => {
