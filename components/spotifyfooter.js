@@ -9,7 +9,7 @@ import {
 
   const Logo = () => {
     return (
-      <Image src = '/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png' height={54.5} width={181.7}/>
+      <Image src = '/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png' height={54.5} width={181.7} alt={'Spotify Logo'}/>
     );
   };
 

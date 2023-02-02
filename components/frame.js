@@ -153,7 +153,7 @@ export function Frame(props){
         //     context.drawImage(logo, .9*width, .9*height, width, height);
         // }
 
-      }, [])
+      }, [img_id, props.chosen, props.url, url])
 
 
     return (

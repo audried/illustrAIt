@@ -37,7 +37,7 @@ export default function Header() {
           />
 
           <HStack spacing={8} alignItems={'center'} mt={2}>
-            <Link href = "/"><Image src='/logo2.png' height={40} width={180}></Image></Link>
+            <Link href = "/"><Image src='/logo2.png' height={40} width={180} alt={'illustrait logo'}></Image></Link>
             <HStack
               as={'nav'}
               spacing={4}
