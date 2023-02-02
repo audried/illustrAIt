@@ -19,7 +19,7 @@ export function Frame(props){
     function download(ref){
         const canvas = document.getElementById(`canvas${url}`);
         const dataURL = canvas.toDataURL();
-        console.log(dataURL);
+       //console.log(dataURL);
         var link = document.createElement('a');
         link.download = "my-image.png";
         link.href = dataURL;
@@ -122,8 +122,8 @@ export function Frame(props){
         logo.height=50
 
         //cut off long titles at 25 characters
-        var chosensong = cutOff(props.chosen[0], 29)
-        var chosenalbum = cutOff(props.chosen[1], 29)
+        var chosensong = props.chosen[0]
+        var chosenalbum = props.chosen[1]
         //console.log(chosensong)
 
         image.onload = () => {
