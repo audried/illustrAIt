@@ -124,6 +124,10 @@ export function Frame(props){
         //cut off long titles at 25 characters
         var chosensong = props.chosen[0]
         var chosenalbum = props.chosen[1]
+        var topgenre = props.chosen[2]
+        if (topgenre.length <15){
+            topgenre = topgenre + ' music'
+        }
         //console.log(chosensong)
 
         image.onload = () => {
@@ -137,7 +141,7 @@ export function Frame(props){
             width == 500 ? context.font = '24px Special Elite' : context.font = '18px Special Elite'
             context.fillText(chosensong+",", .08*width, .84*height);
             context.fillText(chosenalbum+",", .08*width, .88*height);
-            context.fillText("and "+props.chosen[2] +" music", .08*width, .92*height);
+            context.fillText("and "+topgenre, .08*width, .92*height);
             context.font = width==500 ? '12px Times New Roman' : '10px Times New Roman'
             context.textAlign = 'center'
             context.fillText("AI art based on your music @ illustrait.co", width/2, .98*height);
