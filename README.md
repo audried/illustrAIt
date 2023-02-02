@@ -14,7 +14,7 @@ You will also need to add your own credentials for Spotify and OpenAI
 
 #### Spotify Credentials
 
-Navigate to the [https://developer.spotify.com/dashboard](Spotify for Developers Dashboard) and create a new application. 
+Navigate to the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard) and create a new application. 
 In settings, register http://localhost:3000/api/auth/callback/spotify as a Redirect URI
 
 Create a folder in the root directory named `.env` and add your Spotify Client ID and Client Secret. 
@@ -27,7 +27,7 @@ SPOTIFY_CLIENT_SECRET=xxxx
 
 #### OpenAI Credentials
 
-Create an account on [https://beta.openai.com](https://beta.openai.com) and access your [https://beta.openai.com/account/api-keys](API keys)
+Create an account on [https://beta.openai.com](https://beta.openai.com) and access your [API keys](https://beta.openai.com/account/api-keys)
 Create a new secret key and add it to the .env file. It should now look like:
 
 ```
