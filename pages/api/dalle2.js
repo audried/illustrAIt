@@ -20,18 +20,19 @@ export default async function handler(req, res) {
             res.status(400).json({"message":"Invalid email."})
             return
         }
-        console.log("here1")
-        const user = await userLookup(email)
-        if (user) {
-            if (user.email == 'audreydockendorf1@gmail.com' || user.email == 'vexhhdbackup@gmail.com'){
-              console.log('he')
-            }
-            else if (user["hasUsed"]) {
-                console.log("has used", user["hasUsed"])
-                res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
-                return
-            }
-        }
+        //uncomment to restrict users to one image per day
+        // console.log("here1")
+        // const user = await userLookup(email)
+        // if (user) {
+        //     if (user.email == 'audreydockendorf1@gmail.com' || user.email == 'vexhhdbackup@gmail.com'){
+        //       console.log('he')
+        //     }
+        //     else if (user["hasUsed"]) {
+        //         console.log("has used", user["hasUsed"])
+        //         res.status(200).json({"message":"Already used today", "image_urls": user["image_urls"], "promptArr": user["promptArr"]})
+        //         return
+        //     }
+        // }
 
         var tracks;
         var artists;
