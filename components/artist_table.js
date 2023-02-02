@@ -15,7 +15,7 @@ import {
   export function ArtistTable(props){
 
     const [numRows, setNumRows] = useState(10);
-    console.log('artists', props.data.artists)
+    //console.log('artists', props.data.artists)
 
     return (
         <TableContainer>
