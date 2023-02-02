@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         console.log("here1")
         const user = await userLookup(email)
         if (user) {
-            if (user.email == 'audreydockendorf1@gmail.com'){
+            if (user.email == 'audreydockendorf1@gmail.com' || user.email == 'vexhhdbackup@gmail.com'){
               console.log('he')
             }
             else if (user["hasUsed"]) {
