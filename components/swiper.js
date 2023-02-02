@@ -69,11 +69,15 @@ export default function PhotoSwiper() {
         '/dalle-generations/uu.png',
         '/dalle-generations/vv.png',
         '/dalle-generations/ww.png',
-        // '/dalle-generations/xx.png',
-        // '/dalle-generations/yy.png',
+       '/dalle-generations/xx.png',
+        '/dalle-generations/yy.png',
         '/dalle-generations/zz.png',
-        // '/dalle-generations/aaa.png',
-        // '/dalle-generations/bbb.png',
+        '/dalle-generations/aaa.png',
+       '/dalle-generations/bbb.png',
+       '/dalle-generations/ccc.png',
+       '/dalle-generations/ddd.png',
+       '/dalle-generations/eee.png',
+       '/dalle-generations/fff.png',
         
   
     ].sort(() => (Math.random() > .5) ? 1 : -1)
