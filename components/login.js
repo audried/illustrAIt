@@ -7,16 +7,60 @@ import {
   Stack,
   Text,
   Button,
+  Drawer,
 } from '@chakra-ui/react';
 import PhotoSwiper from './swiper'
 import Link from 'next/link';
 import SpotifyFooter from '../components/spotifyfooter';
+// import {useRef, useEffect} from 'react'
 
 
 export function Login(){
+
+  // async function share(){
+  //   if (!('share' in navigator)) {
+  //     return
+  //   }
+  //   const canvas = document.getElementById('canvas')
+  //   console.log('s')
+  //   canvas.toBlob(async (blob) => {
+  //     const files = [new File([blob], 'image.png', { type: blob.type })]
+  //         const shareData = {
+  //           text: 'Some text',
+  //           title: 'Some title',
+  //           files,
+  //         }
+  //         if (navigator.canShare(shareData)) {
+  //           try {
+  //             await navigator.share(shareData)
+  //           } catch (err) {
+  //             if (err.name !== 'AbortError') {
+  //               console.error(err.name, err.message)
+  //             }
+  //           }
+  //         } else {
+  //           console.warn('Sharing not supported', shareData)
+  //         }
+  //   });
+  // }
+
+  // const canvasRef = useRef(null)
+
+  // useEffect(() => {
+  //   const context = canvasRef.current.getContext("2d");
+  //   context.fillStyle ='#fff234'
+  //     context.fillRect(0, 0, 100, 100);
+  // },[])
+
+  
     return(
 <>
     <Container maxW={'100%'} height={'100%'} className={styles.login}>
+      {/* <Flex>
+      <canvas id={'canvas'} width={'100px'} height={'100px'} ref={canvasRef}></canvas>
+      
+      <Button onClick={share}>share</Button>
+      </Flex> */}
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}

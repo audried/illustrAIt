@@ -18,86 +18,43 @@ export function Frame(props){
 
     function download(ref){
         const canvas = document.getElementById(`canvas${url}`);
-        const dataURL = canvas.toDataURL();
-       //console.log(dataURL);
-        var link = document.createElement('a');
-        link.download = "my-image.png";
-        link.href = dataURL;
-        link.click();
+        if (window.innerWidth <= 768){
+            console.log("phone")
+            if (!('share' in navigator)) {
+                return
+            }
+            canvas.toBlob(async (blob) => {
+                const files = [new File([blob], 'image.png', { type: blob.type })]
+                    const shareData = {
+                      text: 'Some text',
+                      title: 'Some title',
+                      files,
+                    }
+                    if (navigator.canShare(shareData)) {
+                      try {
+                        await navigator.share(shareData)
+                      } catch (err) {
+                        if (err.name !== 'AbortError') {
+                          console.error(err.name, err.message)
+                        }
+                      }
+                    } else {
+                      console.warn('Sharing not supported', shareData)
+                    }
+              });
+
+        }else{
+            const dataURL = canvas.toDataURL();
+            //console.log(dataURL);
+             var link = document.createElement('a');
+             link.download = "my-image.png";
+             link.href = dataURL;
+             link.click();
+        }
+        
+        
         
     };
-
-    //  handleSharing = async () => {
-    //     const canvas = document.getElementById('canvas');
-    //     const dataUrl = canvas.toDataURL();
-    //     const shareDetails = {dataUrl}
-
-    //     if (navigator.canShare) {
-    //       try {
-    //         await navigator
-    //           .share(shareDetails)
-    //           .then(() =>
-    //             console.log("Hooray! Your content was shared to tha world")
-    //           );
-    //       } catch (error) {
-    //         console.log(`Oops! I couldn't share to the world because: ${error}`);
-    //       }
-    //     } else {
-    //       // fallback code
-    //       console.log(
-    //         "Web share is currently not supported on this browser. Please provide a callback"
-    //       );
-    //     }
-    // };
-
-    async function shareCanvas() {
-        const canvasElement = document.getElementById(`canvas${url}`);
-        const dataUrl = canvasElement.toDataURL();
-        const blob = await (await fetch(dataUrl)).blob();
-        const filesArray = [
-          new File(
-            [blob],
-            'my-image.jpeg',
-            {
-              type: blob.type,
-              lastModified: new Date().getTime()
-            }
-          )
-        ];
-        const shareData = {
-          files: filesArray,
-        };
-        console.log(shareData)
-        navigator.share(dataUrl);
-      }
-
-      function share(){
-        const canvas = document.getElementById(`canvas${url}`);
-        var img = canvas.toDataURL("image/jpg")
-        document.createElement(
-            `<img src=${url}/>`
-        );
-      }
-
-      async function shareImage() {
-        console.log("hellop")
-        const response = await fetch('nacho.jpg');
-        const blob = await response.blob();
-        const filesArray = [
-          new File(
-            [blob],
-            'meme.jpg',
-            {
-              type: "image/jpeg",
-              lastModified: new Date().getTime()
-            }
-         )
-        ];
-        const shareData = {
-          files: filesArray,
-        };
-        navigator.share(shareData);
-      }
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
