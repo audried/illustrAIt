@@ -38,8 +38,8 @@ OPENAI_API_KEY=sk-xxxx
 
 #### NextAuth Environment Variables
 
-Set the NEXTAUTH_URL Environment variable to the url of your site. When running it locally it will probably be `http://localhost:3000`
-You need to create a random string to use as a nextAuth secret. You can do so on the command line with this `openssl` command:
+Set the NEXTAUTH_URL Environment variable to the url of your site. When running it locally it will probably be `http://localhost:3000`.   
+You also need to create a random string to use as a nextAuth secret. You can do so on the command line with this `openssl` command:
 ```
 $ openssl rand -base64 32
 ```
@@ -52,7 +52,6 @@ SPOTIFY_CLIENT_SECRET=xxxx
 OPENAI_API_KEY=sk-xxxx
 NEXTAUTH_SECRET=xxxx
 NEXTAUTH_URL=http://localhost:3000
-
 ```
 
 #### Running the app
