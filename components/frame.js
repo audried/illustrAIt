@@ -27,7 +27,7 @@ export function Frame(props){
 
     function download(ref){
         const canvas = document.getElementById(`canvas${url}`);
-        if (isMobileTablet){
+        if (isMobileTablet()){
             //console.log("phone")
             if (!('share' in navigator)) {
                 return
@@ -53,6 +53,7 @@ export function Frame(props){
               });
 
         }else{
+            console.log('notmobile')
             const dataURL = canvas.toDataURL();
             //console.log(dataURL);
              var link = document.createElement('a');
