@@ -12,7 +12,6 @@ import {
 import PhotoSwiper from './swiper'
 import Link from 'next/link';
 import SpotifyFooter from '../components/spotifyfooter';
-import { Share } from 'react-native-web';
 // import {useRef, useEffect} from 'react'
 
 
