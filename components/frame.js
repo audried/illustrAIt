@@ -19,7 +19,7 @@ export function Frame(props){
     function download(ref){
         const canvas = document.getElementById(`canvas${url}`);
         if (window.innerWidth <= 768){
-            console.log("phone")
+            //console.log("phone")
             if (!('share' in navigator)) {
                 return
             }
@@ -51,9 +51,6 @@ export function Frame(props){
              link.href = dataURL;
              link.click();
         }
-        
-        
-        
     };
 
     useEffect(() => {

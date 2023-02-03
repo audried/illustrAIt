@@ -14,7 +14,6 @@ import Link from 'next/link';
 import SpotifyFooter from '../components/spotifyfooter';
 // import {useRef, useEffect} from 'react'
 
-
 export function Login(){
   
     return(
