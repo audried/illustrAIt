@@ -149,7 +149,7 @@ export function Landing(){
                 AI generated art. <br/>
               </Text>
               <Text as={'span'} color={'white'}>
-                Based on your listening. 
+                Based on your music taste. 
               </Text>
                 </Heading>
                 <Text as={'span'} color={'gray.100'} maxW={'5xl'}>
