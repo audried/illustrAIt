@@ -18,15 +18,43 @@ export function Frame(props){
 
     function download(ref){
         const canvas = document.getElementById(`canvas${url}`);
-        const dataURL = canvas.toDataURL();
-       //console.log(dataURL);
-        var link = document.createElement('a');
-        link.download = "my-image.png";
-        link.href = dataURL;
-        link.click();
+        if (window.innerWidth <= 768){
+            console.log("phone")
+            if (!('share' in navigator)) {
+                return
+            }
+            canvas.toBlob(async (blob) => {
+                const files = [new File([blob], 'image.png', { type: blob.type })]
+                    const shareData = {
+                      text: 'Some text',
+                      title: 'Some title',
+                      files,
+                    }
+                    if (navigator.canShare(shareData)) {
+                      try {
+                        await navigator.share(shareData)
+                      } catch (err) {
+                        if (err.name !== 'AbortError') {
+                          console.error(err.name, err.message)
+                        }
+                      }
+                    } else {
+                      console.warn('Sharing not supported', shareData)
+                    }
+              });
+
+        }else{
+            const dataURL = canvas.toDataURL();
+            //console.log(dataURL);
+             var link = document.createElement('a');
+             link.download = "my-image.png";
+             link.href = dataURL;
+             link.click();
+        }
+        
+        
         
     };
-
 
     useEffect(() => {
         const context = canvasRef.current.getContext("2d");
