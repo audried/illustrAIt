@@ -35,7 +35,6 @@ export function Frame(props){
             canvas.toBlob(async (blob) => {
                 const files = [new File([blob], 'image.png', { type: blob.type })]
                     const shareData = {
-                      text: 'Some text',
                       title: 'Some title',
                       files,
                     }
