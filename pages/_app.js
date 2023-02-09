@@ -2,7 +2,8 @@
 import {SessionProvider} from 'next-auth/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
-import '../styles/styles.css'
+import '../styles/styles.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const colors = {
   brand: {
@@ -26,6 +27,7 @@ function MyApp({Component, pageProps: {session, ...pageProps}}) {
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
+        <Analytics />
       </ChakraProvider>
     </SessionProvider>
   );
