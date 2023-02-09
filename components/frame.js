@@ -54,7 +54,6 @@ export function Frame(props){
         }else{
             console.log('notmobile')
             const dataURL = canvas.toDataURL();
-            //console.log(dataURL);
              var link = document.createElement('a');
              link.download = "my-image.png";
              link.href = dataURL;
