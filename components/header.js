@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
-import {signOut} from 'next-auth/react';
+import {signOut, useSession} from 'next-auth/react';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
@@ -18,9 +18,7 @@ import styles from '../styles/Home.module.css';
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  function signOutFromHeader(){
-
-  }
+  const { data: session, status } = useSession()
 
   return (
     <>
@@ -42,9 +40,9 @@ export default function Header() {
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-              <NextLink href='/dashboard' passHref>
+              {status == "authenticated" && <NextLink href='/dashboard' passHref>
                   <Link color={'white'} >Dashboard</Link>
-              </NextLink>
+              </NextLink>}
               {/* Will add 'about' page once we have more to say about it / FAQs */}
               <NextLink href='/about' passHref>
                 <Link color={'white'} >About</Link>
