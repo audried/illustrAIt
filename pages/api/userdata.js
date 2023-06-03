@@ -14,7 +14,8 @@ const handler = async (req, res) => {
   var tracks;
   var artists;
   var ids;
-  const time_range = req.query.time_range
+  var time_range = 'short_term'
+  if (req.query.time_range) time_range = req.query.time_range
   var userdata
 
   await Promise.all([getUsersTopTracks(accessToken, time_range), getUsersTopArtists(accessToken, time_range)])
